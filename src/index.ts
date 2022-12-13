@@ -45,3 +45,28 @@ function getPhoto(){
     }
   )
 }
+
+function getAllPhotoFromcategory(){
+  const refer = ref(db, 'gs://online-shop-8c752.appspot.com/shop/kids-room');
+  downloadList()
+}
+
+function downloadList(refer = ref(db, 'gs://online-shop-8c752.appspot.com/shop/kids-room')){
+    listAll(refer).then(
+      (res) => {
+        res.prefixes.forEach((folderRef)=>{
+          downloadList(folderRef)
+        })
+        res.items.forEach((itemRef) => {
+          getDownloadURL(itemRef).then(
+            (url)=>{
+              let body = document.querySelector('body')
+              let img = document.createElement('img')
+              img.setAttribute('src',url)
+                  body?.append(img)
+            }
+          )
+        });
+      }
+    )
+}
