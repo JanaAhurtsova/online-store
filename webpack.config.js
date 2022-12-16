@@ -3,10 +3,12 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
     mode: 'development',
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -41,11 +43,13 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+            favicon: path.resolve(__dirname, './src/assets/favicon.png'),
         }),
         new CleanWebpackPlugin(),
         new MiniCSSExtractPlugin({
           filename: '[name].[contenthash].css',
         }),
+        new ESLintPlugin({ extensions: 'ts' }),
     ],
 };
 
