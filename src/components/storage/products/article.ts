@@ -74,29 +74,14 @@ export default class Article implements IArticle {
   }
 
   public appendArticleElements() {
-    try {
-      if (
-        this.article &&
-        this.img &&
-        this.prodTitle &&
-        this.prodPrice &&
-        this.prodRating &&
-        this.buttons &&
-        this.buttonCart &&
-        this.buttonDetails
-      ) {
-        this.buttons.append(this.buttonCart, this.buttonDetails);
-        this.article.append(
-          this.img,
-          this.prodTitle,
-          this.prodPrice,
-          this.prodRating,
-          this.buttons
-        );
-      }
-    } catch (err) {
-      throw new Error();
-    }
+    this.buttons.append(this.buttonCart, this.buttonDetails);
+    this.article.append(
+      this.img,
+      this.prodTitle,
+      this.prodPrice,
+      this.prodRating,
+      this.buttons
+    );
   }
 
   public drawArticle() {
