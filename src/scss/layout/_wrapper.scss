@@ -1,0 +1,24 @@
+.wrapper {
+  max-width: 1840px;
+  margin: auto;
+}
+
+.wrapper__header {
+  @include flex;
+}
+
+.wrapper__footer {
+  @include flex($justify: center);
+  gap: 1em;
+}
+
+.wrapper__sum {
+  @include flex;
+  gap: 1em;
+}
+
+.wrapper__products {
+  @include grid;
+  padding: 1em;
+  width: 70%;
+}

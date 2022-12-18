@@ -1,0 +1,39 @@
+.product {
+  @include flex($align: flex-start);
+  flex-direction: column;
+  padding: .5em 1em 1em;
+  &:hover {
+    box-shadow: $color-text 0px 2px 8px 0px;
+  }
+}
+
+.product__img {
+  width: 100%;
+  height: 62%;
+  object-fit: cover;
+}
+
+.product__title,
+.product__price {
+  color: $color-title;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.product__price {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.2em;
+    height: .3em;
+    width: 100%;
+    background-color: $color-border;
+    z-index: -1;
+  }
+}
+
+.product__rating {
+  font-size: 1.2rem;
+}

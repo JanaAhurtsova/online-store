@@ -2,15 +2,23 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
     mode: 'development',
+    devtool: 'source-map',
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+              test: /\.s?css$/,
+              exclude: /node_modules/,
+              use: [
+                MiniCSSExtractPlugin.loader,
+                'css-loader',
+                'sass-loader',
+              ],
             },
             {
                 test: /\.tsx?$/,
@@ -18,8 +26,8 @@ const baseConfig = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.svg$/,
-                type: 'asset',
+              test: /\.(avif|jpe?g||png|svg|webp)$/,
+              type: 'asset',
             },
         ],
     },
@@ -29,13 +37,19 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
+        assetModuleFilename: './[name].[contenthash][ext][query]',
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+            favicon: path.resolve(__dirname, './src/assets/favicon.png'),
         }),
         new CleanWebpackPlugin(),
+        new MiniCSSExtractPlugin({
+          filename: '[name].[contenthash].css',
+        }),
+        new ESLintPlugin({ extensions: 'ts' }),
     ],
 };
 

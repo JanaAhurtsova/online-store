@@ -1,0 +1,20 @@
+@mixin flex($justify: space-between, $align: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin grid($column: repeat(4, 1fr), $row: auto, $gap: 1em) {
+  display: grid;
+  grid-template-columns: $column;
+  grid-template-rows: $row;
+  grid-gap: $gap;
+}
+
+@mixin font($size, $height: 140%, $weight: 400, $style: normal) {
+  font-family: Poppins, sans-serif;
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $height;
+}
