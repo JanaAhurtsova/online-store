@@ -1,4 +1,4 @@
-import { TData, IArticle } from '../../types/index';
+import { TData, IArticle } from '../../../types/index';
 
 export default class Article implements IArticle {
   public readonly id: string;
@@ -43,7 +43,7 @@ export default class Article implements IArticle {
     this.buttonDetails = document.createElement('button');
   }
 
-  buildArticle() {
+  public buildArticle() {
     this.article.classList.add('product');
     this.article.setAttribute('data-id', String(this.id));
 
@@ -73,7 +73,7 @@ export default class Article implements IArticle {
     this.drawArticle();
   }
 
-  appendArticleElements() {
+  public appendArticleElements() {
     try {
       if (
         this.article &&
@@ -99,7 +99,7 @@ export default class Article implements IArticle {
     }
   }
 
-  drawArticle() {
+  public drawArticle() {
     document.querySelector('.wrapper__products')?.append(this.article);
   }
 }

@@ -3,8 +3,6 @@
   flex-direction: column;
   padding: .5em 1em 1em;
   &:hover {
-    will-change: transform;
-    transform: scale(1.02, 1.02);
     box-shadow: $color-text 0px 2px 8px 0px;
   }
 }

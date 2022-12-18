@@ -1,4 +1,4 @@
-import { TData } from '../../types/index';
+import { TData } from '../../../types/index';
 
 const products: TData[] = [
   {

@@ -15,3 +15,11 @@ export interface IArticle {
   buildArticle(): void;
   appendArticleElements(): void;
 }
+
+export interface IArticleView {
+  renderArticles(data: TData[]): void;
+}
+
+export interface ISort {
+  draw(): void;
+}
