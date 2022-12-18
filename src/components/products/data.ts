@@ -1,4 +1,6 @@
-const products = [
+import { TData } from '../../types/index';
+
+const products: TData[] = [
   {
     id: 1,
     title: 'backsaelen',
@@ -9,6 +11,8 @@ const products = [
     stock: 94,
     type: 'armchairs',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/2.avif',
@@ -25,6 +29,8 @@ const products = [
     stock: 92,
     type: 'armchairs',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/2.avif',
@@ -41,6 +47,8 @@ const products = [
     stock: 52,
     type: 'armchairs',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/2.avif',
@@ -57,6 +65,8 @@ const products = [
     stock: 24,
     type: 'armchairs',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/2.avif',
@@ -73,6 +83,8 @@ const products = [
     stock: 34,
     type: 'armchairs',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/2.avif',
@@ -89,6 +101,8 @@ const products = [
     stock: 4,
     type: 'armchairs',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/2.avif',
@@ -105,6 +119,8 @@ const products = [
     stock: 13,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/2.avif',
@@ -122,6 +138,8 @@ const products = [
     stock: 13,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/2.avif',
@@ -138,6 +156,8 @@ const products = [
     stock: 13,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/2.avif',
@@ -154,6 +174,8 @@ const products = [
     stock: 33,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/2.avif',
@@ -170,6 +192,8 @@ const products = [
     stock: 3,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/2.avif',
@@ -186,6 +210,8 @@ const products = [
     stock: 3,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/2.avif',
@@ -202,6 +228,8 @@ const products = [
     stock: 12,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/2.avif',
@@ -218,6 +246,8 @@ const products = [
     stock: 2,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/2.avif',
@@ -234,6 +264,8 @@ const products = [
     stock: 21,
     type: 'media',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/2.avif',
@@ -250,6 +282,8 @@ const products = [
     stock: 21,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/2.avif',
@@ -266,6 +300,8 @@ const products = [
     stock: 4,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/finnala/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/finnala/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/finnala/2.avif',
@@ -281,6 +317,8 @@ const products = [
     stock: 8,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/2.avif',
@@ -297,6 +335,8 @@ const products = [
     stock: 4,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/2.avif',
@@ -313,6 +353,8 @@ const products = [
     stock: 24,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/2.avif',
@@ -329,6 +371,8 @@ const products = [
     stock: 12,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/2.avif',
@@ -345,6 +389,8 @@ const products = [
     stock: 13,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/2.avif',
@@ -361,6 +407,8 @@ const products = [
     stock: 4,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/2.avif',
@@ -377,6 +425,8 @@ const products = [
     stock: 24,
     type: 'sofas',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/2.avif',
@@ -393,6 +443,8 @@ const products = [
     stock: 13,
     type: 'storage',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/2.avif',
@@ -410,6 +462,8 @@ const products = [
     stock: 4,
     type: 'storage',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/2.avif',
@@ -426,6 +480,8 @@ const products = [
     stock: 24,
     type: 'tables',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/2.avif',
@@ -442,6 +498,8 @@ const products = [
     stock: 7,
     type: 'tables',
     category: 'living-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/2.avif',
@@ -458,6 +516,8 @@ const products = [
     stock: 9,
     type: 'cabinets',
     category: 'kitchen',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/tornviken/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/tornviken/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/tornviken/2.avif',
@@ -473,6 +533,8 @@ const products = [
     stock: 7,
     type: 'cabinets',
     category: 'kitchen',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/2.avif',
@@ -489,6 +551,8 @@ const products = [
     stock: 9,
     type: 'modulars',
     category: 'kitchen',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/enhet/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/enhet/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/enhet/2.avif',
@@ -504,6 +568,8 @@ const products = [
     stock: 7,
     type: 'modulars',
     category: 'kitchen',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/2.avif',
@@ -520,6 +586,8 @@ const products = [
     stock: 3,
     type: 'sets',
     category: 'kitchen',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/danderyd/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/danderyd/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/danderyd/2.avif',
@@ -535,6 +603,8 @@ const products = [
     stock: 2,
     type: 'sets',
     category: 'kitchen',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/docksta/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/docksta/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/docksta/2.avif',
@@ -550,6 +620,8 @@ const products = [
     stock: 8,
     type: 'beds',
     category: 'kids-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/2.avif',
@@ -566,6 +638,8 @@ const products = [
     stock: 12,
     type: 'beds',
     category: 'kids-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/2.avif',
@@ -582,6 +656,8 @@ const products = [
     stock: 9,
     type: 'storage',
     category: 'kids-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/2.avif',
@@ -598,6 +674,8 @@ const products = [
     stock: 8,
     type: 'storage',
     category: 'kids-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/godishus/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/godishus/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/godishus/2.avif',
@@ -613,6 +691,8 @@ const products = [
     stock: 11,
     type: 'tables',
     category: 'kids-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/2.avif',
@@ -629,6 +709,8 @@ const products = [
     stock: 22,
     type: 'tables',
     category: 'kids-room',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/2.avif',
@@ -645,6 +727,7 @@ const products = [
     stock: 13,
     type: 'beds',
     category: 'bedroom',
+    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/2.avif',
@@ -661,6 +744,8 @@ const products = [
     stock: 17,
     type: 'beds',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/2.avif',
@@ -677,6 +762,8 @@ const products = [
     stock: 1,
     type: 'dressers',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/brimnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/brimnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/brimnes/2.avif',
@@ -692,6 +779,8 @@ const products = [
     stock: 7,
     type: 'dressers',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/2.avif',
@@ -708,6 +797,8 @@ const products = [
     stock: 6,
     type: 'nightstands',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/2.avif',
@@ -724,6 +815,8 @@ const products = [
     stock: 7,
     type: 'nightstands',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/2.avif',
@@ -740,6 +833,8 @@ const products = [
     stock: 10,
     type: 'wardrobe',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/2.avif',
@@ -756,6 +851,8 @@ const products = [
     stock: 8,
     type: 'wardrobe',
     category: 'bedroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/2.avif',
@@ -772,6 +869,8 @@ const products = [
     stock: 12,
     type: 'cabinets',
     category: 'bathroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/enhet/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/enhet/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/enhet/2.avif',
@@ -787,6 +886,8 @@ const products = [
     stock: 12,
     type: 'cabinets',
     category: 'bathroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/2.avif',
@@ -803,6 +904,8 @@ const products = [
     stock: 12,
     type: 'sets',
     category: 'bathroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/1.avif',
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/2.avif',
@@ -819,6 +922,9 @@ const products = [
     stock: 6,
     type: 'sets',
     category: 'bathroom',
+    urlImg:
+      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/1.avif',
+
     images: [
       'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/1.avif',
       'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/2.avif',

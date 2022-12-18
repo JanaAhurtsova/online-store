@@ -1,0 +1,30 @@
+.wrapper__buttons {
+  @include flex;
+  width: 100%;
+  gap: .3em;
+}
+
+.button {
+  padding: .5em .8em;
+  background-color: $color-brand;
+  color: $color-title;
+  border-radius: 1.6em;
+  font-size: 1.1rem;
+  border: .1em solid transparent;
+  cursor: pointer;
+  &:hover {
+    border: .1em solid $color-border;
+    background-color: $color-background;
+  }
+}
+
+.product__button-details {
+  border: .1em solid $color-border;
+  background-color: $color-background;
+  color: $color-title;
+  &:hover {
+    border: .1em solid transparent;
+    background-color: $color-brand;
+  }
+}
+

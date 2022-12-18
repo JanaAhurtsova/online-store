@@ -16,3 +16,9 @@
   @include flex;
   gap: 1em;
 }
+
+.wrapper__products {
+  @include grid;
+  padding: 1em;
+  width: 70%;
+}

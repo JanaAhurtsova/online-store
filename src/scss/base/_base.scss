@@ -1,16 +1,25 @@
 html {
   font-size: 10px;
-  box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+* {
+  @include font($size: 1.6rem, $height: 140%);
+  margin: 0;
+  padding: 0;
+  text-decoration:  none;
+  color: $color-text;
+  text-transform: capitalize;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  transition: all .3s linear;
 }
 
 body {
   @include flex($align: stretch);
   flex-direction: column;
   min-height: 100vh;
-  @include font($size: 1.6rem, $height: 140%);
-  color: $color-text;
-  margin: 0;
 }
 
 li {
