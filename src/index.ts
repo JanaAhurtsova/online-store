@@ -1,6 +1,5 @@
 import './scss/global.scss';
-import ArticleView from './components/storage/articlesView';
-import products from './components/storage/products/data';
+import App from './components/app';
 
-const art = new ArticleView();
-art.renderArticles(products);
+const app = new App();
+app.start();
