@@ -1,15 +1,15 @@
 .product {
   @include flex($align: flex-start);
   flex-direction: column;
-  padding: .5em 1em 1em;
+  padding: 0.5em 1em 1em;
   &:hover {
     box-shadow: $color-text 0px 2px 8px 0px;
   }
 }
 
 .product__img {
-  width: 100%;
-  height: 62%;
+  width: 200px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -27,7 +27,7 @@
     position: absolute;
     left: 0;
     bottom: 0.2em;
-    height: .3em;
+    height: 0.3em;
     width: 100%;
     background-color: $color-border;
     z-index: -1;
@@ -36,4 +36,29 @@
 
 .product__rating {
   font-size: 1.2rem;
+}
+
+.rating_body {
+  width: min-content;
+  position: relative;
+}
+
+.rating_body::before{
+  content: '★★★★★';
+  display: block;
+}
+
+.rating_back {
+  display: flex;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.rating_back::before{
+  content: '★★★★★';
+  color:$color-brand;
 }
