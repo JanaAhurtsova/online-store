@@ -1,4 +1,4 @@
-import ProductCard from '../productCard/productCard';
+import ProductCard from './productCard/productCard';
 import products from '../../data/products';
 import { TShopingCart } from '../../../globalType';
 import SideBar from './sidebar/sidebar';

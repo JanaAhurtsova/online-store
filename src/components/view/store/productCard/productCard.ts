@@ -1,5 +1,5 @@
-import { TProduct } from '../../../globalType';
-import Controller from '../../controller/controller';
+import { TProduct } from '../../../../globalType';
+import Controller from '../../../controller/controller';
 
 export default class ProductCard {
   productData: TProduct;
