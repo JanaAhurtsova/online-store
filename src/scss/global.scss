@@ -13,6 +13,11 @@
 @import "layout/footer";
 @import "layout/wrapper";
 
-//components
+//components store
 @import 'components/store/store';
 @import "components/store/product";
+
+//components product page
+@import 'components/productPage/productPage';
+@import 'components/productPage/images';
+@import 'components/productPage/description';

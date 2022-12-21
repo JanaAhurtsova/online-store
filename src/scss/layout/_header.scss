@@ -6,6 +6,7 @@
 .sum {
   color: $color-title;
   position: relative;
+  font-size: 1.8rem;
   font-weight: 700;
   &::after {
     content: '';

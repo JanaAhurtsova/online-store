@@ -39,7 +39,7 @@ export default class ProductCard {
     this.product.classList.add('product');
 
     this.img.classList.add('product__img');
-    Controller.getImage(this.productData, this.img);
+    Controller.getImage(this.productData.images[0], this.img);
     this.img.setAttribute('alt', this.productData.title);
 
     this.title.classList.add('product__title');
@@ -50,6 +50,7 @@ export default class ProductCard {
 
     this.rating.classList.add('product__rating');
     this.rating.textContent = `Rating ${this.productData.rating}/5`;
+
     this.buttons.classList.add('wrapper__buttons');
 
     this.buttonCart.classList.add('button', 'product__button-cart');
@@ -64,12 +65,12 @@ export default class ProductCard {
   }
 
   public append() {
-    this.rating.append(this.createReating());
+    this.rating.append(this.createRating());
     this.buttons.append(this.buttonCart, this.buttonDetails);
     this.product.append(this.img, this.title, this.price, this.rating, this.buttons);
   }
 
-  createReating() {
+  createRating() {
     const ratingBody = document.createElement('div');
     ratingBody.classList.add('rating_body');
     const ratingBack = document.createElement('div');

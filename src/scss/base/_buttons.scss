@@ -28,3 +28,17 @@
   }
 }
 
+//product page
+.buttons {
+  @include flex($justify: flex-start);
+  margin: 1em 0;
+  gap: 1.5em;
+  & .button {
+    font-size: 1.6rem;
+    color: $color-background;
+    &:hover {
+      color: $color-text;
+    }
+  }
+}
+

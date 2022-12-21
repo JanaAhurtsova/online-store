@@ -1,15 +1,20 @@
 import { TProduct, TShopingCart } from '../../globalType';
 import Header from './heared/header';
 import Store from './store/store';
+import ProductPage from './productPage/productPage';
+import products from '../data/products';
 
 export default class View {
   header: Header;
+
+  body: HTMLElement;
 
   main: HTMLElement;
 
   store: Store;
 
   constructor() {
+    this.body = document.body;
     this.main = document.querySelector('.root') as HTMLElement;
     this.header = new Header();
     this.store = new Store();
@@ -17,15 +22,17 @@ export default class View {
   }
 
   append() {
-    this.main.append(this.header.header);
     this.main.append(this.store.store);
+    this.body.insertBefore(this.header.header, this.main);
   }
 
   reloadProducts(data: TProduct[] | string) {
     if (Array.isArray(data)) {
       this.store.createProducts(data);
     } else {
-      console.log(data);
+      this.main.innerHTML = '';
+      const productPage = new ProductPage(products[Number(data) - 1]);
+      productPage.init();
     }
   }
 

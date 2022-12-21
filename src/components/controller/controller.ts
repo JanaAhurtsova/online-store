@@ -8,7 +8,7 @@ export default class Controller {
 
   private query: TQuery[];
 
-  shopingCart: TShopingCart;
+  shoppingCart: TShopingCart;
 
   firebase: FirebaseLoader;
 
@@ -20,7 +20,7 @@ export default class Controller {
     this.query = [];
     this.firebase = new FirebaseLoader();
     this.router.add(/products\/([\d]+?)\b/g).add(/([\w]+?)=([\w]+?)\b/g);
-    this.shopingCart = {
+    this.shoppingCart = {
       price: 0,
       products: [],
     };
@@ -36,14 +36,14 @@ export default class Controller {
         this.router.navigate(`products/${id}`);
       } else {
         const product = products.find((item) => item.id === Number(id)) as TProduct;
-        if (this.shopingCart.products.includes(product.id)) {
-          this.shopingCart.products = this.shopingCart.products.filter((item) => item !== product.id);
-          this.shopingCart.price -= product.price;
+        if (this.shoppingCart.products.includes(product.id)) {
+          this.shoppingCart.products = this.shoppingCart.products.filter((item) => item !== product.id);
+          this.shoppingCart.price -= product.price;
         } else {
-          this.shopingCart.products.push(product.id);
-          this.shopingCart.price += product.price;
+          this.shoppingCart.products.push(product.id);
+          this.shoppingCart.price += product.price;
         }
-        return this.shopingCart;
+        return this.shoppingCart;
       }
     }
     return result;
@@ -158,9 +158,9 @@ export default class Controller {
     }
   }
 
-  static getImage(data: TProduct, img: HTMLImageElement) {
+  static getImage(linkImg: string, img: HTMLImageElement) {
     const firebase = new FirebaseLoader();
-    firebase.getImage(data.images[0]).then((link) => {
+    firebase.getImage(linkImg).then((link) => {
       img.setAttribute('src', link);
     });
   }
