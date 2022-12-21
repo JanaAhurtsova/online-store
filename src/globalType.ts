@@ -18,7 +18,17 @@ export type TShopingCart = {
 
 export type TQuery = {
   type: string;
-  name: string;
+  name: string[];
+};
+
+export type TReloadPage = {
+  products: TProduct[];
+  query: TQuery[];
+};
+
+export type TSorter = {
+  text: string;
+  value: string;
 };
 
 export type TFilter = 'category' | 'type';

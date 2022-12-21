@@ -16,16 +16,15 @@ export default class App {
   }
 
   initListeners() {
-    this.view.store.sideBar.filter.addEventListener('click', (event: Event) =>
-      this.controller.clickFilter(event, this.view.store.sideBar.clickFilter.bind(this.view.store.sideBar))
-    );
+    this.view.store.sideBar.filter.addEventListener('click', (event: Event) => this.controller.clickFilter(event));
     this.view.store.store.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
       this.view.clickProduct(data)
     );
+    this.view.store.sorter.sorter.addEventListener('change', (event: Event) => this.controller.sort(event));
     // this.view.removeFilter.addEventListener('click', (event:Event) => this.controller.removeFilter(event))
     window.addEventListener('popstate', (event: Event, data = this.controller.reloadPage()) =>
-      this.view.reloadProducts(data)
+      this.view.reloadPage(data)
     );
-    this.view.reloadProducts(this.controller.reloadPage());
+    this.view.reloadPage(this.controller.reloadPage());
   }
 }

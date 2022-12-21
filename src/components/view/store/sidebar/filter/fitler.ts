@@ -1,12 +1,13 @@
 import { TFilter } from '../../../../../globalType';
 import products from '../../../../data/products';
+import FilterItem from './filterItem';
 
 export default class Filter {
   filter: HTMLElement;
 
   title: HTMLHeadingElement;
 
-  filterField: HTMLElement[];
+  filterField: FilterItem[];
 
   constructor(type: TFilter, titleText: string) {
     this.filter = document.createElement('div');
@@ -32,24 +33,9 @@ export default class Filter {
   createFitlerItem(type: TFilter) {
     const categories = Array.from(new Set(products.map((product) => product[type])));
     categories.forEach((name) => {
-      const category = document.createElement('div');
-      const categoryText = document.createElement('span');
-      const categoryAmoun = document.createElement('span');
-      category.classList.add('category');
-
-      categoryText.classList.add('category__text');
-      categoryText.classList.add('filter');
-      categoryText.setAttribute('data-type', type);
-      categoryText.setAttribute('data-name', name);
-      categoryText.innerHTML = name.replace(/_/, ' ');
-
-      categoryAmoun.classList.add('category__amount');
-      categoryAmoun.innerHTML = ` (${products.filter((item) => item[type] === name).length})`;
-      this.filterField.push(categoryText);
-
-      category.append(categoryText);
-      category.append(categoryAmoun);
-      this.filter.append(category);
+      const category = new FilterItem(type, name);
+      this.filterField.push(category);
+      this.filter.append(category.category);
     });
   }
 }

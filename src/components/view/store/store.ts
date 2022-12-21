@@ -2,6 +2,7 @@ import ProductCard from './productCard/productCard';
 import products from '../../data/products';
 import { TShopingCart } from '../../../globalType';
 import SideBar from './sidebar/sidebar';
+import Sorter from './sorter/sorter';
 
 export default class Store {
   store: HTMLElement;
@@ -18,12 +19,15 @@ export default class Store {
 
   title: HTMLHeadingElement;
 
+  sorter: Sorter;
+
   constructor() {
     this.store = document.createElement('section');
     this.products = document.createElement('div');
     this.shopContainer = document.createElement('div');
     this.title = document.createElement('h2');
     this.sideBar = new SideBar();
+    this.sorter = new Sorter();
     this.productsData = [];
     this.selectedFilter = [];
     this.init();
@@ -42,6 +46,7 @@ export default class Store {
     this.shopContainer.append(this.sideBar.sidebar);
     this.shopContainer.append(this.products);
     this.store.append(this.title);
+    this.store.append(this.sorter.sorter);
     this.store.append(this.shopContainer);
   }
 

@@ -1,4 +1,4 @@
-import { TQuery } from '../../../../globalType';
+import { TFilter, TReloadPage } from '../../../../globalType';
 import Filter from './filter/fitler';
 
 export default class SideBar {
@@ -24,15 +24,24 @@ export default class SideBar {
     this.sidebar.append(this.filter);
   }
 
-  clickFilter(selectedFilter: TQuery[]) {
-    const filters = this.categories.filterField.concat(this.types.filterField);
-    filters.forEach((item) => {
-      item.classList.remove('selected-filter');
-      selectedFilter.forEach((filter) => {
-        if (filter.name === item.dataset.name && filter.type === item.dataset.type) {
-          item.classList.add('selected-filter');
+  changeSelectedCategory(data: TReloadPage) {
+    this.categories.filterField.concat(this.types.filterField).forEach((item) => {
+      item.categoryText.classList.remove('selected-filter');
+      data.query.forEach((filter) => {
+        if (filter.type === item.categoryText.dataset.type) {
+          filter.name.forEach((name) => {
+            if (name === item.categoryText.dataset.name) {
+              item.categoryText.classList.add('selected-filter');
+            }
+          });
         }
       });
+      item.categoryAmoun.innerHTML = ` (${
+        data.products.filter(
+          (dataItem) =>
+            dataItem[item.categoryText.dataset.type as TFilter] === (item.categoryText.dataset.name as TFilter)
+        ).length
+      }/${item.amount})`;
     });
   }
 }
