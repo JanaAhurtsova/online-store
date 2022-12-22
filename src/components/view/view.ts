@@ -1,5 +1,5 @@
 import { TProduct, TShopingCart } from '../../globalType';
-import Header from './heared/header';
+import Header from './header/header';
 import Store from './store/store';
 import ProductPage from './productPage/productPage';
 import products from '../data/products';

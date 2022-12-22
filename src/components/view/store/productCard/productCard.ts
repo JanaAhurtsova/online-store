@@ -25,7 +25,7 @@ export default class ProductCard {
     this.product = document.createElement('article');
     this.img = document.createElement('img');
     this.title = document.createElement('h3');
-    this.price = document.createElement('h3');
+    this.price = document.createElement('span');
     this.rating = document.createElement('h4');
     this.buttons = document.createElement('div');
     this.buttonCart = document.createElement('button');

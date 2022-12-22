@@ -1,8 +1,11 @@
 import { TProduct } from '../../../globalType';
 import Controller from '../../controller/controller';
+import ProductCard from '../store/productCard/productCard';
 
 export default class ProductPage {
   productData: TProduct;
+
+  productCard: ProductCard;
 
   container: HTMLElement;
 
@@ -26,8 +29,6 @@ export default class ProductPage {
 
   ratingBody: HTMLElement;
 
-  ratingBack: HTMLElement;
-
   rating: HTMLElement;
 
   productDescription: HTMLElement;
@@ -42,27 +43,30 @@ export default class ProductPage {
 
   buttonBuy: HTMLButtonElement;
 
+  controller: Controller;
+
   constructor(product: TProduct) {
     this.productData = product;
+    this.productCard = new ProductCard(this.productData);
     this.container = document.createElement('section');
     this.productPath = document.createElement('h4');
     this.productWrapper = document.createElement('div');
     this.descriptionWrapper = document.createElement('div');
     this.imagesWrapper = document.createElement('div');
-    this.mainImage = document.createElement('img');
+    this.mainImage = this.productCard.img;
     this.images = document.createElement('div');
     this.productCategory = document.createElement('h4');
-    this.title = document.createElement('h2');
+    this.title = this.productCard.title;
     this.ratingWrapper = document.createElement('div');
-    this.ratingBody = document.createElement('div');
-    this.ratingBack = document.createElement('div');
-    this.rating = document.createElement('h4');
+    this.ratingBody = this.productCard.createRating();
+    this.rating = this.productCard.rating;
     this.productDescription = document.createElement('p');
-    this.price = document.createElement('span');
+    this.price = this.productCard.price;
     this.buttons = document.createElement('div');
-    this.buttonCart = document.createElement('button');
+    this.buttonCart = this.productCard.buttonCart;
     this.buttonBuy = document.createElement('button');
     this.productStock = document.createElement('h4');
+    this.controller = new Controller();
   }
 
   public init() {
@@ -81,14 +85,11 @@ export default class ProductPage {
       this.productData.type
     }`;
 
-    this.title.classList.add('title', 'product__title');
+    this.title.classList.add('title');
     this.title.textContent = this.productData.title.toUpperCase();
 
     this.ratingWrapper.classList.add('wrapper__rating');
-    this.ratingBody.classList.add('rating_body');
-    this.ratingBack.classList.add('rating_back');
-    this.ratingBack.style.width = `${this.productData.rating * 20}%`;
-    this.rating.classList.add('rating', 'product__rating');
+    this.rating.classList.add('rating');
     this.rating.textContent = String(this.productData.rating);
 
     this.productDescription.classList.add('product__description');
@@ -98,11 +99,6 @@ export default class ProductPage {
     this.price.textContent = `$${this.productData.price}`;
 
     this.buttons.classList.add('buttons');
-
-    this.buttonCart.classList.add('button');
-    this.buttonCart.setAttribute('data-id', String(this.productData.id));
-    this.buttonCart.setAttribute('data-type', 'cart');
-    this.buttonCart.textContent = `Add To Cart`;
 
     this.buttonBuy.classList.add('button');
     this.buttonBuy.setAttribute('data-id', String(this.productData.id));
@@ -117,9 +113,7 @@ export default class ProductPage {
 
   private createImages() {
     this.imagesWrapper.classList.add('wrapper__images');
-    this.mainImage.classList.add('image__main');
-    Controller.getImage(this.productData.images[0], this.mainImage);
-    this.mainImage.setAttribute('alt', this.productData.title);
+    this.mainImage.className = 'image__main';
 
     this.images.classList.add('images');
 
@@ -137,7 +131,6 @@ export default class ProductPage {
   }
 
   public append() {
-    this.ratingBody.append(this.ratingBack);
     this.ratingWrapper.append(this.ratingBody, this.rating);
     this.buttons.append(this.buttonCart, this.buttonBuy);
     this.descriptionWrapper.append(
