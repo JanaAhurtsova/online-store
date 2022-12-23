@@ -1,4 +1,4 @@
-import { TProduct, TShopingCart } from '../../../globalType';
+import { TProduct, TShoppingCart } from '../../../globalType';
 import Controller from '../../controller/controller';
 import ProductCard from '../store/productCard/productCard';
 
@@ -117,7 +117,6 @@ export default class ProductPage {
     this.productWrapper.append(this.createImages(product), this.descriptionWrapper);
     this.container.append(this.productPath, this.productWrapper);
 
-    // this.append(product);
     this.bindEvent(mainImage);
   }
 
@@ -135,23 +134,6 @@ export default class ProductPage {
     return this.imagesWrapper;
   }
 
-  // public append(product: TProduct) {
-  //   this.ratingWrapper.append(this.ratingBody, this.rating);
-  //   this.buttons.append(this.buttonCart, this.buttonBuy);
-  //   this.descriptionWrapper.append(
-  //     this.productCategory,
-  //     this.title,
-  //     this.ratingWrapper,
-  //     this.productDescription,
-  //     this.price,
-  //     this.buttons,
-  //     this.productStock
-  //   );
-  //   this.productWrapper.append(this.createImages(), this.descriptionWrapper);
-  //   this.container.append(this.productPath, this.productWrapper);
-  //   document.querySelector('.root')?.append(this.container);
-  // }
-
   bindEvent(mainImage: HTMLImageElement) {
     this.images.addEventListener('click', (e: Event) => {
       const target = e.target as HTMLElement;
@@ -162,9 +144,9 @@ export default class ProductPage {
     });
   }
 
-  shopCartInfo(data: TShopingCart) {
+  shopCartInfo(data: TShoppingCart) {
     if (data.products.includes(this.id)) {
-      this.buttonCart.textContent = 'remove from cart';
+      this.buttonCart.textContent = 'drop from cart';
       this.buttonCart.classList.add('selected');
     } else {
       this.buttonCart.textContent = 'add to cart';

@@ -1,4 +1,4 @@
-import { TProduct, TShopingCart } from '../../globalType';
+import { TReloadPage, TShoppingCart } from '../../globalType';
 import Header from './header/header';
 import Store from './store/store';
 import ProductPage from './productPage/productPage';
@@ -25,20 +25,27 @@ export default class View {
   }
 
   append() {
+    this.body.insertBefore(this.header.header, this.main);
     this.main.append(this.store.store);
     this.body.insertBefore(this.header.header, this.main);
   }
 
-  reloadProducts(data: TProduct[] | string) {
-    if (Array.isArray(data)) {
-      this.store.createProducts(data);
+  reloadPage(data: TReloadPage | string) {
+    if (typeof data !== 'string') {
+      this.store.found.innerHTML = `Found ${data.products.length}`;
+      this.store.search.reloadPage(data.query);
+      this.store.sideBar.priceFilter.reloadPage(data);
+      this.store.sideBar.stockFilter.reloadPage(data);
+      this.store.sorter.reloadPage(data.query);
+      this.store.sideBar.changeSelectedCategory(data);
+      this.store.createProducts(data.products);
     } else {
       this.productPage.init(products[Number(data) - 1]);
       this.main.replaceChild(this.productPage.container, this.store.store);
     }
   }
 
-  clickProduct(cartInfo: TShopingCart | string) {
+  clickProduct(cartInfo: TShoppingCart | string) {
     if (typeof cartInfo !== 'string') {
       this.productPage.shopCartInfo(cartInfo);
       this.store.shopCartInfo(cartInfo);
