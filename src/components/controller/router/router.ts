@@ -73,7 +73,7 @@ class Router {
             .map((item) => {
               return {
                 type: item[0],
-                name: item[1],
+                name: item[1].split('|'),
               };
             });
         }

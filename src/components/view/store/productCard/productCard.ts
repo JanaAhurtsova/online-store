@@ -39,7 +39,7 @@ export default class ProductCard {
     this.product.classList.add('product');
 
     this.img.classList.add('product__img');
-    Controller.getImage(this.productData, this.img);
+    Controller.getImage(this.productData.images[0], this.img);
     this.img.setAttribute('alt', this.productData.title);
 
     this.title.classList.add('product__title');
