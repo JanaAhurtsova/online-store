@@ -26,6 +26,10 @@ export default class View {
 
   reloadPage(data: TReloadPage | string) {
     if (typeof data !== 'string') {
+      this.store.found.innerHTML = `Found ${data.products.length}`;
+      this.store.search.reloadPage(data.query);
+      this.store.sideBar.priceFilter.reloadPage(data);
+      this.store.sideBar.stockFilter.reloadPage(data);
       this.store.sorter.reloadPage(data.query);
       this.store.sideBar.changeSelectedCategory(data);
       this.store.createProducts(data.products);

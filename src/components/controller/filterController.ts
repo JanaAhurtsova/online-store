@@ -22,7 +22,7 @@ export default class FilterController {
     });
   }
 
-  private static sortNumber(res: TProduct[], type: 'price' | 'id') {
+  static sortNumber(res: TProduct[], type: 'price' | 'id' | 'stock') {
     res.sort((a, b) => a[type] - b[type]);
   }
 
@@ -54,6 +54,24 @@ export default class FilterController {
     return result;
   }
 
+  private static filterSlider(range: string[], type: 'price' | 'stock', res: TProduct[]) {
+    return res.filter((item) => item[type] >= +range[0] && item[type] <= +range[1]);
+  }
+
+  private static search(data: string, res: TProduct[]) {
+    return res.filter((item) => {
+      return (
+        String(item.price).includes(data) ||
+        String(item.stock).includes(data) ||
+        String(item.rating).includes(data) ||
+        item.category.includes(data) ||
+        item.description.includes(data) ||
+        item.title.includes(data) ||
+        item.type.includes(data)
+      );
+    });
+  }
+
   static filter(arg: TQuery[], query: TQuery[]) {
     if (arg.length !== 0) {
       if (arg[0].type === 'products') {
@@ -71,12 +89,15 @@ export default class FilterController {
             break;
           }
           case 'price': {
+            res = this.filterSlider(filter.name, filter.type, res);
             break;
           }
           case 'stock': {
+            res = this.filterSlider(filter.name, filter.type, res);
             break;
           }
           case 'search': {
+            res = this.search(filter.name[0], res);
             break;
           }
           case 'sort': {

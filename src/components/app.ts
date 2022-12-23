@@ -21,6 +21,23 @@ export default class App {
       this.view.clickProduct(data)
     );
     this.view.store.sorter.sorter.addEventListener('change', (event: Event) => this.controller.sort(event));
+    this.view.store.sideBar.priceFilter.sliderInputs.lower.addEventListener('input', (event: Event) =>
+      this.controller.sliderFilter(this.view.store.filterRange(event))
+    );
+    this.view.store.sideBar.priceFilter.sliderInputs.upper.addEventListener('input', (event: Event) =>
+      this.controller.sliderFilter(this.view.store.filterRange(event))
+    );
+    this.view.store.sideBar.stockFilter.sliderInputs.lower.addEventListener('input', (event: Event) =>
+      this.controller.sliderFilter(this.view.store.filterRange(event))
+    );
+    this.view.store.sideBar.stockFilter.sliderInputs.upper.addEventListener('input', (event: Event) =>
+      this.controller.sliderFilter(this.view.store.filterRange(event))
+    );
+    this.view.store.search.input.addEventListener('input', (event: Event) => this.controller.search(event));
+    this.view.store.sideBar.resetFilterButton.addEventListener(
+      'click',
+      this.controller.resetFilter.bind(this.controller)
+    );
     // this.view.removeFilter.addEventListener('click', (event:Event) => this.controller.removeFilter(event))
     window.addEventListener('popstate', (event: Event, data = this.controller.reloadPage()) =>
       this.view.reloadPage(data)

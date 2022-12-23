@@ -1,7 +1,7 @@
 import Router from './router/router';
 import products from '../data/products';
 import FirebaseLoader from './firebase/firebaseLoader';
-import { TFilter, TProduct, TQuery, TReloadPage, TShopingCart } from '../../globalType';
+import { TFilter, TProduct, TQuery, TReloadPage, TShopingCart, TSLider as TSlider } from '../../globalType';
 import FilterController from './filterController';
 
 export default class Controller {
@@ -56,6 +56,9 @@ export default class Controller {
 
   reloadPage(): TReloadPage | string {
     const arg = this.router.splitURL();
+    if (this.query.length === 0) {
+      this.query = arg.slice(0);
+    }
     return FilterController.filter(arg, this.query);
   }
 
@@ -72,14 +75,13 @@ export default class Controller {
     return result;
   }
 
-  removeFilter() {
+  resetFilter() {
     this.query = [];
     this.router.navigate('');
   }
 
   clickFilter(event: Event) {
     const target = event.target as HTMLInputElement;
-    console.log(target);
     if (target.closest('.filter')) {
       const type = target.dataset.type as TFilter;
       const name = target.dataset.name as string;
@@ -117,10 +119,35 @@ export default class Controller {
     }
   }
 
-  static getImage(data: TProduct, img: HTMLImageElement) {
+  sliderFilter(data: TSlider) {
+    this.query = this.query.filter((item) => item.type !== data.name);
+    const product = Controller.getSetTypes(data, products);
+    const min = product[data.lower];
+    const max = product[data.upper];
+    this.query.push({ type: data.name, name: [`${min}`, `${max}`] });
+    this.router.navigate(this.getQueryString());
+  }
+
+  search(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.query = this.query.filter((item) => item.type !== 'search');
+    if (target.value !== '') {
+      this.query.push({ type: 'search', name: [target.value] });
+    }
+    this.router.navigate(this.getQueryString());
+  }
+
+  static getImage(link: string, img: HTMLImageElement) {
     const firebase = new FirebaseLoader();
-    firebase.getImage(data.images[0]).then((link) => {
-      img.setAttribute('src', link);
+    firebase.getImage(link).then((url) => {
+      img.setAttribute('src', url);
     });
+  }
+
+  static getSetTypes(data: TSlider, prod: TProduct[]) {
+    const productsCopy = [...prod];
+    FilterController.sortNumber(productsCopy, data.name);
+    const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
+    return result;
   }
 }

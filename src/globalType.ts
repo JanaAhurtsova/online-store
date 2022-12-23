@@ -31,4 +31,12 @@ export type TSorter = {
   value: string;
 };
 
+export type TSLider = {
+  name: TSliderFilter;
+  upper: number;
+  lower: number;
+};
+
+export type TSliderFilter = 'price' | 'stock';
+
 export type TFilter = 'category' | 'type';

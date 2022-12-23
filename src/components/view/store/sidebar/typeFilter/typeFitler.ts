@@ -2,7 +2,7 @@ import { TFilter } from '../../../../../globalType';
 import products from '../../../../data/products';
 import FilterItem from './filterItem';
 
-export default class Filter {
+export default class TypeFilter {
   filter: HTMLElement;
 
   title: HTMLHeadingElement;
