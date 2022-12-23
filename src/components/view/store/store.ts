@@ -1,6 +1,6 @@
 import ProductCard from './productCard/productCard';
 import products from '../../data/products';
-import { TProduct, TShopingCart, TSLider } from '../../../globalType';
+import { TProduct, TShoppingCart, TSLider } from '../../../globalType';
 import SideBar from './sidebar/sidebar';
 import Sorter from './sorter/sorter';
 import SearchFilter from './sidebar/searchFilter/searchFilter';
@@ -79,10 +79,11 @@ export default class Store {
     });
   }
 
-  shopCartInfo(data: TShopingCart) {
+  shopCartInfo(data: TShoppingCart) {
     Array.from(this.productsData).forEach((product) => {
       if (data.products.includes(product.productData.id)) {
-        product.buttonCart.textContent = 'remove from cart';
+        console.log(data.products);
+        product.buttonCart.textContent = 'drop from cart';
         product.buttonCart.classList.add('selected');
       } else {
         product.buttonCart.textContent = 'add to cart';

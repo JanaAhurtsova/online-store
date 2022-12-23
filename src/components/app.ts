@@ -20,6 +20,11 @@ export default class App {
     this.view.store.store.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
       this.view.clickProduct(data)
     );
+    this.view.productPage.buttonCart.addEventListener(
+      'click',
+      (event: Event, data = this.controller.clickProduct(event)) => this.view.clickProduct(data)
+    );
+
     this.view.store.sorter.sorter.addEventListener('change', (event: Event) => this.controller.sort(event));
     this.view.store.sideBar.priceFilter.sliderInputs.lower.addEventListener('input', (event: Event) =>
       this.controller.sliderFilter(this.view.store.filterRange(event))

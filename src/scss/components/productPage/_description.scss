@@ -1,0 +1,27 @@
+.wrapper__description {
+  width: 50%;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 1.5em 0 1em;
+}
+
+.wrapper__rating {
+  @include flex($justify: flex-start);
+  gap: 1em;
+}
+
+.rating {
+  font-size: 1.6rem;
+}
+
+.product__description {
+  margin: 1em 0;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $color-title;
+}

@@ -1,7 +1,7 @@
 import Router from './router/router';
 import products from '../data/products';
 import FirebaseLoader from './firebase/firebaseLoader';
-import { TFilter, TProduct, TQuery, TReloadPage, TShopingCart, TSLider as TSlider } from '../../globalType';
+import { TFilter, TProduct, TQuery, TReloadPage, TShoppingCart, TSLider as TSlider } from '../../globalType';
 import FilterController from './filterController';
 
 export default class Controller {
@@ -9,7 +9,7 @@ export default class Controller {
 
   private query: TQuery[];
 
-  shopingCart: TShopingCart;
+  shoppingCart: TShoppingCart;
 
   firebase: FirebaseLoader;
 
@@ -21,36 +21,37 @@ export default class Controller {
     this.query = [];
     this.firebase = new FirebaseLoader();
     this.router.add(/products\/([\d]+?)\b/g).add(/([\w]+?)=([^&]+)\b/g);
-    this.shopingCart = {
+    this.shoppingCart = {
       price: 0,
       products: [],
     };
   }
 
-  clickProduct(event: Event): string | TShopingCart {
+  clickProduct(event: Event): string | TShoppingCart {
     const target = (event.target as Element).closest('.button');
     const result = '';
+    console.log(target);
     if (target) {
       const type = target.getAttribute('data-type');
       const id = target.getAttribute('data-id') as string;
       if (type === 'product') {
         this.router.navigate(`products/${id}`);
       } else {
-        this.changeShopingCart(id);
-        return this.shopingCart;
+        this.changeShoppingCart(id);
+        return this.shoppingCart;
       }
     }
     return result;
   }
 
-  changeShopingCart(id: string) {
+  changeShoppingCart(id: string) {
     const product = products.find((item) => item.id === Number(id)) as TProduct;
-    if (this.shopingCart.products.includes(product.id)) {
-      this.shopingCart.products = this.shopingCart.products.filter((item) => item !== product.id);
-      this.shopingCart.price -= product.price;
+    if (this.shoppingCart.products.includes(product.id)) {
+      this.shoppingCart.products = this.shoppingCart.products.filter((item) => item !== product.id);
+      this.shoppingCart.price -= product.price;
     } else {
-      this.shopingCart.products.push(product.id);
-      this.shopingCart.price += product.price;
+      this.shoppingCart.products.push(product.id);
+      this.shoppingCart.price += product.price;
     }
   }
 
@@ -139,7 +140,7 @@ export default class Controller {
 
   static getImage(link: string, img: HTMLImageElement) {
     const firebase = new FirebaseLoader();
-    firebase.getImage(link).then((url) => {
+    firebase.getImage(link).then((url: string) => {
       img.setAttribute('src', url);
     });
   }

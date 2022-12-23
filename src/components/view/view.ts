@@ -1,27 +1,33 @@
-import { TReloadPage, TShopingCart } from '../../globalType';
-import Header from './heared/header';
+import { TReloadPage, TShoppingCart } from '../../globalType';
+import Header from './header/header';
 import Store from './store/store';
+import ProductPage from './productPage/productPage';
+import products from '../data/products';
 
 export default class View {
   header: Header;
+
+  body: HTMLElement;
 
   main: HTMLElement;
 
   store: Store;
 
-  body: HTMLElement;
+  productPage: ProductPage;
 
   constructor() {
-    this.body = document.querySelector('body') as HTMLElement;
+    this.body = document.body;
     this.main = document.querySelector('.root') as HTMLElement;
     this.header = new Header();
     this.store = new Store();
+    this.productPage = new ProductPage();
     this.append();
   }
 
   append() {
     this.body.insertBefore(this.header.header, this.main);
     this.main.append(this.store.store);
+    this.body.insertBefore(this.header.header, this.main);
   }
 
   reloadPage(data: TReloadPage | string) {
@@ -34,12 +40,14 @@ export default class View {
       this.store.sideBar.changeSelectedCategory(data);
       this.store.createProducts(data.products);
     } else {
-      console.log(data);
+      this.productPage.init(products[Number(data) - 1]);
+      this.main.replaceChild(this.productPage.container, this.store.store);
     }
   }
 
-  clickProduct(cartInfo: TShopingCart | string) {
+  clickProduct(cartInfo: TShoppingCart | string) {
     if (typeof cartInfo !== 'string') {
+      this.productPage.shopCartInfo(cartInfo);
       this.store.shopCartInfo(cartInfo);
       this.header.changePrice(cartInfo);
     }

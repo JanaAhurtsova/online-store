@@ -1,0 +1,11 @@
+.product__page {
+  @include flex($align: stretch);
+  flex-direction: column;
+  padding: 1em;
+}
+
+.wrapper__product {
+  @include flex($align: flex-start);
+  padding: 1em;
+  gap: 3rem;
+}

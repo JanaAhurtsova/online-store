@@ -1,4 +1,4 @@
-import { TShopingCart } from '../../../globalType';
+import { TShoppingCart } from '../../../globalType';
 
 export default class Header {
   header: HTMLElement;
@@ -59,8 +59,8 @@ export default class Header {
     this.count.append(this.countText);
   }
 
-  changePrice(catrInfo: TShopingCart) {
-    this.sum.textContent = Number.isInteger(catrInfo.price) ? `$${catrInfo.price}.00` : `$${catrInfo.price}`;
-    this.countText.textContent = `${catrInfo.products.length}`;
+  changePrice(cartInfo: TShoppingCart) {
+    this.sum.textContent = Number.isInteger(cartInfo.price) ? `$${cartInfo.price}.00` : `$${cartInfo.price}`;
+    this.countText.textContent = `${cartInfo.products.length}`;
   }
 }

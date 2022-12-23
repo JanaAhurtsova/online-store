@@ -11,7 +11,7 @@ export type TProduct = {
   images: string[];
 };
 
-export type TShopingCart = {
+export type TShoppingCart = {
   price: number;
   products: number[];
 };
