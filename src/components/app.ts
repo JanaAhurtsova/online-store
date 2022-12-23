@@ -22,6 +22,10 @@ export default class App {
     this.view.store.store.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
       this.view.clickProduct(data)
     );
+    this.view.productPage.buttonCart.addEventListener(
+      'click',
+      (event: Event, data = this.controller.clickProduct(event)) => this.view.clickProduct(data)
+    );
     // this.view.removeFilter.addEventListener('click', (event:Event) => this.controller.removeFilter(event))
     window.addEventListener('popstate', (event: Event, data = this.controller.reloadPage()) =>
       this.view.reloadProducts(data)

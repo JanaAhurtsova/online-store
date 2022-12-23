@@ -29,12 +29,14 @@ export default class Controller {
   clickProduct(event: Event): string | TShopingCart {
     const target = (event.target as Element).closest('.button');
     const result = '';
+    console.log(target);
     if (target) {
       const type = target.getAttribute('data-type');
       const id = target.getAttribute('data-id');
       if (type === 'product') {
         this.router.navigate(`products/${id}`);
       } else {
+        console.log(id);
         const product = products.find((item) => item.id === Number(id)) as TProduct;
         if (this.shoppingCart.products.includes(product.id)) {
           this.shoppingCart.products = this.shoppingCart.products.filter((item) => item !== product.id);
