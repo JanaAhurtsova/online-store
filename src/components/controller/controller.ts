@@ -30,7 +30,6 @@ export default class Controller {
   clickProduct(event: Event): string | TShoppingCart {
     const target = (event.target as Element).closest('.button');
     const result = '';
-    console.log(target);
     if (target) {
       const type = target.getAttribute('data-type');
       const id = target.getAttribute('data-id') as string;

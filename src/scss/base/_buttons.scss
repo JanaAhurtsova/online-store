@@ -1,17 +1,19 @@
 .wrapper__buttons {
   @include flex;
+  position: relative;
   width: 100%;
   gap: .3em;
 }
 
 .button {
-  padding: .5em .8em;
+  padding: .5em;
   background-color: $color-brand;
   color: $color-title;
   border-radius: 1.6em;
   font-size: 1.1rem;
   border: .1em solid transparent;
   cursor: pointer;
+  width: 47%;
   &:hover {
     border: .1em solid $color-border;
     background-color: $color-background;
