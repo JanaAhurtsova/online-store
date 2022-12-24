@@ -1,5 +1,4 @@
 import { TProduct } from '../../../../globalType';
-import Controller from '../../../controller/controller';
 
 export default class ProductCard {
   productData: TProduct;
@@ -39,7 +38,7 @@ export default class ProductCard {
     this.product.classList.add('product');
 
     this.img.classList.add('product__img');
-    Controller.getImage(this.productData.images[0], this.img);
+    this.img.setAttribute('src', this.productData.urlImg);
     this.img.setAttribute('alt', this.productData.title);
 
     this.title.classList.add('product__title');

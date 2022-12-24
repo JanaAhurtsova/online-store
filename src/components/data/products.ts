@@ -11,11 +11,12 @@ const products: TProduct[] = [
     stock: 94,
     type: 'armchairs',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fbacksaelen%2F1.avif?alt=media&token=d47a11da-9ac1-4b1e-ad47-0d6c2d2c6954',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/backsaelen/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fbacksaelen%2F1.avif?alt=media&token=d47a11da-9ac1-4b1e-ad47-0d6c2d2c6954',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fbacksaelen%2F2.avif?alt=media&token=d5436232-aaac-4837-9fd2-d64f1db64067',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fbacksaelen%2F3.avif?alt=media&token=575a32d1-8e60-4320-a06b-6f42b9db4d44',
     ],
   },
   {
@@ -28,11 +29,12 @@ const products: TProduct[] = [
     stock: 92,
     type: 'armchairs',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fpoaeng%2F1.avif?alt=media&token=8ee22168-c9ca-4148-a906-33c37dd10239',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/poaeng/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fpoaeng%2F1.avif?alt=media&token=8ee22168-c9ca-4148-a906-33c37dd10239',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fpoaeng%2F2.avif?alt=media&token=2510be3b-00ff-40b3-a3e6-302013e047e2',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fpoaeng%2F3.avif?alt=media&token=998ac01f-1f22-4b1c-9e4c-0a5de726b83f',
     ],
   },
   {
@@ -45,11 +47,12 @@ const products: TProduct[] = [
     stock: 52,
     type: 'armchairs',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fremsta%2F1.avif?alt=media&token=cb6fafe6-2516-40d8-87ad-ccf41b38222b',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/remsta/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fremsta%2F1.avif?alt=media&token=cb6fafe6-2516-40d8-87ad-ccf41b38222b',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fremsta%2F2.avif?alt=media&token=f80e568f-51cd-43c4-8622-7b72a9496efa',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fremsta%2F3.avif?alt=media&token=75aa9234-3b7a-412c-b3cf-89682ea6ad98',
     ],
   },
   {
@@ -62,11 +65,12 @@ const products: TProduct[] = [
     stock: 24,
     type: 'armchairs',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fsoederhman%2F1.avif?alt=media&token=cf7df83f-c46b-412e-b379-717f791c6a08',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/soederhman/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fsoederhman%2F1.avif?alt=media&token=cf7df83f-c46b-412e-b379-717f791c6a08',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fsoederhman%2F2.avif?alt=media&token=96f2148a-b800-4f30-a84b-9696a4423172',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fsoederhman%2F3.avif?alt=media&token=6cb28bc0-2ac4-45d5-acd7-4d8c8a3c7801',
     ],
   },
   {
@@ -79,11 +83,12 @@ const products: TProduct[] = [
     stock: 34,
     type: 'armchairs',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fstrandmond%2F1.avif?alt=media&token=a66efaff-5765-412a-9d41-0de95d905201',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/strandmond/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fstrandmond%2F1.avif?alt=media&token=a66efaff-5765-412a-9d41-0de95d905201',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fstrandmond%2F2.avif?alt=media&token=751e2969-8636-4409-b5b9-ff88fe02fb95',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fstrandmond%2F3.avif?alt=media&token=e93656a3-4f60-4ae5-9b00-8c546b4cf013',
     ],
   },
   {
@@ -96,11 +101,12 @@ const products: TProduct[] = [
     stock: 4,
     type: 'armchairs',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fvedbo%2F1.avif?alt=media&token=e221c910-5cc3-4f25-95a8-738e9f062aea',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/armchairs/vedbo/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fvedbo%2F1.avif?alt=media&token=e221c910-5cc3-4f25-95a8-738e9f062aea',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fvedbo%2F2.avif?alt=media&token=04880880-230c-4157-bdca-8a9760a2bd04',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fvedbo%2F3.avif?alt=media&token=553f62c7-4276-4077-bc48-188308563750',
     ],
   },
   {
@@ -113,12 +119,13 @@ const products: TProduct[] = [
     stock: 13,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbesta%2F1.avif?alt=media&token=d1e86edf-067c-4b4a-9c83-833cec99e5dc',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/3.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/besta/4.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbesta%2F1.avif?alt=media&token=d1e86edf-067c-4b4a-9c83-833cec99e5dc',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbesta%2F2.avif?alt=media&token=59fb14aa-f9a3-4e10-a658-a6c77b951066',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbesta%2F3.avif?alt=media&token=45d8d0ee-73cc-47cf-9928-9f90453c7cbd',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbesta%2F4.avif?alt=media&token=4ee2b353-5837-42d6-b0f5-ef145eaa8c66',
     ],
   },
   {
@@ -131,11 +138,12 @@ const products: TProduct[] = [
     stock: 13,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbilly%2F1.avif?alt=media&token=3136e288-52f8-4e5e-8d17-671e7ccb77c0',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/billy/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbilly%2F1.avif?alt=media&token=3136e288-52f8-4e5e-8d17-671e7ccb77c0',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbilly%2F2.avif?alt=media&token=9d06e370-58ae-474d-8fa7-06f1f1da38f4',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbilly%2F3.avif?alt=media&token=279c8429-a197-4b2e-a7fb-1e3c15f0eb44',
     ],
   },
   {
@@ -148,11 +156,12 @@ const products: TProduct[] = [
     stock: 13,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbrimnes%2F1.avif?alt=media&token=b5dd10b4-a8e0-4775-854f-bfddfe6ef4b0',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/brimnes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbrimnes%2F1.avif?alt=media&token=b5dd10b4-a8e0-4775-854f-bfddfe6ef4b0',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbrimnes%2F2.avif?alt=media&token=8084d203-a1d5-475d-bbd9-2fe88188cf5c',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fbrimnes%2F3.avif?alt=media&token=54f94d35-98e3-4b55-bd78-617b190e0dda',
     ],
   },
   {
@@ -165,11 +174,12 @@ const products: TProduct[] = [
     stock: 33,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhavsta%2F1.avif?alt=media&token=221dd0ec-abec-494e-b98d-4d1434fa7a44',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/havsta/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhavsta%2F1.avif?alt=media&token=221dd0ec-abec-494e-b98d-4d1434fa7a44',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhavsta%2F2.avif?alt=media&token=ac79208f-0a7e-4f9b-8d05-f3d848558c0c',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhavsta%2F3.avif?alt=media&token=e5a67ca8-01af-442c-aa6b-cd7df4fda153',
     ],
   },
   {
@@ -182,11 +192,12 @@ const products: TProduct[] = [
     stock: 3,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhemnes%2F1.avif?alt=media&token=b4b10f47-6625-4a8e-bce2-ff3aafe64281',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/hemnes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhemnes%2F1.avif?alt=media&token=b4b10f47-6625-4a8e-bce2-ff3aafe64281',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhemnes%2F2.avif?alt=media&token=e722fa92-0a4a-4c75-aba7-321d8af998fd',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fhemnes%2F3.avif?alt=media&token=1de84dc8-5e22-41cd-82a2-01f25398cb9b',
     ],
   },
   {
@@ -199,11 +210,12 @@ const products: TProduct[] = [
     stock: 3,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fidanaes%2F1.avif?alt=media&token=741be296-da0c-405a-8156-77ceba54f833',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/idanaes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fidanaes%2F1.avif?alt=media&token=741be296-da0c-405a-8156-77ceba54f833',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fidanaes%2F2.webp?alt=media&token=281a1061-7e63-46ca-a089-de9ae1672251',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Fidanaes%2F3.avif?alt=media&token=d622952f-7388-4670-a412-4af5a6c40186',
     ],
   },
   {
@@ -216,11 +228,12 @@ const products: TProduct[] = [
     stock: 12,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flack%2F1.avif?alt=media&token=a0d70b7c-ee27-434b-ad69-003a893c7595',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lack/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flack%2F1.avif?alt=media&token=a0d70b7c-ee27-434b-ad69-003a893c7595',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flack%2F2.avif?alt=media&token=17e9080e-46f8-4e5a-98ab-8cc8ea70fcd6',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flack%2F3.avif?alt=media&token=84b77d62-f886-49fb-a692-f8830b17efc2',
     ],
   },
   {
@@ -233,11 +246,12 @@ const products: TProduct[] = [
     stock: 2,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flommarp%2F1.avif?alt=media&token=6c7897c9-f722-4bc9-ac82-3070e55f11fe',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/lommarp/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flommarp%2F1.avif?alt=media&token=6c7897c9-f722-4bc9-ac82-3070e55f11fe',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Flommarp%2F2.avif?alt=media&token=5e96f18c-5b17-4a7f-85ae-265665681b98',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Frannaes%2F3.avif?alt=media&token=69b387bd-d48e-4726-82e1-36f2adfe39b0',
     ],
   },
   {
@@ -250,11 +264,12 @@ const products: TProduct[] = [
     stock: 21,
     type: 'media',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Frannaes%2F1.avif?alt=media&token=72bc923d-5c98-4b6e-a2a8-0159feb19c56',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/media/rannaes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Frannaes%2F1.avif?alt=media&token=72bc923d-5c98-4b6e-a2a8-0159feb19c56',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Frannaes%2F2.avif?alt=media&token=8c88a270-54d7-473a-be0c-3a75cc0b77ce',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fmedia%2Frannaes%2F3.avif?alt=media&token=69b387bd-d48e-4726-82e1-36f2adfe39b0',
     ],
   },
   {
@@ -267,11 +282,12 @@ const products: TProduct[] = [
     stock: 21,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Faepplaryd%2F1.avif?alt=media&token=dbd80344-7852-436b-b5a1-f6e36dcbc481',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/aepplaryd/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Faepplaryd%2F1.avif?alt=media&token=dbd80344-7852-436b-b5a1-f6e36dcbc481',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Faepplaryd%2F2.webp?alt=media&token=e849cd3e-c8f8-4b34-9a41-4528bcd3a9f9',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Faepplaryd%2F3.avif?alt=media&token=20b7fb46-b993-47dd-abc2-5e450ba28649',
     ],
   },
   {
@@ -284,10 +300,11 @@ const products: TProduct[] = [
     stock: 4,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/finnala/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Ffinnala%2F1.avif?alt=media&token=48950fd6-f384-4fb8-b68c-216c81838bba',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/finnala/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/finnala/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Ffinnala%2F1.avif?alt=media&token=48950fd6-f384-4fb8-b68c-216c81838bba',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Ffinnala%2F2.avif?alt=media&token=49d53bb1-7da0-4d74-aadc-0406c5722719',
     ],
   },
   {
@@ -300,11 +317,12 @@ const products: TProduct[] = [
     stock: 8,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fkivik%2F1.avif?alt=media&token=415c2bee-38f7-49af-bf99-9d4dc94f1644',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/kivik/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fkivik%2F1.avif?alt=media&token=415c2bee-38f7-49af-bf99-9d4dc94f1644',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fkivik%2F2.avif?alt=media&token=03a3f0f5-b1c4-495e-abb9-6c005777e45e',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fkivik%2F3.avif?alt=media&token=1e0933b3-706b-4a89-9f40-eb53d3267981',
     ],
   },
   {
@@ -317,11 +335,12 @@ const products: TProduct[] = [
     stock: 4,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fklippan%2F1.avif?alt=media&token=f9c33599-759c-4b83-8d6b-444afb57f016',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/klippan/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fklippan%2F1.avif?alt=media&token=f9c33599-759c-4b83-8d6b-444afb57f016',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fklippan%2F2.avif?alt=media&token=8fe525a4-1c9c-4806-af06-db219e41b8be',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fklippan%2F3.avif?alt=media&token=c3009df8-2ddf-4934-87e4-f21f97538c95',
     ],
   },
   {
@@ -334,11 +353,12 @@ const products: TProduct[] = [
     stock: 24,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F1.avif?alt=media&token=195158a4-c8b1-4987-a143-36fea546104e',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F1.avif?alt=media&token=195158a4-c8b1-4987-a143-36fea546104e',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F2.avif?alt=media&token=d7456870-6a02-4ed9-a6f9-d144df7b883b',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F3.avif?alt=media&token=337a2f7f-d0d1-45b1-9885-fd1f6826e592',
     ],
   },
   {
@@ -351,11 +371,12 @@ const products: TProduct[] = [
     stock: 12,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fpaerup%2F1.avif?alt=media&token=be52e216-523b-4fc9-bd66-2baf49b90060',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/paerup/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fpaerup%2F1.avif?alt=media&token=be52e216-523b-4fc9-bd66-2baf49b90060',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fpaerup%2F2.avif?alt=media&token=570783d1-513e-496c-a661-51f86fb4e9f4',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fpaerup%2F3.avif?alt=media&token=297512ce-ba14-4098-b3ce-084fe799512c',
     ],
   },
   {
@@ -368,11 +389,12 @@ const products: TProduct[] = [
     stock: 13,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fstockholm%2F1.avif?alt=media&token=dd97c5dd-ce4f-42a7-8eb0-b445b006cb7a',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/stockholm/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fstockholm%2F1.avif?alt=media&token=dd97c5dd-ce4f-42a7-8eb0-b445b006cb7a',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fstockholm%2F2.avif?alt=media&token=c02bc9ed-9480-4d85-8481-432863f38a2b',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fstockholm%2F3.avif?alt=media&token=24ae71a2-45c0-4e36-8556-7b2427cabe83',
     ],
   },
   {
@@ -385,11 +407,12 @@ const products: TProduct[] = [
     stock: 4,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fviskafors%2F1.avif?alt=media&token=723adea8-35a3-451e-a43f-74f9d67c7734',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/viskafors/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fviskafors%2F1.avif?alt=media&token=723adea8-35a3-451e-a43f-74f9d67c7734',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fviskafors%2F2.avif?alt=media&token=cda55544-d632-4806-b7ee-56cb108b3e57',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fviskafors%2F3.avif?alt=media&token=a168b121-8817-4330-b2b0-7ac642112ac9',
     ],
   },
   {
@@ -402,11 +425,12 @@ const products: TProduct[] = [
     stock: 24,
     type: 'sofas',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F1.avif?alt=media&token=195158a4-c8b1-4987-a143-36fea546104e',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/sofas/morabo/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F1.avif?alt=media&token=195158a4-c8b1-4987-a143-36fea546104e',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F2.avif?alt=media&token=d7456870-6a02-4ed9-a6f9-d144df7b883b',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fsofas%2Fmorabo%2F3.avif?alt=media&token=337a2f7f-d0d1-45b1-9885-fd1f6826e592',
     ],
   },
   {
@@ -419,12 +443,13 @@ const products: TProduct[] = [
     stock: 13,
     type: 'storage',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Fbergshult%2F1.avif?alt=media&token=4a8d303f-1072-4a4f-b2ac-993411b73056',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/3.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/bergshult/4.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Fbergshult%2F1.avif?alt=media&token=4a8d303f-1072-4a4f-b2ac-993411b73056',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Fbergshult%2F2.avif?alt=media&token=e39a9d0a-5ace-41f4-b5e3-63062080fb62',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Fbergshult%2F3.avif?alt=media&token=a8175d35-0f35-4498-966a-d7dad28f1640',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Fbergshult%2F4.avif?alt=media&token=b444be52-3e94-4d9f-aba4-b59c4d10c65f',
     ],
   },
   {
@@ -437,11 +462,12 @@ const products: TProduct[] = [
     stock: 4,
     type: 'storage',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Feket%2F1.avif?alt=media&token=da54696d-3545-4c49-a31b-595bdd739657',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/storage/eket/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Feket%2F1.avif?alt=media&token=da54696d-3545-4c49-a31b-595bdd739657',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Feket%2F2.avif?alt=media&token=ccb39d49-569f-4e3c-a2c9-8c6adaffd117',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Fstorage%2Feket%2F3.avif?alt=media&token=8b4b26b0-7fdd-486a-9221-3ec3079e7790',
     ],
   },
   {
@@ -454,11 +480,12 @@ const products: TProduct[] = [
     stock: 24,
     type: 'tables',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Farkelstorp%2F1.avif?alt=media&token=ee46a06d-41bb-4b44-afa7-dd5c8460d8fb',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/arkelstorp/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Farkelstorp%2F1.avif?alt=media&token=ee46a06d-41bb-4b44-afa7-dd5c8460d8fb',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Farkelstorp%2F2.avif?alt=media&token=48c67d8e-d8ee-4bdf-a6ba-0c737ae75afe',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Farkelstorp%2F3.avif?alt=media&token=38a9294a-75b7-433c-9413-783ed257de64',
     ],
   },
   {
@@ -471,11 +498,12 @@ const products: TProduct[] = [
     stock: 7,
     type: 'tables',
     category: 'living_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Fborgeby%2F1.avif?alt=media&token=130962b5-cd25-4780-86be-06c21d38685a',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/living-room/tables/borgeby/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Fborgeby%2F1.avif?alt=media&token=130962b5-cd25-4780-86be-06c21d38685a',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Fborgeby%2F2.webp?alt=media&token=357998c0-006c-49f0-871b-4f1724e822c3',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Ftables%2Fborgeby%2F3.avif?alt=media&token=208f530e-9b20-4bbd-ad96-b0c39e220c04',
     ],
   },
   {
@@ -488,10 +516,11 @@ const products: TProduct[] = [
     stock: 9,
     type: 'cabinets',
     category: 'kitchen',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/tornviken/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Ftornviken%2F1.avif?alt=media&token=8687fadd-bb83-49a4-86a7-23e4b00ecb0b',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/tornviken/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/tornviken/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Ftornviken%2F1.avif?alt=media&token=8687fadd-bb83-49a4-86a7-23e4b00ecb0b',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Ftornviken%2F2.avif?alt=media&token=0915e912-6f6e-4d64-b309-37ea307e04df',
     ],
   },
   {
@@ -504,11 +533,12 @@ const products: TProduct[] = [
     stock: 7,
     type: 'cabinets',
     category: 'kitchen',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Fvadholma%2F1.avif?alt=media&token=5167c46d-6c2b-4b8a-bf2d-e1f5229af748',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/cabinets/vadholma/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Fvadholma%2F1.avif?alt=media&token=5167c46d-6c2b-4b8a-bf2d-e1f5229af748',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Fvadholma%2F2.avif?alt=media&token=359e563d-5832-4739-9042-fa09fa5beac6',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fcabinets%2Fvadholma%2F3.avif?alt=media&token=3236ddf1-0c51-407b-a267-fee459e53d53',
     ],
   },
   {
@@ -521,10 +551,11 @@ const products: TProduct[] = [
     stock: 9,
     type: 'modulars',
     category: 'kitchen',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/enhet/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fenhet%2F1.avif?alt=media&token=278400f4-ab74-4103-bd3c-ac645ab81bd9',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/enhet/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/enhet/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fenhet%2F1.avif?alt=media&token=278400f4-ab74-4103-bd3c-ac645ab81bd9',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fenhet%2F2.avif?alt=media&token=912aa80f-cae2-4cb3-a00b-788060add5ac',
     ],
   },
   {
@@ -537,11 +568,12 @@ const products: TProduct[] = [
     stock: 7,
     type: 'modulars',
     category: 'kitchen',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fknoxhult%2F1.avif?alt=media&token=00304eca-c181-439a-9013-672ea35214ed',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/modulars/knoxhult/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fknoxhult%2F1.avif?alt=media&token=00304eca-c181-439a-9013-672ea35214ed',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fknoxhult%2F2.avif?alt=media&token=29a4cf6b-635f-4a68-a32c-ac0945fc1803',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fmodulars%2Fknoxhult%2F3.avif?alt=media&token=6004cc5f-2286-418f-8b18-fa796aeb0d94',
     ],
   },
   {
@@ -554,10 +586,11 @@ const products: TProduct[] = [
     stock: 3,
     type: 'sets',
     category: 'kitchen',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/danderyd/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fsets%2Fdanderyd%2F1.avif?alt=media&token=3260ed4b-52bc-468b-be67-2da1368a6c19',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/danderyd/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/danderyd/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fsets%2Fdanderyd%2F1.avif?alt=media&token=3260ed4b-52bc-468b-be67-2da1368a6c19',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fsets%2Fdanderyd%2F2.avif?alt=media&token=f8a47c07-b9d2-46b6-aebc-04472a76b102',
     ],
   },
   {
@@ -570,10 +603,11 @@ const products: TProduct[] = [
     stock: 2,
     type: 'sets',
     category: 'kitchen',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/docksta/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fsets%2Fdocksta%2F1.avif?alt=media&token=41e6571a-fbef-401d-be56-93c6efae992d',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/docksta/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kitchen/sets/docksta/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fsets%2Fdocksta%2F1.avif?alt=media&token=41e6571a-fbef-401d-be56-93c6efae992d',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkitchen%2Fsets%2Fdocksta%2F2.avif?alt=media&token=14637471-7998-47f7-a9d3-cdc349854447',
     ],
   },
   {
@@ -586,11 +620,12 @@ const products: TProduct[] = [
     stock: 8,
     type: 'beds',
     category: 'kids_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fkura%2F1.avif?alt=media&token=bf387d22-c52b-4121-8a3e-b310d46b7cf1',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/kura/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fkura%2F1.avif?alt=media&token=bf387d22-c52b-4121-8a3e-b310d46b7cf1',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fkura%2F2.avif?alt=media&token=2c392be9-b079-4561-a2e0-4b66c3cfc9eb',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fkura%2F3.avif?alt=media&token=02d51633-604f-478f-b342-9729833f0790',
     ],
   },
   {
@@ -603,11 +638,12 @@ const products: TProduct[] = [
     stock: 12,
     type: 'beds',
     category: 'kids_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fmydal%2F1.avif?alt=media&token=12742ace-ed8d-43c5-9e7a-c8fbae4a67cc',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/beds/mydal/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fmydal%2F1.avif?alt=media&token=12742ace-ed8d-43c5-9e7a-c8fbae4a67cc',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fmydal%2F2.avif?alt=media&token=e53aaa3d-1eef-4ffe-9031-b4d5259b1973',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fbeds%2Fmydal%2F3.avif?alt=media&token=789f005f-359c-4bdc-b4c0-20c23fe4129c',
     ],
   },
   {
@@ -620,11 +656,12 @@ const products: TProduct[] = [
     stock: 9,
     type: 'storage',
     category: 'kids_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fbergig%2F1.avif?alt=media&token=fc198345-a2f7-4135-95ea-ed72951c055c',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/bergig/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fbergig%2F1.avif?alt=media&token=fc198345-a2f7-4135-95ea-ed72951c055c',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fbergig%2F2.avif?alt=media&token=998037c7-382c-4ff0-a10f-d1b8f3bcdbc4',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fbergig%2F3.avif?alt=media&token=e42d3ed6-61f9-4a0b-934a-cfe9fbe5aa11',
     ],
   },
   {
@@ -637,10 +674,11 @@ const products: TProduct[] = [
     stock: 8,
     type: 'storage',
     category: 'kids_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/godishus/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fgodishus%2F1.avif?alt=media&token=bf55535f-1f8c-4ff6-bc55-8dd25b430294',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/godishus/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/storage/godishus/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fgodishus%2F1.avif?alt=media&token=bf55535f-1f8c-4ff6-bc55-8dd25b430294',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Fstorage%2Fgodishus%2F2.avif?alt=media&token=9270e6ba-41d8-4b6c-bd9e-b04a4f871963',
     ],
   },
   {
@@ -653,11 +691,12 @@ const products: TProduct[] = [
     stock: 11,
     type: 'tables',
     category: 'kids_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Fflisat%2F1.avif?alt=media&token=2ddd6815-92c2-4b06-ae0d-48ec71abdc3b',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/flisat/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Fflisat%2F1.avif?alt=media&token=2ddd6815-92c2-4b06-ae0d-48ec71abdc3b',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Fflisat%2F2.avif?alt=media&token=4399bb83-e156-4d0e-bdcd-083574f1b28e',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Fflisat%2F3.avif?alt=media&token=979785c1-f658-4017-9c9b-e8fbad20dd33',
     ],
   },
   {
@@ -670,11 +709,12 @@ const products: TProduct[] = [
     stock: 22,
     type: 'tables',
     category: 'kids_room',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Flaett%2F1.avif?alt=media&token=f80de173-3d77-4046-b0d7-dce707742adb',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/kids-room/tables/laett/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Flaett%2F1.avif?alt=media&token=f80de173-3d77-4046-b0d7-dce707742adb',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Flaett%2F2.avif?alt=media&token=89511b4a-aad7-45ed-a967-b3f6938f5b76',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fkids-room%2Ftables%2Flaett%2F3.avif?alt=media&token=4a72fb4a-0d1e-4e75-907b-df34411c676c',
     ],
   },
   {
@@ -687,11 +727,12 @@ const products: TProduct[] = [
     stock: 13,
     type: 'beds',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhauga%2F1.avif?alt=media&token=385e1e3c-d596-4cdc-aa8f-3a55bf692d8e',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hauga/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhauga%2F1.avif?alt=media&token=385e1e3c-d596-4cdc-aa8f-3a55bf692d8e',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhauga%2F2.avif?alt=media&token=2fdecc6b-b165-490b-93c9-a1db9a002926',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhauga%2F3.avif?alt=media&token=04948d84-5099-4193-8f1b-5701e3a46a97',
     ],
   },
   {
@@ -704,11 +745,12 @@ const products: TProduct[] = [
     stock: 17,
     type: 'beds',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhemnes%2F1.avif?alt=media&token=0fe1588c-25e8-4ec0-821f-a5f953cebaa7',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/beds/hemnes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhemnes%2F1.avif?alt=media&token=0fe1588c-25e8-4ec0-821f-a5f953cebaa7',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhemnes%2F2.avif?alt=media&token=7e818820-385b-4603-ba6a-4e7786200623',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fbeds%2Fhemnes%2F3.avif?alt=media&token=d16570fc-34a1-4b35-8610-b0e9986e47d5',
     ],
   },
   {
@@ -721,10 +763,11 @@ const products: TProduct[] = [
     stock: 1,
     type: 'dressers',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/brimnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fbrimnes%2F1.avif?alt=media&token=830db487-252a-4049-a111-5399d911c361',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/brimnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/brimnes/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fbrimnes%2F1.avif?alt=media&token=830db487-252a-4049-a111-5399d911c361',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fbrimnes%2F2.avif?alt=media&token=e6263afc-e567-482b-9d1a-75c21d0e4664',
     ],
   },
   {
@@ -737,11 +780,12 @@ const products: TProduct[] = [
     stock: 7,
     type: 'dressers',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fkoppang%2F1.avif?alt=media&token=f5ec7e10-d1e9-42aa-9c7c-4893a6032ed0',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/dressers/koppang/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fkoppang%2F1.avif?alt=media&token=f5ec7e10-d1e9-42aa-9c7c-4893a6032ed0',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fkoppang%2F2.avif?alt=media&token=652c5019-9bbd-4a4f-ab04-4cab9eb83c68',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fdressers%2Fkoppang%2F3.avif?alt=media&token=c72fe045-5c8a-4b09-bd34-3c89c58c0de7',
     ],
   },
   {
@@ -754,11 +798,12 @@ const products: TProduct[] = [
     stock: 6,
     type: 'nightstands',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fbrimnes%2F1.avif?alt=media&token=df2e24f8-5467-4f01-82b8-778cc87cce81',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/brimnes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fbrimnes%2F1.avif?alt=media&token=df2e24f8-5467-4f01-82b8-778cc87cce81',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fbrimnes%2F2.avif?alt=media&token=57878e2e-7edd-49bb-9bce-66c1eb6dfdd4',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fbrimnes%2F3.webp?alt=media&token=c393c072-057c-43ca-94ac-8171099e067e',
     ],
   },
   {
@@ -771,11 +816,12 @@ const products: TProduct[] = [
     stock: 7,
     type: 'nightstands',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fhemnes%2F1.avif?alt=media&token=dd053ef1-e94b-44db-bb4f-fc4126fb7438',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/nightstands/hemnes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fhemnes%2F1.avif?alt=media&token=dd053ef1-e94b-44db-bb4f-fc4126fb7438',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fhemnes%2F2.avif?alt=media&token=b07f7335-000e-4e1a-8ca1-1c635a4e7c53',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fnightstands%2Fhemnes%2F3.avif?alt=media&token=dc73e528-83fb-4fc9-b0b3-ee8626ae7689',
     ],
   },
   {
@@ -788,11 +834,12 @@ const products: TProduct[] = [
     stock: 10,
     type: 'wardrobe',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fbrimnes%2F1.avif?alt=media&token=b73f67ee-8a7e-408a-9231-2bb14fcd9257',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/brimnes/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fbrimnes%2F1.avif?alt=media&token=b73f67ee-8a7e-408a-9231-2bb14fcd9257',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fbrimnes%2F2.avif?alt=media&token=337f2c7b-91b2-4481-b6f1-bb4151e8756f',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fbrimnes%2F3.avif?alt=media&token=10124be3-2b95-4ee1-a2ff-353164699300',
     ],
   },
   {
@@ -805,11 +852,12 @@ const products: TProduct[] = [
     stock: 8,
     type: 'wardrobe',
     category: 'bedroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F1.avif?alt=media&token=cdb0e6ea-f6e6-4cd4-a7fe-5e23a57f0562',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bedroom/wardrobe/hauga/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F1.avif?alt=media&token=cdb0e6ea-f6e6-4cd4-a7fe-5e23a57f0562',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F2.avif?alt=media&token=454ceb86-66a0-4e15-8554-4d68d889e8df',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F3.avif?alt=media&token=9ea5a5dd-ac62-45a7-bdf4-4d7ef659895d',
     ],
   },
   {
@@ -822,10 +870,11 @@ const products: TProduct[] = [
     stock: 12,
     type: 'cabinets',
     category: 'bathroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/enhet/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fenhet%2F1.avif?alt=media&token=3f624cd8-1e70-4544-8eed-00713ded2ca1',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/enhet/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/enhet/2.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fenhet%2F1.avif?alt=media&token=3f624cd8-1e70-4544-8eed-00713ded2ca1',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fenhet%2F2.avif?alt=media&token=3be9c141-3275-4272-bc2c-ff297b072e98',
     ],
   },
   {
@@ -838,11 +887,12 @@ const products: TProduct[] = [
     stock: 12,
     type: 'cabinets',
     category: 'bathroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fgodmorgon%2F1.avif?alt=media&token=5660436d-d13d-4f4e-8788-54cd94ce13f0',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/cabinets/godmorgon/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fgodmorgon%2F1.avif?alt=media&token=5660436d-d13d-4f4e-8788-54cd94ce13f0',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fgodmorgon%2F2.avif?alt=media&token=16de2507-2c72-4ec7-ba2e-38fb9551faf7',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fcabinets%2Fgodmorgon%2F3.avif?alt=media&token=a541f1eb-9e8b-4eed-8a1d-9ad9299f20df',
     ],
   },
   {
@@ -855,11 +905,12 @@ const products: TProduct[] = [
     stock: 12,
     type: 'sets',
     category: 'bathroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/1.avif',
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fenhet%2F1.avif?alt=media&token=4267b05b-132b-4474-8228-d0f8e6438703',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/enhet/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fenhet%2F1.avif?alt=media&token=4267b05b-132b-4474-8228-d0f8e6438703',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fenhet%2F2.avif?alt=media&token=92302546-f1e4-4121-9278-2d713ee90970',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fenhet%2F3.avif?alt=media&token=f949f90e-e99d-4368-a281-145f7c27a01a',
     ],
   },
   {
@@ -872,12 +923,12 @@ const products: TProduct[] = [
     stock: 6,
     type: 'sets',
     category: 'bathroom',
-    urlImg: 'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/1.avif',
-
+    urlImg:
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fgodmorgon%2F1.avif?alt=media&token=3aa67007-8497-4ea2-8ec2-92a8ca8f5b10',
     images: [
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/1.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/2.avif',
-      'gs://online-shop-8c752.appspot.com/shop/bathroom/sets/godmorgon/3.avif',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fgodmorgon%2F1.avif?alt=media&token=3aa67007-8497-4ea2-8ec2-92a8ca8f5b10',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fgodmorgon%2F2.avif?alt=media&token=1564957d-dcbd-440c-b1fd-3d061562282e',
+      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbathroom%2Fsets%2Fgodmorgon%2F3.avif?alt=media&token=13bd090c-994b-49f1-9cad-688c40919506',
     ],
   },
 ];

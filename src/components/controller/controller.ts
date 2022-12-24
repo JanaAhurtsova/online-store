@@ -83,6 +83,8 @@ export default class Controller {
   clickFilter(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.closest('.filter')) {
+      this.query = this.query.filter((item) => item.type !== 'products');
+      console.log(this.query);
       const type = target.dataset.type as TFilter;
       const name = target.dataset.name as string;
       this.updateQuery(type, name);
@@ -135,13 +137,6 @@ export default class Controller {
       this.query.push({ type: 'search', name: [target.value] });
     }
     this.router.navigate(this.getQueryString());
-  }
-
-  static getImage(link: string, img: HTMLImageElement) {
-    const firebase = new FirebaseLoader();
-    firebase.getImage(link).then((url: string) => {
-      img.setAttribute('src', url);
-    });
   }
 
   static getSetTypes(data: TSlider, prod: TProduct[]) {

@@ -1,5 +1,6 @@
 import { TProduct, TShoppingCart } from '../../../globalType';
 import Controller from '../../controller/controller';
+import products from '../../data/products';
 import ProductCard from '../store/productCard/productCard';
 
 export default class ProductPage {
@@ -33,8 +34,26 @@ export default class ProductPage {
 
   id: number;
 
+  productCard: ProductCard;
+
+  mainImage: HTMLImageElement;
+
+  title: HTMLElement;
+
+  ratingBody: HTMLDivElement;
+
+  rating: HTMLElement;
+
+  price: HTMLElement;
+
   constructor() {
     this.id = 0;
+    this.productCard = new ProductCard(products[0]);
+    this.mainImage = document.createElement('img');
+    this.title = this.productCard.title;
+    this.ratingBody = this.productCard.createRating();
+    this.rating = this.productCard.rating;
+    this.price = this.productCard.price;
     this.container = document.createElement('section');
     this.productPath = document.createElement('h4');
     this.productWrapper = document.createElement('div');
@@ -49,88 +68,89 @@ export default class ProductPage {
     this.buttonBuy = document.createElement('button');
     this.productStock = document.createElement('h4');
     this.controller = new Controller();
+    this.init();
   }
 
-  public init(product: TProduct) {
-    this.id = product.id;
-    const productCard = new ProductCard(product);
-    const mainImage = productCard.img;
-    const { title } = productCard;
-    const ratingBody = productCard.createRating();
-    const { rating } = productCard;
-    const { price } = productCard;
-
+  public init() {
     this.container.classList.add('product__page');
 
     this.productPath.classList.add('product__path');
-    this.productPath.textContent = `STORE / ${product.category
-      .toUpperCase()
-      .replace(/_/g, ' ')} / ${product.type.toUpperCase()} / ${product.title.toUpperCase()}`;
 
     this.productWrapper.classList.add('wrapper__product');
     this.descriptionWrapper.classList.add('wrapper__description');
 
     this.productCategory.classList.add('category');
-    this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
 
-    title.classList.add('title');
-    title.textContent = product.title.toUpperCase();
+    this.title.classList.add('title');
 
     this.ratingWrapper.classList.add('wrapper__rating');
-    rating.classList.add('rating');
-    rating.textContent = String(product.rating);
+    this.rating.classList.add('rating');
 
     this.productDescription.classList.add('product__description');
-    this.productDescription.textContent = product.description;
 
-    price.classList.add('price', 'product__price');
-    price.textContent = `$${product.price}`;
+    this.price.classList.add('price', 'product__price');
 
     this.buttons.classList.add('buttons');
 
     this.buttonBuy.classList.add('button');
-    this.buttonBuy.setAttribute('data-id', String(product.id));
     this.buttonBuy.textContent = `Buy Now`;
 
     this.buttonCart.classList.add('button');
-    this.buttonCart.setAttribute('data-id', String(product.id));
-    this.buttonCart.setAttribute('data-type', 'cart');
     this.buttonCart.textContent = `Add To Cart`;
 
     this.productStock.classList.add('stock');
-    this.productStock.textContent = `Stock: ${product.stock}`;
 
-    mainImage.className = 'image__main';
-    this.imagesWrapper.append(mainImage, this.images);
+    this.mainImage.className = 'image__main';
 
-    this.ratingWrapper.append(ratingBody, rating);
+    this.ratingWrapper.append(this.ratingBody, this.rating);
     this.buttons.append(this.buttonCart, this.buttonBuy);
     this.descriptionWrapper.append(
       this.productCategory,
-      title,
+      this.title,
       this.ratingWrapper,
       this.productDescription,
-      price,
+      this.price,
       this.buttons,
       this.productStock
     );
-    this.productWrapper.append(this.createImages(product), this.descriptionWrapper);
+    this.productWrapper.append(this.descriptionWrapper);
     this.container.append(this.productPath, this.productWrapper);
 
-    this.bindEvent(mainImage);
+    this.bindEvent(this.mainImage);
+  }
+
+  openPage(product: TProduct) {
+    this.id = product.id;
+    this.imagesWrapper.innerHTML = '';
+    this.mainImage.innerHTML = '';
+    this.images.innerHTML = '';
+    this.productPath.textContent = `STORE / ${product.category
+      .toUpperCase()
+      .replace(/_/g, ' ')} / ${product.type.toUpperCase()} / ${product.title.toUpperCase()}`;
+    this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
+    this.productDescription.textContent = product.description;
+    this.productStock.textContent = `Stock: ${product.stock}`;
+    this.title.textContent = product.title.toUpperCase();
+    this.price.textContent = `$${product.price}`;
+    this.rating.textContent = String(product.rating);
+    this.buttonBuy.setAttribute('data-id', String(product.id));
+    this.buttonCart.setAttribute('data-type', 'cart');
+    this.buttonCart.setAttribute('data-id', String(product.id));
+    this.imagesWrapper.append(this.mainImage, this.images);
+    this.productWrapper.insertBefore(this.createImages(product), this.descriptionWrapper);
   }
 
   private createImages(product: TProduct) {
     this.imagesWrapper.classList.add('wrapper__images');
     this.images.classList.add('images');
+    this.mainImage.setAttribute('src', product.urlImg);
     for (let i = 0; i < product.images.length; i += 1) {
       const image = document.createElement('img');
       image.classList.add('image');
-      Controller.getImage(product.images[i], image);
+      image.setAttribute('src', product.images[i]);
       image.setAttribute('alt', product.title);
       this.images.append(image);
     }
-
     return this.imagesWrapper;
   }
 
@@ -139,7 +159,7 @@ export default class ProductPage {
       const target = e.target as HTMLElement;
       if (target) {
         const imageLink = target.getAttribute('src') as string;
-        Controller.getImage(imageLink, mainImage);
+        mainImage.setAttribute('src', imageLink);
       }
     });
   }
