@@ -44,6 +44,7 @@ export default class View {
     } else {
       this.productPage.openPage(products[Number(data) - 1]);
       this.main.replaceChild(this.productPage.container, this.store.store);
+      this.productPage.buttonCart.textContent = this.store.productsData[Number(data) - 1].buttonCart.textContent;
     }
   }
 

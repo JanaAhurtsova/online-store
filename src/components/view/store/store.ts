@@ -82,7 +82,6 @@ export default class Store {
   shopCartInfo(data: TShoppingCart) {
     Array.from(this.productsData).forEach((product) => {
       if (data.products.includes(product.productData.id)) {
-        console.log(data.products);
         product.buttonCart.textContent = 'drop from cart';
         product.buttonCart.classList.add('selected');
       } else {
