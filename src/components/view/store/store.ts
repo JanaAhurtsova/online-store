@@ -59,8 +59,8 @@ export default class Store {
   append() {
     this.shopContainer.append(this.sideBar.sidebar);
     this.shopContainer.append(this.products);
-    this.toolbar.append(this.sorter.sorter);
     this.toolbar.append(this.found);
+    this.toolbar.append(this.sorter.sorter);
     this.toolbar.append(this.search.search);
     this.store.append(this.title);
     this.store.append(this.toolbar);

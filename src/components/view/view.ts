@@ -27,11 +27,13 @@ export default class View {
   append() {
     this.body.insertBefore(this.header.header, this.main);
     this.main.append(this.store.store);
-    this.body.insertBefore(this.header.header, this.main);
   }
 
   reloadPage(data: TReloadPage | string) {
     if (typeof data !== 'string') {
+      if (this.main.children[0] === this.productPage.container) {
+        this.main.replaceChild(this.store.store, this.productPage.container);
+      }
       this.store.found.innerHTML = `Found ${data.products.length}`;
       this.store.search.reloadPage(data.query);
       this.store.sideBar.priceFilter.reloadPage(data);
@@ -40,7 +42,7 @@ export default class View {
       this.store.sideBar.changeSelectedCategory(data);
       this.store.createProducts(data.products);
     } else {
-      this.productPage.init(products[Number(data) - 1]);
+      this.productPage.openPage(products[Number(data) - 1]);
       this.main.replaceChild(this.productPage.container, this.store.store);
     }
   }

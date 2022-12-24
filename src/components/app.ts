@@ -17,7 +17,7 @@ export default class App {
 
   initListeners() {
     this.view.store.sideBar.filter.addEventListener('click', (event: Event) => this.controller.clickFilter(event));
-    this.view.store.store.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
+    this.view.store.products.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
       this.view.clickProduct(data)
     );
     this.view.productPage.buttonCart.addEventListener(
