@@ -3,6 +3,7 @@ import Header from './header/header';
 import Store from './store/store';
 import ProductPage from './productPage/productPage';
 import products from '../data/products';
+import ModalPayment from './cart/modal';
 
 export default class View {
   header: Header;
@@ -15,12 +16,15 @@ export default class View {
 
   productPage: ProductPage;
 
+  modal: ModalPayment;
+
   constructor() {
     this.body = document.body;
     this.main = document.querySelector('.root') as HTMLElement;
     this.header = new Header();
     this.store = new Store();
     this.productPage = new ProductPage();
+    this.modal = new ModalPayment();
     this.append();
   }
 
@@ -54,5 +58,10 @@ export default class View {
       this.store.shopCartInfo(cartInfo);
       this.header.changePrice(cartInfo);
     }
+  }
+
+  openModal() {
+    this.body.append(this.modal.overlay);
+    console.log(this.modal.overlay);
   }
 }

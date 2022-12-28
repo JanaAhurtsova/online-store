@@ -44,3 +44,11 @@
   }
 }
 
+//modal
+.submit {
+  font-size: 1.3rem;
+  color: $color-background;
+  &:hover {
+    color: $color-text;
+  }
+}
