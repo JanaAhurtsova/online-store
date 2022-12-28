@@ -1,15 +1,21 @@
 import Router from './router/router';
 import products from '../data/products';
 import FirebaseLoader from './firebase/firebaseLoader';
-import { TFilter, TProduct, TQuery, TReloadPage, TShoppingCart, TSLider as TSlider } from '../../globalType';
+import {
+  TFilter,
+  TProduct,
+  TProductInfo,
+  TQuery,
+  TReloadPage,
+  TShoppingCart,
+  TSLider as TSlider,
+} from '../../globalType';
 import FilterController from './filterController';
 
 export default class Controller {
   router: Router;
 
   private query: TQuery[];
-
-  shoppingCart: TShoppingCart;
 
   firebase: FirebaseLoader;
 
@@ -20,11 +26,10 @@ export default class Controller {
     });
     this.query = [];
     this.firebase = new FirebaseLoader();
-    this.router.add(/products\/([\d]+?)\b/g).add(/([\w]+?)=([^&]+)\b/g);
-    this.shoppingCart = {
-      price: 0,
-      products: [],
-    };
+    this.router
+      .add(/products\/([\d]+?)\b/g)
+      .add(/([\w]+?)=([^&]+)\b/g)
+      .add(/cart\b/g);
   }
 
   clickProduct(event: Event): string | TShoppingCart {
@@ -37,27 +42,99 @@ export default class Controller {
         this.router.navigate(`products/${id}`);
       } else {
         this.changeShoppingCart(id);
-        return this.shoppingCart;
+        const shoppingCart = JSON.parse(localStorage.getItem('prod') as string);
+        return shoppingCart;
       }
     }
     return result;
   }
 
+  openShoppingCart() {
+    this.router.navigate('cart');
+  }
+
+  openStartPage() {
+    this.query = [];
+    this.router.navigate('');
+  }
+
+  clickShoppingCartProduct(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('increase')) {
+      const id = target.parentElement?.dataset.id as string;
+      this.changeCount(id, 'increase');
+      this.router.navigate('cart');
+    }
+    if (target.classList.contains('decrease')) {
+      const id = target.parentElement?.dataset.id as string;
+      this.changeCount(id, 'decrease');
+      this.router.navigate('cart');
+    }
+  }
+
+  changeCount(id: string, type: string) {
+    const prod = localStorage.getItem('prod');
+    if (prod) {
+      const data: TShoppingCart = JSON.parse(prod);
+      const itemInfo = data.info.find((item) => item.product === Number(id)) as TProductInfo;
+      const index = data.info.indexOf(itemInfo);
+      const product = products.find((item) => item.id === Number(id)) as TProduct;
+      if (type === 'increase') {
+        if (product.stock > data.info[index].count) {
+          data.info[index].count += 1;
+          data.price += product.price;
+        }
+      } else if (itemInfo.count === 1) {
+        data.info = data.info.filter((item) => item.product !== Number(id));
+        data.price -= product.price;
+      } else {
+        data.info[index].count -= 1;
+        data.price -= product.price;
+      }
+      data.price = +data.price.toFixed(2);
+      localStorage.setItem('prod', JSON.stringify(data));
+    }
+  }
+
   changeShoppingCart(id: string) {
     const product = products.find((item) => item.id === Number(id)) as TProduct;
-    if (this.shoppingCart.products.includes(product.id)) {
-      this.shoppingCart.products = this.shoppingCart.products.filter((item) => item !== product.id);
-      this.shoppingCart.price -= product.price;
+    const prod = localStorage.getItem('prod');
+    let data: TShoppingCart;
+    if (prod) {
+      data = JSON.parse(prod);
+      const find = data.info.find((item) => item.product === +id);
+      console.log(find);
+      if (find) {
+        data.info = data.info.filter((item) => item.product !== +id);
+        data.price -= product.price * find.count;
+      } else {
+        data.price += product.price;
+        data.info.push({ count: 1, product: +id });
+      }
     } else {
-      this.shoppingCart.products.push(product.id);
-      this.shoppingCart.price += product.price;
+      data = { price: product.price, info: [{ count: 1, product: +id }] };
     }
+    data.price = +data.price.toFixed(2);
+    localStorage.setItem('prod', JSON.stringify(data));
   }
 
   reloadPage(): TReloadPage | string {
     const arg = this.router.splitURL();
     if (this.query.length === 0) {
       this.query = arg.slice(0);
+    }
+    if (arg.length !== 0) {
+      switch (arg[0].type) {
+        case 'product': {
+          return arg[0].name[0];
+        }
+        case 'cart': {
+          return 'cart';
+        }
+        default: {
+          break;
+        }
+      }
     }
     return FilterController.filter(arg, this.query);
   }
@@ -78,13 +155,13 @@ export default class Controller {
   resetFilter() {
     this.query = [];
     this.router.navigate('');
+    localStorage.clear();
   }
 
   clickFilter(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.closest('.filter')) {
       this.query = this.query.filter((item) => item.type !== 'products');
-      console.log(this.query);
       const type = target.dataset.type as TFilter;
       const name = target.dataset.name as string;
       this.updateQuery(type, name);
