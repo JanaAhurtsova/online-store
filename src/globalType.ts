@@ -13,7 +13,12 @@ export type TProduct = {
 
 export type TShoppingCart = {
   price: number;
-  products: number[];
+  info: TProductInfo[];
+};
+
+export type TProductInfo = {
+  count: number;
+  product: number;
 };
 
 export type TQuery = {
@@ -21,10 +26,10 @@ export type TQuery = {
   name: string[];
 };
 
-export type TReloadPage = {
+export interface TReloadPage {
   products: TProduct[];
   query: TQuery[];
-};
+}
 
 export type TSorter = {
   text: string;

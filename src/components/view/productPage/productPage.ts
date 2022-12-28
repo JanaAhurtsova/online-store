@@ -1,7 +1,5 @@
 import { TProduct, TShoppingCart } from '../../../globalType';
-import Controller from '../../controller/controller';
-import products from '../../data/products';
-import ProductCard from '../store/productCard/productCard';
+import ProductInfo from '../productInfo/productInfo';
 
 export default class ProductPage {
   container: HTMLElement;
@@ -18,42 +16,24 @@ export default class ProductPage {
 
   productCategory: HTMLElement;
 
-  ratingWrapper: HTMLElement;
-
-  productDescription: HTMLElement;
-
   buttons: HTMLElement;
 
   productStock: HTMLElement;
 
   buttonBuy: HTMLButtonElement;
 
-  controller: Controller;
-
   buttonCart: HTMLButtonElement;
 
-  id: number;
-
-  productCard: ProductCard;
+  productInfo: ProductInfo;
 
   mainImage: HTMLImageElement;
 
-  title: HTMLElement;
-
-  ratingBody: HTMLDivElement;
-
-  rating: HTMLElement;
-
-  price: HTMLElement;
+  id: number;
 
   constructor() {
     this.id = 0;
-    this.productCard = new ProductCard(products[0]);
-    this.mainImage = document.createElement('img');
-    this.title = this.productCard.title;
-    this.ratingBody = this.productCard.createRating();
-    this.rating = this.productCard.rating;
-    this.price = this.productCard.price;
+    this.productInfo = new ProductInfo();
+    this.mainImage = this.productInfo.img;
     this.container = document.createElement('section');
     this.productPath = document.createElement('h4');
     this.productWrapper = document.createElement('div');
@@ -61,17 +41,14 @@ export default class ProductPage {
     this.imagesWrapper = document.createElement('div');
     this.images = document.createElement('div');
     this.productCategory = document.createElement('h4');
-    this.ratingWrapper = document.createElement('div');
-    this.productDescription = document.createElement('p');
     this.buttons = document.createElement('div');
     this.buttonCart = document.createElement('button');
     this.buttonBuy = document.createElement('button');
     this.productStock = document.createElement('h4');
-    this.controller = new Controller();
     this.init();
   }
 
-  public init() {
+  private init() {
     this.container.classList.add('product__page');
 
     this.productPath.classList.add('product__path');
@@ -79,16 +56,13 @@ export default class ProductPage {
     this.productWrapper.classList.add('wrapper__product');
     this.descriptionWrapper.classList.add('wrapper__description');
 
+    this.productInfo.title.classList.add('title');
+
     this.productCategory.classList.add('category');
 
-    this.title.classList.add('title');
+    this.productInfo.rating.rating.classList.add('wrapper__rating');
 
-    this.ratingWrapper.classList.add('wrapper__rating');
-    this.rating.classList.add('rating');
-
-    this.productDescription.classList.add('product__description');
-
-    this.price.classList.add('price', 'product__price');
+    this.productInfo.description.classList.add('product__description');
 
     this.buttons.classList.add('buttons');
 
@@ -102,14 +76,15 @@ export default class ProductPage {
 
     this.mainImage.className = 'image__main';
 
-    this.ratingWrapper.append(this.ratingBody, this.rating);
+    this.productInfo.price.classList.add('price');
+
     this.buttons.append(this.buttonCart, this.buttonBuy);
     this.descriptionWrapper.append(
       this.productCategory,
-      this.title,
-      this.ratingWrapper,
-      this.productDescription,
-      this.price,
+      this.productInfo.title,
+      this.productInfo.rating.rating,
+      this.productInfo.description,
+      this.productInfo.price,
       this.buttons,
       this.productStock
     );
@@ -119,8 +94,10 @@ export default class ProductPage {
     this.bindEvent(this.mainImage);
   }
 
-  openPage(product: TProduct) {
+  openPage(product: TProduct, shoppingCart: TShoppingCart) {
     this.id = product.id;
+    this.shopCartInfo(shoppingCart);
+    this.productInfo.initProductInfo(product);
     this.imagesWrapper.innerHTML = '';
     this.mainImage.innerHTML = '';
     this.images.innerHTML = '';
@@ -128,11 +105,7 @@ export default class ProductPage {
       .toUpperCase()
       .replace(/_/g, ' ')} / ${product.type.toUpperCase()} / ${product.title.toUpperCase()}`;
     this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
-    this.productDescription.textContent = product.description;
     this.productStock.textContent = `Stock: ${product.stock}`;
-    this.title.textContent = product.title.toUpperCase();
-    this.price.textContent = `$${product.price}`;
-    this.rating.textContent = String(product.rating);
     this.buttonBuy.setAttribute('data-id', String(product.id));
     this.buttonCart.setAttribute('data-type', 'cart');
     this.buttonCart.setAttribute('data-id', String(product.id));
@@ -143,7 +116,6 @@ export default class ProductPage {
   private createImages(product: TProduct) {
     this.imagesWrapper.classList.add('wrapper__images');
     this.images.classList.add('images');
-    this.mainImage.setAttribute('src', product.urlImg);
     for (let i = 0; i < product.images.length; i += 1) {
       const image = document.createElement('img');
       image.classList.add('image');
@@ -157,15 +129,14 @@ export default class ProductPage {
   bindEvent(mainImage: HTMLImageElement) {
     this.images.addEventListener('click', (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target) {
-        const imageLink = target.getAttribute('src') as string;
-        mainImage.setAttribute('src', imageLink);
-      }
+      const imageLink = target.getAttribute('src') as string;
+      mainImage.setAttribute('src', imageLink);
     });
   }
 
   shopCartInfo(data: TShoppingCart) {
-    if (data.products.includes(this.id)) {
+    const find = data.info.find((item) => item.product === this.id);
+    if (find) {
       this.buttonCart.textContent = 'drop from cart';
       this.buttonCart.classList.add('selected');
     } else {

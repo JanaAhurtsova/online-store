@@ -53,7 +53,6 @@ export default class Store {
     this.title.classList.add('store__title');
     this.toolbar.classList.add('store__toolbar');
     this.shopContainer.classList.add('store__container');
-    this.createProducts();
   }
 
   append() {
@@ -67,21 +66,26 @@ export default class Store {
     this.store.append(this.shopContainer);
   }
 
-  createProducts(data = products) {
+  createProducts(shoppingCart: TShoppingCart, data = products) {
     this.data = data;
     this.products.innerHTML = '';
     this.productsData = [];
     this.products.classList.add('products');
     this.data.forEach((article) => {
-      const product = new ProductCard(article);
+      const product = new ProductCard();
+      product.initProductCard(article);
       this.productsData.push(product);
-      this.products.append(product.product);
+      this.products.append(product.productView);
     });
+    if (shoppingCart.info.length !== 0) {
+      this.shopCartInfo(shoppingCart);
+    }
   }
 
   shopCartInfo(data: TShoppingCart) {
     Array.from(this.productsData).forEach((product) => {
-      if (data.products.includes(product.productData.id)) {
+      const find = data.info.find((item) => item.product === product.id);
+      if (find) {
         product.buttonCart.textContent = 'drop from cart';
         product.buttonCart.classList.add('selected');
       } else {

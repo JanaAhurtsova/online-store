@@ -1,4 +1,4 @@
-.product {
+.product-card {
   @include flex($align: flex-start);
   flex-direction: column;
   padding: 0.5em 1em 1em;
@@ -10,6 +10,10 @@
 .product__img {
   width: 100%;
   object-fit: cover;
+}
+
+.product__description{
+  display: none;
 }
 
 .product__title,
@@ -33,21 +37,21 @@
   }
 }
 
-.product__rating {
+.rating__text {
   font-size: 1.2rem;
 }
 
-.rating_body {
+.rating__body {
   width: min-content;
   position: relative;
 }
 
-.rating_body::before{
+.rating__body::before{
   content: '★★★★★';
   display: block;
 }
 
-.rating_back {
+.rating__back {
   display: flex;
   position: absolute;
   width: 0%;
@@ -57,7 +61,7 @@
   overflow: hidden;
 }
 
-.rating_back::before{
+.rating__back::before{
   content: '★★★★★';
   color:$color-brand;
 }
