@@ -26,8 +26,12 @@ const baseConfig = {
                 exclude: /node_modules/,
             },
             {
-              test: /\.(avif|jpe?g||png|svg|webp)$/,
+              test: /\.(avif|jpe?g||png|webp)$/i,
               type: 'asset',
+            },
+            {
+              test: /\.(svg)$/i,
+              type: 'asset/inline',
             },
         ],
     },
