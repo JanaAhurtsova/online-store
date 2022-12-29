@@ -50,7 +50,7 @@ export default class Controller {
   }
 
   openShoppingCart() {
-    this.query = this.query.filter((item) => item.type !== 'products');
+    this.query = this.query.filter((item) => item.type === 'cart');
     this.router.navigate('cart');
   }
 
@@ -151,7 +151,6 @@ export default class Controller {
   resetFilter() {
     this.query = [];
     this.router.navigate('');
-    localStorage.clear();
   }
 
   clickFilter(event: Event) {
