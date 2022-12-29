@@ -51,7 +51,6 @@ export default class View {
     if (typeof data === 'string') {
       this.openProductPage(data, localStorage);
     } else if (data.query.length === 0 || data.query[0].type !== 'cart') {
-      this.main.replaceChild(this.storePage.store, this.main.children[0]);
       this.openShopPage(data, localStorage);
     } else {
       this.openShoppingCartPage(localStorage, data);
@@ -60,16 +59,23 @@ export default class View {
   }
 
   openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
-    this.main.replaceChild(this.shoppingCartPage.shopCart, this.main.children[0]);
+    if (this.shoppingCartPage.shopCart !== this.main.children[0]) {
+      this.main.replaceChild(this.shoppingCartPage.shopCart, this.main.children[0]);
+    }
     this.shoppingCartPage.initShoppingCart(localStorage, data);
   }
 
   openProductPage(data: string, localStorage: TShoppingCart) {
+    if (this.productPage.container !== this.main.children[0]) {
+      this.main.replaceChild(this.productPage.container, this.main.children[0]);
+    }
     this.productPage.openPage(products[Number(data) - 1], localStorage);
-    this.main.replaceChild(this.productPage.container, this.main.children[0]);
   }
 
   openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
+    if (this.storePage.store !== this.main.children[0]) {
+      this.main.replaceChild(this.storePage.store, this.main.children[0]);
+    }
     this.storePage.found.innerHTML = `Found ${data.products.length}`;
     this.storePage.search.reloadPage(data.query);
     this.storePage.sideBar.priceFilter.reloadPage(data);

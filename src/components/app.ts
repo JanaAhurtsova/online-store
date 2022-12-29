@@ -13,7 +13,6 @@ export default class App {
     this.view = new View();
     this.controller = new Controller();
     this.modalControllers = new ModalControllers();
-    this.modalControllers = new ModalControllers();
   }
 
   start() {
@@ -63,6 +62,7 @@ export default class App {
     });
     this.view.reloadPage(this.controller.reloadPage());
     this.view.productPage.buttonBuy.addEventListener('click', this.view.openModal.bind(this.view));
+    this.view.shoppingCartPage.summary.buyButton.addEventListener('click', this.view.openModal.bind(this.view));
     this.view.modal.overlay.addEventListener('click', this.modalControllers.closeModal);
     this.view.modal.creditCard.creditCardNumber.addEventListener(
       'input',
