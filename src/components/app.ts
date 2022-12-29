@@ -13,6 +13,7 @@ export default class App {
     this.view = new View();
     this.controller = new Controller();
     this.modalControllers = new ModalControllers();
+    this.modalControllers = new ModalControllers();
   }
 
   start() {
