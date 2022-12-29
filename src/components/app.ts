@@ -50,6 +50,12 @@ export default class App {
     this.view.shoppingCartPage.productItems.addEventListener('click', (event: Event) => {
       this.controller.clickShoppingCartProduct(event);
     });
+    this.view.shoppingCartPage.productsPage.numberPagesInput.addEventListener('input', (event: Event) => {
+      this.controller.shoppingInputPage(event);
+    });
+    this.view.shoppingCartPage.productsPage.switcher.addEventListener('click', (event: Event) => {
+      this.controller.changeShoppingPage(event);
+    });
     this.view.reloadPage(this.controller.reloadPage());
   }
 }

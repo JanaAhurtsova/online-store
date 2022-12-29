@@ -73,6 +73,7 @@
 }
 
 .empty-page {
+  margin-top: 30px;
   padding: 20px;
   text-align: center;
   color: $color-brand;
@@ -80,6 +81,11 @@
 
 .invisible {
   display: none;
+}
+
+.inactive{
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .pages {
@@ -91,7 +97,7 @@
     align-items: center;
 
     &__text {
-      width: 30px;
+      min-width: 30px;
       text-align: center;
     }
 

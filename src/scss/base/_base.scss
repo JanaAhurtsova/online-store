@@ -7,13 +7,13 @@ html {
   @include font($size: 1.6rem, $height: 140%);
   margin: 0;
   padding: 0;
-  text-decoration:  none;
+  text-decoration: none;
   color: $color-text;
   text-transform: capitalize;
   box-sizing: border-box;
   outline: none;
   border: none;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 
 body {
@@ -22,7 +22,10 @@ body {
   min-height: 100vh;
 }
 
+.root {
+  min-height: 85vh;
+}
+
 li {
   list-style-type: none;
 }
-

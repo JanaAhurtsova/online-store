@@ -4,6 +4,7 @@ import { TProduct, TShoppingCart, TSLider } from '../../../globalType';
 import SideBar from './sidebar/sidebar';
 import Sorter from './sorter/sorter';
 import SearchFilter from './sidebar/searchFilter/searchFilter';
+import EmptyPage from '../emptyPage/emptyPage';
 
 export default class Store {
   store: HTMLElement;
@@ -30,6 +31,8 @@ export default class Store {
 
   toolbar: HTMLDivElement;
 
+  emptyPage: EmptyPage;
+
   constructor() {
     this.store = document.createElement('section');
     this.products = document.createElement('div');
@@ -40,6 +43,7 @@ export default class Store {
     this.sideBar = new SideBar();
     this.sorter = new Sorter();
     this.search = new SearchFilter();
+    this.emptyPage = new EmptyPage('No products found');
     this.data = products;
     this.productsData = [];
     this.selectedFilter = [];
@@ -53,6 +57,7 @@ export default class Store {
     this.title.classList.add('store__title');
     this.toolbar.classList.add('store__toolbar');
     this.shopContainer.classList.add('store__container');
+    this.products.classList.add('products');
   }
 
   append() {
@@ -70,15 +75,19 @@ export default class Store {
     this.data = data;
     this.products.innerHTML = '';
     this.productsData = [];
-    this.products.classList.add('products');
-    this.data.forEach((article) => {
-      const product = new ProductCard();
-      product.initProductCard(article);
-      this.productsData.push(product);
-      this.products.append(product.productView);
-    });
-    if (shoppingCart.info.length !== 0) {
-      this.shopCartInfo(shoppingCart);
+    if (data.length === 0) {
+      //  this.products.classList.remove('products');
+      this.products.append(this.emptyPage.emptyPage);
+    } else {
+      this.data.forEach((article) => {
+        const product = new ProductCard();
+        product.initProductCard(article);
+        this.productsData.push(product);
+        this.products.append(product.productView);
+      });
+      if (shoppingCart.info.length !== 0) {
+        this.shopCartInfo(shoppingCart);
+      }
     }
   }
 

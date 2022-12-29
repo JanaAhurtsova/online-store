@@ -44,20 +44,20 @@ export default class View {
 
   reloadPage(data: TReloadPage | string) {
     const localStorage = this.getLocalStorageDate();
-    if (typeof data !== 'string') {
+    if (typeof data === 'string') {
+      this.openProductPage(data, localStorage);
+    } else if (data.query.length === 0 || data.query[0].type !== 'cart') {
       this.main.replaceChild(this.storePage.store, this.main.children[0]);
       this.openShopPage(data, localStorage);
-    } else if (data === 'cart') {
-      this.openShoppingCartPage(localStorage);
     } else {
-      this.openProductPage(data, localStorage);
+      this.openShoppingCartPage(localStorage, data);
     }
     this.header.changePrice(localStorage);
   }
 
-  openShoppingCartPage(localStorage: TShoppingCart) {
+  openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
     this.main.replaceChild(this.shoppingCartPage.shopCart, this.main.children[0]);
-    this.shoppingCartPage.initShoppingCart(localStorage);
+    this.shoppingCartPage.initShoppingCart(localStorage, data);
   }
 
   openProductPage(data: string, localStorage: TShoppingCart) {

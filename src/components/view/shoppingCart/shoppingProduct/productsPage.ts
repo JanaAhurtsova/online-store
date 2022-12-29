@@ -36,11 +36,12 @@ export default class ProductPage {
 
   init() {
     this.title.textContent = 'Products in cart';
-    this.numberPagesText.textContent = 'Items';
+    this.numberPagesText.textContent = 'Limit';
     this.numberPagesInput.classList.add('search__input');
     this.numberPagesInput.setAttribute('placeholder', '-');
     this.switcherTitle.textContent = 'Page';
     this.switcherText.textContent = '1/1';
+    this.switcher.setAttribute('value', '1');
     this.productPage.classList.add('pages');
     this.switcher.classList.add('pages__switcher');
     this.switcherText.classList.add('pages__switcher__text');

@@ -132,7 +132,6 @@ export default class Summary {
   }
 
   initSummary(data: TShoppingCart) {
-    console.log(data);
     this.priceData = data.price;
     this.price.textContent = `Total: $ ${data.price}`;
     this.product.textContent = `Products: ${data.info.reduce((acc, item) => acc + item.count, 0)}`;
