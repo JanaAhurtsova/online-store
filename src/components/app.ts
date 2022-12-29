@@ -57,18 +57,24 @@ export default class App {
     this.view.reloadPage(this.controller.reloadPage());
     this.view.productPage.buttonBuy.addEventListener('click', this.view.openModal.bind(this.view));
     this.view.modal.overlay.addEventListener('click', this.modalControllers.closeModal);
-    this.view.modal.creditCardNumber.addEventListener(
+    this.view.modal.creditCard.creditCardNumber.addEventListener(
       'input',
-      this.modalControllers.setPaymentSystem.bind(this.modalControllers)
+      (event: Event, el = this.view.modal.creditCard.paymentSystem) => {
+        this.modalControllers.setPaymentSystem(event, el);
+      }
     );
-    this.view.modal.expiration.addEventListener(
-      'input',
-      this.modalControllers.expirationSlash.bind(this.modalControllers)
-    );
-    this.view.modal.cvv.addEventListener('input', this.modalControllers.enterCvv.bind(this.modalControllers));
-    this.view.modal.modal.addEventListener('submit', (e: Event) => {
-      e.preventDefault();
-      this.modalControllers.isValidForm();
+    this.view.modal.creditCard.expiration.addEventListener('input', (event: Event) => {
+      this.modalControllers.expirationSlash(event);
     });
+    this.view.modal.creditCard.cvv.addEventListener('input', (event: Event) => {
+      this.modalControllers.enterCvv(event);
+    });
+    this.view.modal.modal.addEventListener(
+      'submit',
+      (event: Event, el = this.view.modal.creditCard.expiration): void => {
+        event.preventDefault();
+        this.modalControllers.isValidForm(el);
+      }
+    );
   }
 }

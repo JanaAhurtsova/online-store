@@ -89,6 +89,5 @@ export default class View {
 
   openModal() {
     this.body.append(this.modal.overlay);
-    console.log(this.modal.overlay);
   }
 }
