@@ -26,3 +26,13 @@
     filter: invert(79%) sepia(81%) saturate(1770%) hue-rotate(352deg) brightness(101%) contrast(103%);
   }
 }
+
+//modal
+.payment_system {
+  background-image: url('../assets/svg/nologo.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 50px;
+}
