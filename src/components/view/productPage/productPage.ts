@@ -106,7 +106,7 @@ export default class ProductPage {
       .replace(/_/g, ' ')} / ${product.type.toUpperCase()} / ${product.title.toUpperCase()}`;
     this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
     this.productStock.textContent = `Stock: ${product.stock}`;
-    this.buttonBuy.setAttribute('data-id', String(product.id));
+    this.buttonBuy.setAttribute('data-type', 'buy');
     this.buttonCart.setAttribute('data-type', 'cart');
     this.buttonCart.setAttribute('data-id', String(product.id));
     this.imagesWrapper.append(this.mainImage, this.images);

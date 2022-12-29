@@ -1,14 +1,19 @@
 import Controller from './controller/controller';
 import View from './view/view';
+import ModalControllers from './controller/modalControllers';
 
 export default class App {
   view: View;
 
   controller: Controller;
 
+  modalControllers: ModalControllers;
+
   constructor() {
     this.view = new View();
     this.controller = new Controller();
+    this.modalControllers = new ModalControllers();
+    this.modalControllers = new ModalControllers();
   }
 
   start() {
@@ -51,5 +56,26 @@ export default class App {
       this.controller.clickShoppingCartProduct(event);
     });
     this.view.reloadPage(this.controller.reloadPage());
+    this.view.productPage.buttonBuy.addEventListener('click', this.view.openModal.bind(this.view));
+    this.view.modal.overlay.addEventListener('click', this.modalControllers.closeModal);
+    this.view.modal.creditCard.creditCardNumber.addEventListener(
+      'input',
+      (event: Event, el = this.view.modal.creditCard.paymentSystem) => {
+        this.modalControllers.setPaymentSystem(event, el);
+      }
+    );
+    this.view.modal.creditCard.expiration.addEventListener('input', (event: Event) => {
+      this.modalControllers.expirationSlash(event);
+    });
+    this.view.modal.creditCard.cvv.addEventListener('input', (event: Event) => {
+      this.modalControllers.enterCvv(event);
+    });
+    this.view.modal.modal.addEventListener(
+      'submit',
+      (event: Event, el = this.view.modal.creditCard.expiration): void => {
+        event.preventDefault();
+        this.modalControllers.isValidForm(el);
+      }
+    );
   }
 }
