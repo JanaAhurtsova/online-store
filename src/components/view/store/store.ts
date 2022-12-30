@@ -5,6 +5,7 @@ import SideBar from './sidebar/sidebar';
 import Sorter from './sorter/sorter';
 import SearchFilter from './sidebar/searchFilter/searchFilter';
 import EmptyPage from '../emptyPage/emptyPage';
+import ViewType from './sidebar/viewType/viewType';
 
 export default class Store {
   store: HTMLElement;
@@ -33,6 +34,8 @@ export default class Store {
 
   emptyPage: EmptyPage;
 
+  view: ViewType;
+
   constructor() {
     this.store = document.createElement('section');
     this.products = document.createElement('div');
@@ -44,6 +47,7 @@ export default class Store {
     this.sorter = new Sorter();
     this.search = new SearchFilter();
     this.emptyPage = new EmptyPage('No products found');
+    this.view = new ViewType();
     this.data = products;
     this.productsData = [];
     this.selectedFilter = [];
@@ -66,22 +70,35 @@ export default class Store {
     this.toolbar.append(this.found);
     this.toolbar.append(this.sorter.sorter);
     this.toolbar.append(this.search.search);
+    this.toolbar.append(this.view.view);
     this.store.append(this.title);
     this.store.append(this.toolbar);
     this.store.append(this.shopContainer);
   }
 
-  createProducts(shoppingCart: TShoppingCart, data = products) {
+  createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
     this.data = data;
     this.products.innerHTML = '';
     this.productsData = [];
+    if (typeView === 'grid') {
+      this.view.viewGrid.classList.add('selected');
+      this.view.viewLine.classList.remove('selected');
+    } else {
+      this.view.viewGrid.classList.remove('selected');
+      this.view.viewLine.classList.add('selected');
+    }
     if (data.length === 0) {
-      //  this.products.classList.remove('products');
       this.products.append(this.emptyPage.emptyPage);
     } else {
       this.data.forEach((article) => {
         const product = new ProductCard();
         product.initProductCard(article);
+        if (typeView === 'line') {
+          product.product.description.classList.remove('product__description');
+          this.products.classList.add('line');
+        } else {
+          this.products.classList.remove('line');
+        }
         this.productsData.push(product);
         this.products.append(product.productView);
       });

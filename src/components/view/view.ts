@@ -76,13 +76,15 @@ export default class View {
     if (this.storePage.store !== this.main.children[0]) {
       this.main.replaceChild(this.storePage.store, this.main.children[0]);
     }
+    const typeView = data.query.find((item) => item.type === 'view');
+    const typeViewText = typeView ? typeView.name[0] : 'grid';
     this.storePage.found.innerHTML = `Found ${data.products.length}`;
     this.storePage.search.reloadPage(data.query);
     this.storePage.sideBar.priceFilter.reloadPage(data);
     this.storePage.sideBar.stockFilter.reloadPage(data);
     this.storePage.sorter.reloadPage(data.query);
     this.storePage.sideBar.changeSelectedCategory(data);
-    this.storePage.createProducts(localStorage, data.products);
+    this.storePage.createProducts(localStorage, typeViewText, data.products);
   }
 
   clickProduct(cartInfo: TShoppingCart | string) {

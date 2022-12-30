@@ -63,6 +63,8 @@ export default class App {
     this.view.reloadPage(this.controller.reloadPage());
     this.view.productPage.buttonBuy.addEventListener('click', this.view.openModal.bind(this.view));
     this.view.shoppingCartPage.summary.buyButton.addEventListener('click', this.view.openModal.bind(this.view));
+    this.view.storePage.view.viewGrid.addEventListener('click', this.controller.clickGridView.bind(this.controller));
+    this.view.storePage.view.viewLine.addEventListener('click', this.controller.clickLineView.bind(this.controller));
     this.view.modal.overlay.addEventListener('click', this.modalControllers.closeModal);
     this.view.modal.creditCard.creditCardNumber.addEventListener(
       'input',

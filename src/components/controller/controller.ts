@@ -248,6 +248,18 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
+  clickGridView() {
+    this.query = this.query.filter((item) => item.type !== 'view');
+    this.query.push({ type: 'view', name: ['grid'] });
+    this.router.navigate(this.getQueryString());
+  }
+
+  clickLineView() {
+    this.query = this.query.filter((item) => item.type !== 'view');
+    this.query.push({ type: 'view', name: ['line'] });
+    this.router.navigate(this.getQueryString());
+  }
+
   static getSetTypes(data: TSlider, prod: TProduct[]) {
     const productsCopy = [...prod];
     FilterController.sortNumber(productsCopy, data.name);
