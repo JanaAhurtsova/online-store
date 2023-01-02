@@ -1,13 +1,13 @@
 import ProductCard from './productCard/productCard';
 import products from '../../data/products';
-import { TProduct, TShoppingCart, TSLider } from '../../../globalType';
+import { TProduct, TShoppingCart, TSLider, IStore } from '../../../globalType';
 import SideBar from './sidebar/sidebar';
 import Sorter from './sorter/sorter';
 import SearchFilter from './sidebar/searchFilter/searchFilter';
 import EmptyPage from '../emptyPage/emptyPage';
 import ViewType from './sidebar/viewType/viewType';
 
-export default class Store {
+export default class Store implements IStore {
   store: HTMLElement;
 
   productsData: ProductCard[];

@@ -1,12 +1,13 @@
 import ModalPayment from '../view/shoppingCart/modal/modal';
 import Message from '../view/shoppingCart/modal/message';
+import { IModalController } from '../../globalType';
 
 const mastercard: string = require('../../assets/svg/mastercard.svg');
 const visa: string = require('../../assets/svg/visa.svg');
 const maestro: string = require('../../assets/svg/Maestro.svg');
 const noLogo: string = require('../../assets/svg/nologo.svg');
 
-export default class ModalControllers {
+export default class ModalControllers implements IModalController {
   modal: ModalPayment;
 
   message: Message;
@@ -63,16 +64,16 @@ export default class ModalControllers {
     }
   }
 
-  private generateError(error: HTMLElement, text: string) {
+  private generateError(error: HTMLElement, text: string): HTMLElement {
     error.innerHTML = text;
     return error;
   }
 
-  isValidInput(input: HTMLInputElement) {
+  isValidInput(input: HTMLInputElement): boolean {
     let valid = false;
     const modal = document.querySelector('.modal') as HTMLFormElement;
-    const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
-    const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
+    const fields = modal.querySelectorAll('.input');
+    const errors = modal.querySelectorAll('.error');
     const regEl = [
       /^[^\s]{3,}( [^\s]{3,})+$/,
       /^\+(\d{9})/,
@@ -100,7 +101,7 @@ export default class ModalControllers {
     return valid;
   }
 
-  isExpirationValid(input: HTMLInputElement) {
+  isExpirationValid(input: HTMLInputElement): boolean {
     let valid = true;
     if (input.value.substring(0, 2) === '00' || +input.value.substring(0, 2) > 12) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Month');

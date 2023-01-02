@@ -65,13 +65,13 @@ export default class PersonalInfo {
     this.emailContainer = this.appendInput(this.emailContainer, 'input__field', this.email, this.errorEmail);
   }
 
-  private createInputNode(node: HTMLInputElement, placeholder: string, ...classes: string[]) {
+  private createInputNode(node: HTMLInputElement, placeholder: string, ...classes: string[]): HTMLInputElement {
     node.placeholder = placeholder;
     node.classList.add(...classes);
     return node;
   }
 
-  private appendInput(parent: HTMLElement, className: string, el: HTMLInputElement, error: HTMLElement) {
+  private appendInput(parent: HTMLElement, className: string, el: HTMLInputElement, error: HTMLElement): HTMLElement {
     parent.className = className;
     error.className = 'error';
     parent.append(el, error);

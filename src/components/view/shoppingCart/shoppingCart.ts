@@ -70,7 +70,7 @@ export default class ShoppingCart {
     let endIndex = localStorage.info.length;
     let pages = 1;
     let startIndex = 0;
-    const pageValue = page ? (page.name[0] as string) : '1';
+    const pageValue = page ? page.name[0] : '1';
 
     if (limitQuery) {
       const limit = Number(limitQuery.name[0]);
