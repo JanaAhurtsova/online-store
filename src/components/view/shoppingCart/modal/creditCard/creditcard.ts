@@ -109,14 +109,24 @@ export default class CreditCard {
     this.cvvContainer = this.appendInput(this.cvvContainer, 'input__field', this.cvvLabel, this.cvv, this.errorCvv);
   }
 
-  private createInputNode(node: HTMLInputElement, placeholder: string, id: string, ...classes: string[]) {
+  private createInputNode(
+    node: HTMLInputElement,
+    placeholder: string,
+    id: string,
+    ...classes: string[]
+  ): HTMLInputElement {
     node.placeholder = placeholder;
     node.id = id;
     node.classList.add(...classes);
     return node;
   }
 
-  private createLabelNode(node: HTMLLabelElement, forAtt: string, text: string, ...classes: string[]) {
+  private createLabelNode(
+    node: HTMLLabelElement,
+    forAtt: string,
+    text: string,
+    ...classes: string[]
+  ): HTMLLabelElement {
     node.setAttribute('for', forAtt);
     node.textContent = text;
     node.classList.add(...classes);
@@ -129,7 +139,7 @@ export default class CreditCard {
     label: HTMLLabelElement,
     input: HTMLInputElement,
     error: HTMLElement
-  ) {
+  ): HTMLElement {
     parent.className = className;
     error.className = 'error';
     parent.append(label, input, error);
