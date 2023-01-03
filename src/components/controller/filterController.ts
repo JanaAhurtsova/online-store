@@ -54,6 +54,10 @@ export default class FilterController {
     return result;
   }
 
+  static sum(a: number, b: number) {
+    return a + b;
+  }
+
   private static filterSlider(range: string[], type: 'price' | 'stock', res: TProduct[]) {
     return res.filter((item) => item[type] >= +range[0] && item[type] <= +range[1]);
   }
@@ -76,9 +80,6 @@ export default class FilterController {
     if (arg.length !== 0) {
       if (arg[0].type === 'products') {
         return arg[0].name[0];
-      }
-      if (query.length === 0) {
-        query = arg.slice(0);
       }
       let res: TProduct[] = [...products];
       arg.forEach((filter) => {
@@ -114,3 +115,5 @@ export default class FilterController {
     return { products, query };
   }
 }
+
+module.exports = FilterController.sum;

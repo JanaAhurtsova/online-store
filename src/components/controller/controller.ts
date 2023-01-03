@@ -54,6 +54,11 @@ export default class Controller {
     this.router.navigate('cart');
   }
 
+  openModalWindow(openModal: () => void) {
+    openModal();
+    this.openShoppingCart();
+  }
+
   openStartPage() {
     this.query = [];
     this.router.navigate('');
