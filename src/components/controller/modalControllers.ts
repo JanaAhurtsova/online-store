@@ -72,16 +72,16 @@ export default class ModalControllers implements IModalController {
   isValidInput(input: HTMLInputElement): boolean {
     let valid = false;
     const modal = document.querySelector('.modal') as HTMLFormElement;
-    const fields = modal.querySelectorAll('.input');
-    const errors = modal.querySelectorAll('.error');
+    const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
+    const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
-      /^[^\s]{3,}( [^\s]{3,})+$/,
-      /^\+(\d{9})/,
-      /^[^\s]{5,}( [^\s]{5,})( [^\s]{5,})+$/,
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/,
-      /[0-9]{2}\/{0,1}[0-9]{2}/,
-      /[0-9]{3}/,
+      /^[^\s]{3,}( [^\s]{3,})+$/, // full name
+      /^\+(\d{9})/, // phone
+      /^[^\s]{5,}( [^\s]{5,})( [^\s]{5,})+$/, // address
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // e-mail
+      /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/, // card
+      /[0-9]{2}\/{0,1}[0-9]{2}/, // expiration
+      /[0-9]{3}/, // cvv
     ] as RegExp[];
     for (let i = 0; i < fields.length; i += 1) {
       if (!fields[i].value.trim()) {
