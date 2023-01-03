@@ -13,7 +13,7 @@
 }
 
 .sidebar {
-  width: 25%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
@@ -23,6 +23,14 @@
 .copy {
   margin: 10px;
 }
+
+.copy:active{
+
+  &::after{
+    content: '✔';
+  }
+}
+
 
 .categories {
   &__title {
