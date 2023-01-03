@@ -16,7 +16,7 @@ export default class TypeFilter {
 
     this.init(titleText);
     this.append();
-    this.createFitlerItem(type);
+    this.createFilterItem(type);
   }
 
   init(titleText: string) {
@@ -30,7 +30,7 @@ export default class TypeFilter {
     this.filter.append(this.title);
   }
 
-  createFitlerItem(type: TFilter) {
+  createFilterItem(type: TFilter) {
     const categories = Array.from(new Set(products.map((product) => product[type])));
     categories.forEach((name) => {
       const category = new FilterItem(type, name);
