@@ -34,7 +34,7 @@ export default class SideBar {
   }
 
   init() {
-    this.sidebar.classList.add('sidebard');
+    this.sidebar.classList.add('sidebar');
   }
 
   append() {

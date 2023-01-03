@@ -29,7 +29,7 @@ export default class Controller {
     this.router
       .add(/products\/([\d]+?)\b/g)
       .add(/([\w]+?)=([^&]+)\b/g)
-      .add(/cart\b/g);
+      .add(/cart|([\w]+?)=([^&]+)\b/g);
   }
 
   clickProduct(event: Event): string | TShoppingCart {
@@ -42,7 +42,7 @@ export default class Controller {
         this.router.navigate(`products/${id}`);
       } else {
         this.changeShoppingCart(id);
-        const shoppingCart = JSON.parse(localStorage.getItem('prod') as string);
+        const shoppingCart: TShoppingCart = JSON.parse(localStorage.getItem('prod') as string);
         return shoppingCart;
       }
     }
@@ -50,6 +50,7 @@ export default class Controller {
   }
 
   openShoppingCart() {
+    this.query = this.query.filter((item) => item.type === 'cart');
     this.router.navigate('cart');
   }
 
@@ -63,12 +64,12 @@ export default class Controller {
     if (target.classList.contains('increase')) {
       const id = target.parentElement?.dataset.id as string;
       this.changeCount(id, 'increase');
-      this.router.navigate('cart');
+      this.router.navigate(this.getQueryString());
     }
     if (target.classList.contains('decrease')) {
       const id = target.parentElement?.dataset.id as string;
       this.changeCount(id, 'decrease');
-      this.router.navigate('cart');
+      this.router.navigate(this.getQueryString());
     }
   }
 
@@ -103,7 +104,6 @@ export default class Controller {
     if (prod) {
       data = JSON.parse(prod);
       const find = data.info.find((item) => item.product === +id);
-      console.log(find);
       if (find) {
         data.info = data.info.filter((item) => item.product !== +id);
         data.price -= product.price * find.count;
@@ -124,16 +124,8 @@ export default class Controller {
       this.query = arg.slice(0);
     }
     if (arg.length !== 0) {
-      switch (arg[0].type) {
-        case 'product': {
-          return arg[0].name[0];
-        }
-        case 'cart': {
-          return 'cart';
-        }
-        default: {
-          break;
-        }
+      if (arg[0].type === 'product') {
+        return arg[0].name[0];
       }
     }
     return FilterController.filter(arg, this.query);
@@ -144,7 +136,11 @@ export default class Controller {
     this.query.forEach((item) => {
       if (item.name.length === 0) return;
       if (!result) {
-        result += `${item.type}=${item.name.join('|')}`;
+        if (item.name[0]) {
+          result += `${item.type}=${item.name.join('|')}`;
+        } else {
+          result += `${item.type}`;
+        }
       } else {
         result += `&${item.type}=${item.name.join('|')}`;
       }
@@ -155,7 +151,6 @@ export default class Controller {
   resetFilter() {
     this.query = [];
     this.router.navigate('');
-    localStorage.clear();
   }
 
   clickFilter(event: Event) {
@@ -216,10 +211,64 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
+  shoppingInputPage(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const limit = this.query.find((item) => item.type === 'limit');
+    this.query = this.query.filter((item) => item.type !== 'page');
+    if (limit) {
+      this.query = this.query.filter((item) => item.type !== 'limit');
+    }
+    if (target.value && Number(target.value) > 0) {
+      this.query.push({ type: 'limit', name: [target.value] });
+    }
+    this.router.navigate(this.getQueryString());
+  }
+
+  changeShoppingPage(event: Event) {
+    const target = event.target as HTMLElement;
+    const page = this.query.find((item) => item.type === 'page');
+    const limit = this.query.find((item) => item.type === 'limit');
+    const value = Number(target.parentElement?.getAttribute('value') as string);
+    const prod = localStorage.getItem('prod');
+    let data: TShoppingCart;
+    if (prod && limit) {
+      data = JSON.parse(prod);
+      if (Number(value) - 1 >= 0 && Number(value) <= Math.ceil(Number(data.info.length) / Number(limit.name[0]))) {
+        if (page) {
+          this.query = this.query.filter((item) => item.type !== 'page');
+        }
+        if (target.classList.contains('arrow-left')) {
+          this.query.push({ type: 'page', name: [String(value - 1)] });
+        }
+        if (target.classList.contains('arrow-right')) {
+          this.query.push({ type: 'page', name: [String(value + 1)] });
+        }
+      }
+    }
+    this.router.navigate(this.getQueryString());
+  }
+
+  clickGridView() {
+    this.query = this.query.filter((item) => item.type !== 'view');
+    this.query.push({ type: 'view', name: ['grid'] });
+    this.router.navigate(this.getQueryString());
+  }
+
+  clickLineView() {
+    this.query = this.query.filter((item) => item.type !== 'view');
+    this.query.push({ type: 'view', name: ['line'] });
+    this.router.navigate(this.getQueryString());
+  }
+
   static getSetTypes(data: TSlider, prod: TProduct[]) {
     const productsCopy = [...prod];
     FilterController.sortNumber(productsCopy, data.name);
     const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
     return result;
+  }
+
+  openModalWindow(openModal: () => void) {
+    openModal();
+    this.openShoppingCart();
   }
 }

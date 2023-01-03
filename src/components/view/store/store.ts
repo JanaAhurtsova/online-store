@@ -1,11 +1,13 @@
 import ProductCard from './productCard/productCard';
 import products from '../../data/products';
-import { TProduct, TShoppingCart, TSLider } from '../../../globalType';
+import { TProduct, TShoppingCart, TSLider, IStore } from '../../../globalType';
 import SideBar from './sidebar/sidebar';
 import Sorter from './sorter/sorter';
 import SearchFilter from './sidebar/searchFilter/searchFilter';
+import EmptyPage from '../emptyPage/emptyPage';
+import ViewType from './sidebar/viewType/viewType';
 
-export default class Store {
+export default class Store implements IStore {
   store: HTMLElement;
 
   productsData: ProductCard[];
@@ -30,6 +32,10 @@ export default class Store {
 
   toolbar: HTMLDivElement;
 
+  emptyPage: EmptyPage;
+
+  view: ViewType;
+
   constructor() {
     this.store = document.createElement('section');
     this.products = document.createElement('div');
@@ -40,6 +46,8 @@ export default class Store {
     this.sideBar = new SideBar();
     this.sorter = new Sorter();
     this.search = new SearchFilter();
+    this.emptyPage = new EmptyPage('No products found');
+    this.view = new ViewType();
     this.data = products;
     this.productsData = [];
     this.selectedFilter = [];
@@ -53,6 +61,7 @@ export default class Store {
     this.title.classList.add('store__title');
     this.toolbar.classList.add('store__toolbar');
     this.shopContainer.classList.add('store__container');
+    this.products.classList.add('products');
   }
 
   append() {
@@ -61,24 +70,41 @@ export default class Store {
     this.toolbar.append(this.found);
     this.toolbar.append(this.sorter.sorter);
     this.toolbar.append(this.search.search);
+    this.toolbar.append(this.view.view);
     this.store.append(this.title);
     this.store.append(this.toolbar);
     this.store.append(this.shopContainer);
   }
 
-  createProducts(shoppingCart: TShoppingCart, data = products) {
+  createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
     this.data = data;
     this.products.innerHTML = '';
     this.productsData = [];
-    this.products.classList.add('products');
-    this.data.forEach((article) => {
-      const product = new ProductCard();
-      product.initProductCard(article);
-      this.productsData.push(product);
-      this.products.append(product.productView);
-    });
-    if (shoppingCart.info.length !== 0) {
-      this.shopCartInfo(shoppingCart);
+    if (typeView === 'grid') {
+      this.view.viewGrid.classList.add('selected');
+      this.view.viewLine.classList.remove('selected');
+    } else {
+      this.view.viewGrid.classList.remove('selected');
+      this.view.viewLine.classList.add('selected');
+    }
+    if (data.length === 0) {
+      this.products.append(this.emptyPage.emptyPage);
+    } else {
+      this.data.forEach((article) => {
+        const product = new ProductCard();
+        product.initProductCard(article);
+        if (typeView === 'line') {
+          product.product.description.classList.remove('product__description');
+          this.products.classList.add('line');
+        } else {
+          this.products.classList.remove('line');
+        }
+        this.productsData.push(product);
+        this.products.append(product.productView);
+      });
+      if (shoppingCart.info.length !== 0) {
+        this.shopCartInfo(shoppingCart);
+      }
     }
   }
 

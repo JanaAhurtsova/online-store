@@ -71,9 +71,13 @@ class Router {
           result = match
             .map((item) => item.split(/=|\//))
             .map((item) => {
+              let data = item[1];
+              if (item[1] === undefined) {
+                data = '';
+              }
               return {
                 type: item[0],
-                name: item[1]?.split('|'),
+                name: data.split('|'),
               };
             });
         }

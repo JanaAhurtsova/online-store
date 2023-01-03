@@ -135,5 +135,6 @@ export default class Summary {
     this.priceData = data.price;
     this.price.textContent = `Total: $ ${data.price}`;
     this.product.textContent = `Products: ${data.info.reduce((acc, item) => acc + item.count, 0)}`;
+    this.shopPromo();
   }
 }
