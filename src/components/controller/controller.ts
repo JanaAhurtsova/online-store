@@ -271,4 +271,9 @@ export default class Controller {
     const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
     return result;
   }
+
+  openModalWindow(openModal: () => void) {
+    openModal();
+    this.openShoppingCart();
+  }
 }
