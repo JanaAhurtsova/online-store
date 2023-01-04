@@ -54,11 +54,6 @@ export default class Controller {
     this.router.navigate('cart');
   }
 
-  openModalWindow(openModal: () => void) {
-    openModal();
-    this.openShoppingCart();
-  }
-
   openStartPage() {
     this.query = [];
     this.router.navigate('');
@@ -276,5 +271,10 @@ export default class Controller {
     FilterController.sortNumber(productsCopy, data.name);
     const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
     return result;
+  }
+
+  openModalWindow(openModal: () => void) {
+    openModal();
+    this.openShoppingCart();
   }
 }
