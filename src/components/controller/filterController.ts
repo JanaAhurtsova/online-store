@@ -54,10 +54,6 @@ export default class FilterController {
     return result;
   }
 
-  static sum(a: number, b: number) {
-    return a + b;
-  }
-
   private static filterSlider(range: string[], type: 'price' | 'stock', res: TProduct[]) {
     return res.filter((item) => item[type] >= +range[0] && item[type] <= +range[1]);
   }
@@ -116,4 +112,4 @@ export default class FilterController {
   }
 }
 
-module.exports = FilterController.sum;
+module.exports = FilterController;
