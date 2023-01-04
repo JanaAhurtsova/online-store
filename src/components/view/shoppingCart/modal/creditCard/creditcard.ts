@@ -51,11 +51,11 @@ export default class CreditCard {
     this.errorNumber = document.createElement('div');
     this.errorExpiration = document.createElement('div');
     this.errorCvv = document.createElement('div');
-    this.createPayment();
+    this.init();
     this.append();
   }
 
-  createPayment() {
+  init() {
     this.payment.classList.add('payment');
 
     this.paymentTitle.classList.add('payment__title');

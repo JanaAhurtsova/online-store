@@ -216,6 +216,12 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
+  changeImages(event: Event, mainImage: HTMLImageElement) {
+    const target = event.target as HTMLElement;
+    const imageLink = target.getAttribute('src') as string;
+    mainImage.setAttribute('src', imageLink);
+  }
+
   shoppingInputPage(event: Event) {
     const target = event.target as HTMLInputElement;
     const limit = this.query.find((item) => item.type === 'limit');
@@ -270,10 +276,5 @@ export default class Controller {
     FilterController.sortNumber(productsCopy, data.name);
     const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
     return result;
-  }
-
-  openModalWindow(openModal: () => void) {
-    openModal();
-    this.openShoppingCart();
   }
 }

@@ -62,9 +62,9 @@ export interface IModalController {
   setPaymentSystem(event: Event, el: HTMLElement): void;
   expirationSlash(event: Event): void;
   enterCvv(event: Event): void;
-  isValidInput(input: HTMLInputElement): boolean;
+  isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean;
   isExpirationValid(input: HTMLInputElement): boolean;
-  isValidForm(input: HTMLInputElement): void;
+  ordering(modal: HTMLFormElement, input: HTMLInputElement, cb: () => void): void;
 }
 
 export interface IStore {

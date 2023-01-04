@@ -111,5 +111,3 @@ export default class FilterController {
     return { products, query };
   }
 }
-
-module.exports = FilterController;

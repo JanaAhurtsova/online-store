@@ -19,8 +19,8 @@ export default class ModalControllers implements IModalController {
 
   closeModal(event: Event) {
     const target = event.target as HTMLElement;
-    if (target.classList.contains('overlay__modal')) {
-      document.querySelector('.overlay__modal')?.remove();
+    if (target.classList.contains('overlay')) {
+      document.querySelector('.overlay')?.remove();
     }
   }
 
@@ -69,9 +69,8 @@ export default class ModalControllers implements IModalController {
     return error;
   }
 
-  isValidInput(input: HTMLInputElement): boolean {
+  isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean {
     let valid = false;
-    const modal = document.querySelector('.modal') as HTMLFormElement;
     const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
@@ -118,12 +117,15 @@ export default class ModalControllers implements IModalController {
     return valid;
   }
 
-  isValidForm(input: HTMLInputElement) {
-    if (this.isValidInput(input)) {
-      const overlay = document.querySelector('.overlay__modal') as HTMLElement;
-      overlay.innerHTML = '';
-      overlay.append(this.message.generateMessage());
-      setTimeout(() => {}, 3000);
+  ordering(modal: HTMLFormElement, input: HTMLInputElement, openStore: () => void) {
+    if (this.isValidInput(modal, input)) {
+      document.body.lastChild?.remove();
+      document.body.append(this.message.overlay);
+      localStorage.setItem('prod', JSON.stringify({ price: 0, info: [] }));
+      setTimeout(() => {
+        document.body.lastChild?.remove();
+        openStore();
+      }, 3000);
     }
   }
 }

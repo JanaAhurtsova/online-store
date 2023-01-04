@@ -42,11 +42,11 @@ export default class PersonalInfo {
     this.errorPhone = document.createElement('div');
     this.errorAddress = document.createElement('div');
     this.errorEmail = document.createElement('div');
-    this.createPersonalInfo();
+    this.init();
     this.append();
   }
 
-  createPersonalInfo() {
+  init() {
     this.personalInfo.classList.add('personal_information');
 
     this.personalInfoTitle.classList.add('personal_information__title');

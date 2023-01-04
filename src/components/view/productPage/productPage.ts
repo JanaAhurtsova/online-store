@@ -90,8 +90,6 @@ export default class ProductPage {
     );
     this.productWrapper.append(this.descriptionWrapper);
     this.container.append(this.productPath, this.productWrapper);
-
-    this.bindEvent(this.mainImage);
   }
 
   openPage(product: TProduct, shoppingCart: TShoppingCart) {
@@ -107,6 +105,7 @@ export default class ProductPage {
     this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
     this.productStock.textContent = `Stock: ${product.stock}`;
     this.buttonBuy.setAttribute('data-type', 'buy');
+    this.buttonBuy.setAttribute('data-id', String(product.id));
     this.buttonCart.setAttribute('data-type', 'cart');
     this.buttonCart.setAttribute('data-id', String(product.id));
     this.imagesWrapper.append(this.mainImage, this.images);
@@ -124,14 +123,6 @@ export default class ProductPage {
       this.images.append(image);
     }
     return this.imagesWrapper;
-  }
-
-  bindEvent(mainImage: HTMLImageElement) {
-    this.images.addEventListener('click', (e: Event) => {
-      const target = e.target as HTMLElement;
-      const imageLink = target.getAttribute('src') as string;
-      mainImage.setAttribute('src', imageLink);
-    });
   }
 
   shopCartInfo(data: TShoppingCart) {

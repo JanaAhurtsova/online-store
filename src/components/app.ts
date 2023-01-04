@@ -28,6 +28,12 @@ export default class App {
       'click',
       (event: Event, data = this.controller.clickProduct(event)) => this.view.clickProduct(data)
     );
+    this.view.productPage.images.addEventListener(
+      'click',
+      (event: Event, mainImage = this.view.productPage.mainImage) => {
+        this.controller.changeImages(event, mainImage);
+      }
+    );
     this.view.header.logo.addEventListener('click', this.controller.openStartPage.bind(this.controller));
     this.view.header.shoppingCart.addEventListener('click', this.controller.openShoppingCart.bind(this.controller));
     this.view.storePage.sorter.sorter.addEventListener('change', (event: Event) => this.controller.sort(event));
@@ -84,9 +90,14 @@ export default class App {
     });
     this.view.modal.modal.addEventListener(
       'submit',
-      (event: Event, el = this.view.modal.creditCard.expiration): void => {
+      (
+        event: Event,
+        modal = this.view.modal.modal,
+        el = this.view.modal.creditCard.expiration,
+        openStore = this.controller.openStartPage.bind(this.controller)
+      ) => {
         event.preventDefault();
-        this.modalControllers.isValidForm(el);
+        this.modalControllers.ordering(modal, el, openStore);
       }
     );
   }

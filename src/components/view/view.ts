@@ -98,13 +98,20 @@ export default class View implements IView {
   openModal() {
     this.body.append(this.modal.overlay);
     this.removeErrors();
+    this.removeInputs();
   }
 
   private removeErrors() {
-    const modal = document.querySelector('.overlay__modal') as HTMLElement;
-    const errors = modal.querySelectorAll('.error');
+    const errors = this.modal.modal.querySelectorAll('.error');
     for (let i = 0; i < errors.length; i += 1) {
       errors[i].innerHTML = '';
+    }
+  }
+
+  private removeInputs() {
+    const inputs = this.modal.modal.querySelectorAll('.input');
+    for (let i = 0; i < inputs.length; i += 1) {
+      inputs[i].innerHTML = '';
     }
   }
 }
