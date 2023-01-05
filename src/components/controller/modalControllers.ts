@@ -70,13 +70,13 @@ export default class ModalControllers implements IModalController {
   }
 
   isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean {
-    let valid = false;
+    let valid = true;
     const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
-      /^[^\s]{3,}( [^\s]{3,})+$/, // full name
+      /^[a-z-]{3,}( [a-z-]{3,})+$/i, // full name
       /^\+(\d{9})/, // phone
-      /^[^\s]{5,}( [^\s]{5,})( [^\s]{5,})+$/, // address
+      /^[\w,-/]{5,}( [\w,-/]{5,})( [\w,-/]{5,})+$/i, // address
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // e-mail
       /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/, // card
       /[0-9]{2}\/{0,1}[0-9]{2}/, // expiration
@@ -93,7 +93,6 @@ export default class ModalControllers implements IModalController {
         valid = false;
       } else {
         this.success(fields[i].parentElement as HTMLElement);
-        valid = true;
       }
     }
     this.isExpirationValid(input);
@@ -101,20 +100,25 @@ export default class ModalControllers implements IModalController {
   }
 
   isExpirationValid(input: HTMLInputElement): boolean {
-    let valid = true;
+    if (!input.value.trim()) {
+      const error = this.generateError(input.nextElementSibling as HTMLElement, 'Expiration cannot be blank');
+      (input.parentElement as HTMLElement).append(error);
+      return false;
+    }
+
     if (input.value.substring(0, 2) === '00' || +input.value.substring(0, 2) > 12) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Month');
       (input.parentElement as HTMLElement).append(error);
-      valid = false;
+      return false;
     }
 
-    if (+input.value.substring(2, 5) < 23) {
+    if (+input.value.substring(3, 5) < 23) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Year');
       (input.parentElement as HTMLElement).append(error);
-      valid = false;
+      return false;
     }
 
-    return valid;
+    return true;
   }
 
   ordering(modal: HTMLFormElement, input: HTMLInputElement, openStore: () => void) {
