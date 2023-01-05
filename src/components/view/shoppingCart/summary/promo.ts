@@ -14,6 +14,7 @@ export default class Promo {
   }
 
   init() {
+    this.promo.classList.add('promo');
     this.promoButton.classList.add('button');
   }
 

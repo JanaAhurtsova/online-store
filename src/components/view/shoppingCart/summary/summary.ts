@@ -51,6 +51,7 @@ export default class Summary {
   }
 
   init() {
+    this.title.classList.add('summary');
     this.title.textContent = 'Summary';
     this.buyButton.textContent = 'Buy Now';
     this.buyButton.classList.add('button');
@@ -126,8 +127,8 @@ export default class Summary {
       this.price,
       this.selectedPromo,
       this.promoInput.search,
-      this.promo.promo,
       this.promoText,
+      this.promo.promo,
       this.buyButton
     );
   }

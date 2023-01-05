@@ -1,0 +1,15 @@
+.shop-cart__summary {
+  @include flex($justify: flex-start);
+  flex-direction: column;
+  width: 25%;
+  padding: 1rem;
+  gap: 0.8rem;
+}
+
+.summary {
+  color: $color-title;
+}
+
+.discount {
+  font-size: 1.3rem;
+}
