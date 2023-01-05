@@ -7,6 +7,8 @@ import ShoppingCart from './shoppingCart/shoppingCart';
 import ModalPayment from './shoppingCart/modal/modal';
 import ErrorPage from './errorPage/error';
 
+const noLogo: string = require('../../assets/svg/nologo.svg');
+
 export default class View implements IView {
   header: Header;
 
@@ -112,6 +114,7 @@ export default class View implements IView {
     this.body.append(this.modal.overlay);
     this.removeErrors();
     this.removeInputs();
+    this.modal.creditCard.paymentSystem.style.backgroundImage = `url(${noLogo})`;
   }
 
   private removeErrors() {
