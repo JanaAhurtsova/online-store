@@ -5,7 +5,7 @@ export default class ProductPage {
 
   numberPages: HTMLDivElement;
 
-  numberPagesText: HTMLSpanElement;
+  numberPagesText: HTMLLabelElement;
 
   numberPagesInput: HTMLInputElement;
 
@@ -23,7 +23,7 @@ export default class ProductPage {
     this.productPage = document.createElement('div');
     this.title = document.createElement('span');
     this.numberPages = document.createElement('div');
-    this.numberPagesText = document.createElement('span');
+    this.numberPagesText = document.createElement('label');
     this.numberPagesInput = document.createElement('input');
     this.switcher = document.createElement('div');
     this.switcherTitle = document.createElement('span');

@@ -6,22 +6,21 @@
   @media (max-width: 950px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .line{
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .sidebar {
   width: 20%;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-}
-
-.reset,
-.copy {
-  margin: 10px;
+  margin-left: 1rem;
 }
 
 .copy:active{
@@ -31,10 +30,9 @@
   }
 }
 
-
 .categories {
   &__title {
-    margin-top: 10px;
+    margin-top: 1rem;
     color: $color-title;
     font-weight: 600;
     font-size: 1.8rem;
@@ -69,13 +67,15 @@
     align-items: center;
     justify-content: space-around;
     width: 75%;
+    font-size: 1.4rem;
     align-self: end;
   }
 
   &__title {
     color: $color-title;
-    font-size: 5rem;
-    margin: 20px 0 80px 0;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 1rem 0 3rem;
   }
 
   &__container {
@@ -93,7 +93,12 @@
   width: fit-content;
   border: none;
   height: 35px;
+  width: 30%;
+  // font-size: 1.4rem;
   cursor: pointer;
+  & option {
+    font-size: 1.3rem;
+  }
 }
 
 .slider {
@@ -142,14 +147,25 @@
   justify-content: space-between;
 }
 
+.range__title {
+  margin: 1rem 0 .5rem;
+  color: $color-title;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 .search__input {
   border: 1px solid $color-brand;
   border-radius: 10px;
   text-align: center;
+  &::placeholder {
+    font-size: 1.3rem;
+  }
 }
 
 .view {
   display: flex;
+  // font-size: 1.4rem;
 
   &__grid,
   &__line {
@@ -166,5 +182,9 @@
 
   .selected {
     box-shadow: $color-brand 0px 2px 8px 0px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }

@@ -1,24 +1,29 @@
 .shop-cart {
-  display: flex;
+  @include flex($align: flex-start);
   width: 100%;
-  justify-content: space-between;
 
   &__products {
-    width: 65%;
+    @include flex($align: stretch);
+    flex-direction: column;
+    width: 70%;
     padding: 10px;
+    gap: .5rem;
 
     .product {
-      margin: 4px;
+      padding: 1rem;
       border-radius: 16px;
       border: 1px solid $color-brand;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
+      &__title,
+      &__price {
+        font-size: 1.6rem;
+      }
+
       &__img {
-        border-radius: 20px;
-        border: 1px solid white;
-        width: 35%;
+        width: 25%;
       }
 
       .rating__text {
@@ -42,18 +47,19 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin: 1rem 0;
       }
 
       &__increase,
       &__decrease {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         display: inline-block;
 
         background: linear-gradient($color-brand, $color-brand) top left,
           linear-gradient($color-brand, $color-brand) top right, linear-gradient($color-brand, $color-brand) bottom left,
           linear-gradient($color-brand, $color-brand) bottom right;
-        background-size: calc(50% - 1px) calc(50% - 1px);
+        background-size: calc(58% - 1px) calc(50% - 1px);
         background-repeat: no-repeat;
         border: 11px solid $color-brand;
         box-sizing: border-box;
@@ -61,7 +67,6 @@
       }
 
       &__decrease {
-        background-size: calc(58% - 1px) calc(50% - 1px);
         border: 12px solid $color-brand;
       }
     }
@@ -89,12 +94,10 @@
 }
 
 .pages {
-  display: flex;
-  justify-content: space-between;
+  @include flex;
   
   &__switcher {
-    display: flex;
-    align-items: center;
+    @include flex;
 
     &__text {
       min-width: 30px;
@@ -115,6 +118,18 @@
       background: url('../assets/svg/arrow-left.svg') center center/contain no-repeat;
     }
   }
+  & .search__input {
+    margin-left: .5rem;
+  }
 }
 
+.shop-cart__summary {
+  @include flex($align: stretch, $justify: flex-start);
+  flex-direction: column;
+  padding: 1rem;
+  gap: .8rem;
+}
 
+.discount {
+  font-size: 1.3rem;
+}

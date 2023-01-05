@@ -109,9 +109,9 @@ export default class View implements IView {
   }
 
   private removeInputs() {
-    const inputs = this.modal.modal.querySelectorAll('.input');
+    const inputs = this.modal.modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
     for (let i = 0; i < inputs.length; i += 1) {
-      inputs[i].innerHTML = '';
+      inputs[i].value = '';
     }
   }
 }

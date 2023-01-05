@@ -30,6 +30,10 @@ export default class Controller {
       .add(/products\/([\d]+?)\b/g)
       .add(/([\w]+?)=([^&]+)\b/g)
       .add(/cart|([\w]+?)=([^&]+)\b/g);
+    // if (!localStorage.getItem('prod')) {
+    //   const data = { price: 0, info: [] };
+    //   localStorage.setItem('prod', JSON.stringify(data));
+    // }
   }
 
   clickProduct(event: Event): string | TShoppingCart {
@@ -52,6 +56,11 @@ export default class Controller {
   openShoppingCart() {
     this.query = this.query.filter((item) => item.type === 'cart');
     this.router.navigate('cart');
+  }
+
+  openModalWindow(openModal: () => void) {
+    openModal();
+    this.openShoppingCart();
   }
 
   openStartPage() {
@@ -271,10 +280,5 @@ export default class Controller {
     FilterController.sortNumber(productsCopy, data.name);
     const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
     return result;
-  }
-
-  openModalWindow(openModal: () => void) {
-    openModal();
-    this.openShoppingCart();
   }
 }

@@ -54,6 +54,7 @@ export default class Summary {
     this.title.textContent = 'Summary';
     this.buyButton.textContent = 'Buy Now';
     this.buyButton.classList.add('button');
+    this.promoText.className = 'discount';
     this.promoText.textContent = `Promo : 'RS', 'EPM'`;
     this.promoInput.input.setAttribute('placeholder', 'Enter promo code');
     this.promo.promo.classList.add('invisible');

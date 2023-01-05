@@ -30,7 +30,18 @@
   }
 }
 
-//product page
+// store
+.reset,
+.copy {
+  width:55%;
+  font-size: 1.3rem;
+}
+
+.reset {
+  margin-bottom: 1rem;
+}
+
+// product page
 .buttons {
   @include flex($justify: flex-start);
   margin: 1em 0;
