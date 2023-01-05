@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
-import Header from './header';
-import { TShoppingCart } from '../../../globalType';
+import Header from '../src/components/view/header/header';
+import { TShoppingCart } from '../src/globalType';
 
 describe('header module', () => {
   const spyAppend = jest.spyOn(Header.prototype, 'append');

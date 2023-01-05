@@ -1,4 +1,4 @@
-.overlay__modal {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@
 .payment {
   @include flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -40,6 +40,7 @@
   padding: 0 0.75rem;
   border: 0.1rem solid $color-border;
   background-color: transparent;
+  text-transform: none;
   &::placeholder {
     font-size: 1.3rem;
   }

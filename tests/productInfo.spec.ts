@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
-import { TProduct } from '../../../globalType';
-import ProductInfo from './productInfo';
+import { TProduct } from '../src/globalType';
+import ProductInfo from '../src/components/view/productInfo/productInfo';
 
 describe('productInfo module', () => {
   let productInfo: ProductInfo;

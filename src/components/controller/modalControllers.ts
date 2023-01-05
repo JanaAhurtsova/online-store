@@ -1,12 +1,13 @@
 import ModalPayment from '../view/shoppingCart/modal/modal';
 import Message from '../view/shoppingCart/modal/message';
+import { IModalController } from '../../globalType';
 
 const mastercard: string = require('../../assets/svg/mastercard.svg');
 const visa: string = require('../../assets/svg/visa.svg');
 const maestro: string = require('../../assets/svg/Maestro.svg');
 const noLogo: string = require('../../assets/svg/nologo.svg');
 
-export default class ModalControllers {
+export default class ModalControllers implements IModalController {
   modal: ModalPayment;
 
   message: Message;
@@ -18,8 +19,8 @@ export default class ModalControllers {
 
   closeModal(event: Event) {
     const target = event.target as HTMLElement;
-    if (target.classList.contains('overlay__modal')) {
-      document.querySelector('.overlay__modal')?.remove();
+    if (target.classList.contains('overlay')) {
+      document.querySelector('.overlay')?.remove();
     }
   }
 
@@ -63,24 +64,23 @@ export default class ModalControllers {
     }
   }
 
-  private generateError(error: HTMLElement, text: string) {
+  private generateError(error: HTMLElement, text: string): HTMLElement {
     error.innerHTML = text;
     return error;
   }
 
-  isValidInput(input: HTMLInputElement) {
+  isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean {
     let valid = false;
-    const modal = document.querySelector('.modal') as HTMLFormElement;
     const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
-      /^[^\s]{3,}( [^\s]{3,})+$/,
-      /^\+(\d{9})/,
-      /^[^\s]{5,}( [^\s]{5,})( [^\s]{5,})+$/,
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/,
-      /[0-9]{2}\/{0,1}[0-9]{2}/,
-      /[0-9]{3}/,
+      /^[^\s]{3,}( [^\s]{3,})+$/, // full name
+      /^\+(\d{9})/, // phone
+      /^[^\s]{5,}( [^\s]{5,})( [^\s]{5,})+$/, // address
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // e-mail
+      /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/, // card
+      /[0-9]{2}\/{0,1}[0-9]{2}/, // expiration
+      /[0-9]{3}/, // cvv
     ] as RegExp[];
     for (let i = 0; i < fields.length; i += 1) {
       if (!fields[i].value.trim()) {
@@ -100,7 +100,7 @@ export default class ModalControllers {
     return valid;
   }
 
-  isExpirationValid(input: HTMLInputElement) {
+  isExpirationValid(input: HTMLInputElement): boolean {
     let valid = true;
     if (input.value.substring(0, 2) === '00' || +input.value.substring(0, 2) > 12) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Month');
@@ -117,12 +117,15 @@ export default class ModalControllers {
     return valid;
   }
 
-  isValidForm(input: HTMLInputElement) {
-    if (this.isValidInput(input)) {
-      const overlay = document.querySelector('.overlay__modal') as HTMLElement;
-      overlay.innerHTML = '';
-      overlay.append(this.message.generateMessage());
-      setTimeout(() => {}, 3000);
+  ordering(modal: HTMLFormElement, input: HTMLInputElement, openStore: () => void) {
+    if (this.isValidInput(modal, input)) {
+      document.body.lastChild?.remove();
+      document.body.append(this.message.overlay);
+      localStorage.setItem('prod', JSON.stringify({ price: 0, info: [] }));
+      setTimeout(() => {
+        document.body.lastChild?.remove();
+        openStore();
+      }, 3000);
     }
   }
 }

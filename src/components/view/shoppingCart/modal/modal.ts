@@ -18,12 +18,12 @@ export default class ModalPayment {
     this.submit = document.createElement('input');
     this.personalInfo = new PersonalInfo();
     this.creditCard = new CreditCard();
-    this.buildModal();
+    this.init();
     this.append();
   }
 
-  buildModal() {
-    this.overlay.classList.add('overlay__modal');
+  init() {
+    this.overlay.classList.add('overlay');
     this.modal.classList.add('modal');
     this.submit.classList.add('button', 'submit');
     this.submit.type = 'submit';

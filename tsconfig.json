@@ -9,5 +9,5 @@
     "noImplicitAny": true,
     "moduleResolution": "node"
   },
-  "include": ["src", "src/module.d.ts"]
+  "include": ["src", "src/module.d.ts", "tests/productPage.test.ts", "tests/productInfo.spec.ts", "tests/headet.spec.ts", "tests/credit.test.ts"]
 }

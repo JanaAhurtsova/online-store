@@ -30,6 +30,10 @@ export default class Controller {
       .add(/products\/([\d]+?)\b/g)
       .add(/([\w]+?)=([^&]+)\b/g)
       .add(/cart|([\w]+?)=([^&]+)\b/g);
+    // if (!localStorage.getItem('prod')) {
+    //   const data = { price: 0, info: [] };
+    //   localStorage.setItem('prod', JSON.stringify(data));
+    // }
   }
 
   clickProduct(event: Event): string | TShoppingCart {
@@ -223,6 +227,12 @@ export default class Controller {
       this.query.push({ type: 'search', name: [target.value] });
     }
     this.router.navigate(this.getQueryString());
+  }
+
+  changeImages(event: Event, mainImage: HTMLImageElement) {
+    const target = event.target as HTMLElement;
+    const imageLink = target.getAttribute('src') as string;
+    mainImage.setAttribute('src', imageLink);
   }
 
   shoppingInputPage(event: Event) {

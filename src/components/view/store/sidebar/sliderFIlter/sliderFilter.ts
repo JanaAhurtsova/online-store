@@ -1,14 +1,12 @@
-import { TQuery, TReloadPage, TSLider, TSliderFilter } from '../../../../../globalType';
+import { TReloadPage, TSLider, TSliderFilter } from '../../../../../globalType';
 import Controller from '../../../../controller/controller';
 import products from '../../../../data/products';
 import InputSlider from './inputSlider';
 
 export default class SliderFilter {
-  title: HTMLHeadingElement;
-
   range: HTMLDivElement;
 
-  rangeText: HTMLSpanElement;
+  rangeTitle: HTMLSpanElement;
 
   slider: HTMLDivElement;
 
@@ -22,9 +20,8 @@ export default class SliderFilter {
 
   constructor(text: TSliderFilter) {
     this.slider = document.createElement('div');
-    this.title = document.createElement('h2');
     this.range = document.createElement('div');
-    this.rangeText = document.createElement('span');
+    this.rangeTitle = document.createElement('h2');
     this.rangeContainer = document.createElement('div');
     this.rangeMinText = document.createElement('span');
     this.rangeMaxText = document.createElement('span');
@@ -34,16 +31,15 @@ export default class SliderFilter {
   }
 
   init(text: string) {
-    this.title.innerHTML = `Filter by ${text}`;
-    this.rangeText.innerHTML = `${text}: `;
+    this.rangeTitle.className = 'range__title';
+    this.rangeTitle.textContent = text;
     this.rangeContainer.classList.add('range__container');
   }
 
   append() {
-    this.slider.append(this.title);
     this.rangeContainer.append(this.rangeMinText);
     this.rangeContainer.append(this.rangeMaxText);
-    this.range.append(this.rangeText);
+    this.range.append(this.rangeTitle);
     this.range.append(this.rangeContainer);
     this.range.append(this.sliderInputs.inputs);
     this.slider.append(this.range);
@@ -54,7 +50,6 @@ export default class SliderFilter {
   }
 
   reloadPage(info: TReloadPage) {
-    const data = info.query.find((item) => item.type === this.sliderInputs.name) as TQuery;
     const infoProduct = Controller.getSetTypes(this.sliderInputs.filterRange(), info.products);
     if (infoProduct.length === 0) {
       this.sliderInputs.lower.value = '0';
@@ -62,11 +57,6 @@ export default class SliderFilter {
       this.rangeMinText.innerHTML = `not found`;
       this.rangeMaxText.innerHTML = ``;
       return;
-    }
-    if (data) {
-      this.title.classList.add('selected-filter');
-    } else {
-      this.title.classList.remove('selected-filter');
     }
     const minValue = +infoProduct[0];
     const maxValue = +infoProduct[infoProduct.length - 1];

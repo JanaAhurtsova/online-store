@@ -51,9 +51,11 @@ export default class Summary {
   }
 
   init() {
+    this.title.classList.add('summary');
     this.title.textContent = 'Summary';
     this.buyButton.textContent = 'Buy Now';
     this.buyButton.classList.add('button');
+    this.promoText.className = 'discount';
     this.promoText.textContent = `Promo : 'RS', 'EPM'`;
     this.promoInput.input.setAttribute('placeholder', 'Enter promo code');
     this.promo.promo.classList.add('invisible');
@@ -125,8 +127,8 @@ export default class Summary {
       this.price,
       this.selectedPromo,
       this.promoInput.search,
-      this.promo.promo,
       this.promoText,
+      this.promo.promo,
       this.buyButton
     );
   }

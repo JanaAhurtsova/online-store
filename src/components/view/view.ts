@@ -1,4 +1,4 @@
-import { TReloadPage, TShoppingCart } from '../../globalType';
+import { TReloadPage, TShoppingCart, IView } from '../../globalType';
 import Header from './header/header';
 import Store from './store/store';
 import ProductPage from './productPage/productPage';
@@ -6,7 +6,7 @@ import products from '../data/products';
 import ShoppingCart from './shoppingCart/shoppingCart';
 import ModalPayment from './shoppingCart/modal/modal';
 
-export default class View {
+export default class View implements IView {
   header: Header;
 
   body: HTMLElement;
@@ -97,5 +97,21 @@ export default class View {
 
   openModal() {
     this.body.append(this.modal.overlay);
+    this.removeErrors();
+    this.removeInputs();
+  }
+
+  private removeErrors() {
+    const errors = this.modal.modal.querySelectorAll('.error');
+    for (let i = 0; i < errors.length; i += 1) {
+      errors[i].innerHTML = '';
+    }
+  }
+
+  private removeInputs() {
+    const inputs = this.modal.modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
+    for (let i = 0; i < inputs.length; i += 1) {
+      inputs[i].value = '';
+    }
   }
 }
