@@ -55,6 +55,7 @@ export default class ShoppingCart {
     this.emptyCart.emptyPage.classList.add('invisible');
     this.dataView.classList.remove('invisible');
     this.productItems.innerHTML = '';
+    console.log(localStorage);
     if (localStorage.info.length !== 0) {
       this.initProductPage(localStorage, data);
       this.summary.initSummary(localStorage);

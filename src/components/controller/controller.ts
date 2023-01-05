@@ -30,10 +30,6 @@ export default class Controller {
       .add(/products\/([\d]+?)\b/g)
       .add(/([\w]+?)=([^&]+)\b/g)
       .add(/cart|([\w]+?)=([^&]+)\b/g);
-    // if (!localStorage.getItem('prod')) {
-    //   const data = { price: 0, info: [] };
-    //   localStorage.setItem('prod', JSON.stringify(data));
-    // }
   }
 
   clickProduct(event: Event): string | TShoppingCart {
@@ -61,8 +57,12 @@ export default class Controller {
   openModalWindow(event: Event, openModal: () => void) {
     const target = event.target as HTMLElement;
     const { id } = target.dataset;
+    let shoppingCart: TShoppingCart = { price: 0, info: [] };
     if (id) {
-      const shoppingCart: TShoppingCart = JSON.parse(localStorage.getItem('prod') as string);
+      const localInfo: TShoppingCart = JSON.parse(localStorage.getItem('prod') as string);
+      if (localInfo) {
+        shoppingCart = localInfo;
+      }
       const info = shoppingCart.info.find((item) => item.product === Number(id));
       if (!info) {
         shoppingCart.price += (products.find((item) => item.id === Number(id)) as TProduct).price;

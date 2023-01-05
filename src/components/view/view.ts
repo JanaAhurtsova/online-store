@@ -38,7 +38,7 @@ export default class View implements IView {
   }
 
   getLocalStorageDate() {
-    let shoppingCart: TShoppingCart = { price: 0, info: [{ count: 0, product: 0 }] };
+    let shoppingCart: TShoppingCart = { price: 0, info: [] };
     const localStorageInfo = localStorage.getItem('prod');
     if (localStorageInfo) {
       shoppingCart = JSON.parse(localStorageInfo);

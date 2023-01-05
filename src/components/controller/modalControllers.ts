@@ -121,7 +121,7 @@ export default class ModalControllers implements IModalController {
     if (this.isValidInput(modal, input)) {
       document.body.lastChild?.remove();
       document.body.append(this.message.overlay);
-      localStorage.setItem('prod', JSON.stringify({ price: 0, info: [] }));
+      localStorage.removeItem('prod');
       setTimeout(() => {
         document.body.lastChild?.remove();
         openStore();
