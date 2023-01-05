@@ -29,7 +29,7 @@ export default class Controller {
     this.router
       .add(/products\/([\d]+?)\b/g)
       .add(/([\w]+?)=([^&]+)\b/g)
-      .add(/cart|([\w]+?)=([^&]+)\b/g);
+      .add(/cart\b|([\w]+?)=([^&]+)\b/g);
   }
 
   clickProduct(event: Event): string | TShoppingCart {
@@ -142,9 +142,6 @@ export default class Controller {
     const arg = this.router.splitURL();
     if (this.query.length === 0 || arg.length === 0) {
       this.query = arg.slice(0);
-    }
-    if (arg.length !== 0 && arg[0].type === 'product') {
-      return arg[0].name[0];
     }
     return FilterController.filter(arg, this.query);
   }

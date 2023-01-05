@@ -5,6 +5,7 @@ import ProductPage from './productPage/productPage';
 import products from '../data/products';
 import ShoppingCart from './shoppingCart/shoppingCart';
 import ModalPayment from './shoppingCart/modal/modal';
+import ErrorPage from './errorPage/error';
 
 export default class View implements IView {
   header: Header;
@@ -21,6 +22,8 @@ export default class View implements IView {
 
   modal: ModalPayment;
 
+  errorPage: ErrorPage;
+
   constructor() {
     this.body = document.body;
     this.main = document.querySelector('.root') as HTMLElement;
@@ -29,6 +32,7 @@ export default class View implements IView {
     this.productPage = new ProductPage();
     this.shoppingCartPage = new ShoppingCart();
     this.modal = new ModalPayment();
+    this.errorPage = new ErrorPage();
     this.append();
   }
 
@@ -49,13 +53,21 @@ export default class View implements IView {
   reloadPage(data: TReloadPage | string) {
     const localStorage = this.getLocalStorageDate();
     if (typeof data === 'string') {
-      this.openProductPage(data, localStorage);
+      if (data === 'error') {
+        this.showErrorPage();
+      } else {
+        this.openProductPage(data, localStorage);
+      }
     } else if (data.query.length === 0 || data.query[0].type !== 'cart') {
       this.openShopPage(data, localStorage);
     } else {
       this.openShoppingCartPage(localStorage, data);
     }
     this.header.changePrice(localStorage);
+  }
+
+  showErrorPage() {
+    this.main.replaceChild(this.errorPage.error, this.main.children[0]);
   }
 
   openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
@@ -73,6 +85,7 @@ export default class View implements IView {
   }
 
   openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
+    console.log(data);
     if (this.storePage.store !== this.main.children[0]) {
       this.main.replaceChild(this.storePage.store, this.main.children[0]);
     }

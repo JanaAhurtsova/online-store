@@ -74,6 +74,7 @@ export default class FilterController {
 
   static filter(arg: TQuery[], query: TQuery[]) {
     console.log(arg);
+    const { hash } = window.location;
     if (arg.length !== 0) {
       if (arg[0].type === 'products') {
         return arg[0].name[0];
@@ -104,16 +105,20 @@ export default class FilterController {
           }
           case 'cart':
           case 'page':
-          case 'limit': {
+          case 'limit':
+          case 'view': {
             break;
           }
           default: {
-            console.log('error');
+            query = [];
             break;
           }
         }
       });
       return { products: res, query };
+    }
+    if (hash !== '') {
+      return 'error';
     }
     return { products, query };
   }
