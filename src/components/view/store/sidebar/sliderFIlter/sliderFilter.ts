@@ -57,7 +57,6 @@ export default class SliderFilter {
     const data = info.query.find((item) => item.type === this.sliderInputs.name) as TQuery;
     const infoProduct = Controller.getSetTypes(this.sliderInputs.filterRange(), info.products);
     if (infoProduct.length === 0) {
-      console.log(infoProduct.length);
       this.sliderInputs.lower.value = '0';
       this.sliderInputs.upper.value = this.sliderInputs.getRangeLength();
       this.rangeMinText.innerHTML = `not found`;

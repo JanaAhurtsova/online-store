@@ -6,7 +6,7 @@ describe('productInfo module', () => {
   let productInfo: ProductInfo;
   let data: TProduct;
   const spyAppend = jest.spyOn(ProductInfo.prototype, 'append');
-  const spyInit = jest.spyOn(ProductInfo.prototype, 'init');  
+  const spyInit = jest.spyOn(ProductInfo.prototype, 'init');
 
   beforeEach(() => {
     productInfo = new ProductInfo();
@@ -30,10 +30,10 @@ describe('productInfo module', () => {
     };
   });
 
-  test('should init product', ()=>{
+  test('should init product', () => {
     expect(spyInit).toBeCalled();
     expect(spyAppend).toBeCalled();
-  })
+  });
 
   test('should add data to product', () => {
     const spyRatting = jest.spyOn(productInfo.rating, 'initRating');

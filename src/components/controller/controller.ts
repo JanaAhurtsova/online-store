@@ -54,7 +54,18 @@ export default class Controller {
     this.router.navigate('cart');
   }
 
-  openModalWindow(openModal: () => void) {
+  openModalWindow(event: Event, openModal: () => void) {
+    const target = event.target as HTMLElement;
+    const { id } = target.dataset;
+    if (id) {
+      const shoppingCart: TShoppingCart = JSON.parse(localStorage.getItem('prod') as string);
+      const info = shoppingCart.info.find((item) => item.product === Number(id));
+      if (!info) {
+        shoppingCart.price += (products.find((item) => item.id === Number(id)) as TProduct).price;
+        shoppingCart.info.push({ count: 1, product: +id });
+        localStorage.setItem('prod', JSON.stringify(shoppingCart));
+      }
+    }
     openModal();
     this.openShoppingCart();
   }
@@ -125,13 +136,11 @@ export default class Controller {
 
   reloadPage(): TReloadPage | string {
     const arg = this.router.splitURL();
-    if (this.query.length === 0) {
+    if (this.query.length === 0 || arg.length === 0) {
       this.query = arg.slice(0);
     }
-    if (arg.length !== 0) {
-      if (arg[0].type === 'product') {
-        return arg[0].name[0];
-      }
+    if (arg.length !== 0 && arg[0].type === 'product') {
+      return arg[0].name[0];
     }
     return FilterController.filter(arg, this.query);
   }

@@ -107,6 +107,7 @@ export default class ProductPage {
     this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
     this.productStock.textContent = `Stock: ${product.stock}`;
     this.buttonBuy.setAttribute('data-type', 'buy');
+    this.buttonBuy.setAttribute('data-id', String(product.id));
     this.buttonCart.setAttribute('data-type', 'cart');
     this.buttonCart.setAttribute('data-id', String(product.id));
     this.imagesWrapper.append(this.mainImage, this.images);

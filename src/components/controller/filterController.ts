@@ -73,6 +73,7 @@ export default class FilterController {
   }
 
   static filter(arg: TQuery[], query: TQuery[]) {
+    console.log(arg);
     if (arg.length !== 0) {
       if (arg[0].type === 'products') {
         return arg[0].name[0];
@@ -101,7 +102,13 @@ export default class FilterController {
             res = this.sortProduct(filter.name[0], res);
             break;
           }
+          case 'cart':
+          case 'page':
+          case 'limit': {
+            break;
+          }
           default: {
+            console.log('error');
             break;
           }
         }
@@ -111,5 +118,3 @@ export default class FilterController {
     return { products, query };
   }
 }
-
-module.exports = FilterController;

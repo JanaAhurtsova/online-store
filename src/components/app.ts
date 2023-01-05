@@ -61,11 +61,11 @@ export default class App {
       this.controller.changeShoppingPage(event);
     });
     this.view.reloadPage(this.controller.reloadPage());
-    this.view.shoppingCartPage.summary.buyButton.addEventListener('click', () =>
-      this.controller.openModalWindow(this.view.openModal.bind(this.view))
+    this.view.shoppingCartPage.summary.buyButton.addEventListener('click', (event: Event) =>
+      this.controller.openModalWindow(event, this.view.openModal.bind(this.view))
     );
-    this.view.productPage.buttonBuy.addEventListener('click', () =>
-      this.controller.openModalWindow(this.view.openModal.bind(this.view))
+    this.view.productPage.buttonBuy.addEventListener('click', (event: Event) =>
+      this.controller.openModalWindow(event, this.view.openModal.bind(this.view))
     );
     this.view.storePage.view.viewGrid.addEventListener('click', this.controller.clickGridView.bind(this.controller));
     this.view.storePage.view.viewLine.addEventListener('click', this.controller.clickLineView.bind(this.controller));
