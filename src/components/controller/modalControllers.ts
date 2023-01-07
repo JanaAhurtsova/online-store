@@ -112,17 +112,13 @@ export default class ModalControllers implements IModalController {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Month');
       (input.parentElement as HTMLElement).append(error);
       return false;
-      return false;
     }
 
     if (+input.value.substring(3, 5) < 23) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Year');
       (input.parentElement as HTMLElement).append(error);
       return false;
-      return false;
     }
-
-    return true;
     return true;
   }
 

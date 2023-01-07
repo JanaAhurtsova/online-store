@@ -9,8 +9,6 @@ import ErrorPage from './errorPage/error';
 
 const noLogo: string = require('../../assets/svg/nologo.svg');
 
-const noLogo: string = require('../../assets/svg/nologo.svg');
-
 export default class View implements IView {
   public header: Header;
 
