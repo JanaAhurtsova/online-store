@@ -75,7 +75,9 @@ export default class ModalControllers implements IModalController {
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
       /^[a-z-]{3,}( [a-z-]{3,})+$/i, // full name
+      /^[a-z-]{3,}( [a-z-]{3,})+$/i, // full name
       /^\+(\d{9})/, // phone
+      /^[\w,-/]{5,}( [\w,-/]{5,})( [\w,-/]{5,})+$/i, // address
       /^[\w,-/]{5,}( [\w,-/]{5,})( [\w,-/]{5,})+$/i, // address
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // e-mail
       /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/, // card
@@ -110,14 +112,17 @@ export default class ModalControllers implements IModalController {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Month');
       (input.parentElement as HTMLElement).append(error);
       return false;
+      return false;
     }
 
     if (+input.value.substring(3, 5) < 23) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Year');
       (input.parentElement as HTMLElement).append(error);
       return false;
+      return false;
     }
 
+    return true;
     return true;
   }
 
