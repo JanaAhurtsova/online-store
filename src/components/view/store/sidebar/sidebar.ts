@@ -3,21 +3,21 @@ import TypeFilter from './typeFilter/typeFitler';
 import SliderFilter from './sliderFIlter/sliderFilter';
 
 export default class SideBar {
-  sidebar: HTMLElement;
+  public sidebar: HTMLElement;
 
-  categories: TypeFilter;
+  public categories: TypeFilter;
 
-  types: TypeFilter;
+  private types: TypeFilter;
 
-  filter: HTMLDivElement;
+  public filter: HTMLDivElement;
 
-  priceFilter: SliderFilter;
+  public priceFilter: SliderFilter;
 
-  stockFilter: SliderFilter;
+  public stockFilter: SliderFilter;
 
-  resetFilterButton: HTMLButtonElement;
+  public resetFilterButton: HTMLButtonElement;
 
-  copyFilterButton: HTMLButtonElement;
+  private copyFilterButton: HTMLButtonElement;
 
   constructor() {
     this.sidebar = document.createElement('aside');
@@ -33,11 +33,11 @@ export default class SideBar {
     this.copyFilterButton.addEventListener('click', this.copyFilter);
   }
 
-  init() {
+  private init() {
     this.sidebar.classList.add('sidebar');
   }
 
-  append() {
+  private append() {
     this.filter.append(this.categories.filter);
     this.filter.append(this.types.filter);
     this.sidebar.append(this.resetFilterButton);
@@ -47,7 +47,7 @@ export default class SideBar {
     this.sidebar.append(this.stockFilter.slider);
   }
 
-  changeSelectedCategory(data: TReloadPage) {
+  public changeSelectedCategory(data: TReloadPage) {
     this.categories.filterField.concat(this.types.filterField).forEach((item) => {
       item.categoryText.classList.remove('selected-filter');
       data.query.forEach((filter) => {
@@ -59,7 +59,7 @@ export default class SideBar {
           });
         }
       });
-      item.categoryAmoun.innerHTML = ` (${
+      item.categoryAmount.innerHTML = ` (${
         data.products.filter(
           (dataItem) =>
             dataItem[item.categoryText.dataset.type as TFilter] === (item.categoryText.dataset.name as TFilter)
@@ -68,20 +68,19 @@ export default class SideBar {
     });
   }
 
-  filterRange(event: Event): TSLider {
+  public filterRange(event: Event): TSLider {
     const target = event.target as HTMLElement;
     return target.dataset.type === 'price' ? this.priceFilter.filterRange() : this.stockFilter.filterRange();
   }
 
-  createButton(text: string, type: string) {
+  private createButton(text: string, type: string) {
     const button = document.createElement('button');
     button.innerHTML = text;
-    button.classList.add('button');
-    button.classList.add(type);
+    button.classList.add('button', type);
     return button;
   }
 
-  copyFilter() {
+  private copyFilter() {
     const url = document.location.href;
     navigator.clipboard.writeText(url);
   }

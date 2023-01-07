@@ -94,8 +94,8 @@
   border: none;
   height: 35px;
   width: 30%;
-  // font-size: 1.4rem;
   cursor: pointer;
+
   & option {
     font-size: 1.3rem;
   }
@@ -115,6 +115,7 @@
   background: linear-gradient($color-brand, $color-brand) no-repeat center;
   background-size: 100% 2px;
   pointer-events: none;
+
   &::-webkit-slider-thumb {
     height: 14px;
     width: 14px;
@@ -126,6 +127,7 @@
     appearance: none;
     pointer-events: all;
     border: 2px solid $color-brand;
+
     &::before {
       content: ' ';
       display: block;
@@ -158,6 +160,7 @@
   border: 1px solid $color-brand;
   border-radius: 10px;
   text-align: center;
+
   &::placeholder {
     font-size: 1.3rem;
   }
@@ -165,7 +168,6 @@
 
 .view {
   display: flex;
-  // font-size: 1.4rem;
 
   &__grid,
   &__line {
@@ -173,9 +175,11 @@
     height: 20px;
     margin: 0 5px;
   }
+
   &__line {
     background: url('../assets/svg/menu_list.svg') center center/contain no-repeat;
   }
+
   &__grid {
     background: url('../assets/svg/menu_grid.svg') center center/contain no-repeat;
   }

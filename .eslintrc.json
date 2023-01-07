@@ -24,7 +24,7 @@
         "no-console": 0,
         "class-methods-use-this": "off",
         "@typescript-eslint/no-var-requires": 0,
-        "no-explicit-any": "off",
+        "@typescript-eslint/no-explicit-any": "error",
         "no-param-reassign": 0
     }
 }

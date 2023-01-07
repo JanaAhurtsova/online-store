@@ -4,19 +4,19 @@ import products from '../../../../data/products';
 import InputSlider from './inputSlider';
 
 export default class SliderFilter {
-  range: HTMLDivElement;
+  private range: HTMLDivElement;
 
-  rangeTitle: HTMLSpanElement;
+  private rangeTitle: HTMLSpanElement;
 
-  slider: HTMLDivElement;
+  public slider: HTMLDivElement;
 
-  sliderInputs: InputSlider;
+  public sliderInputs: InputSlider;
 
-  rangeMinText: HTMLSpanElement;
+  public rangeMinText: HTMLSpanElement;
 
-  rangeMaxText: HTMLSpanElement;
+  public rangeMaxText: HTMLSpanElement;
 
-  rangeContainer: HTMLDivElement;
+  private rangeContainer: HTMLDivElement;
 
   constructor(text: TSliderFilter) {
     this.slider = document.createElement('div');
@@ -30,13 +30,13 @@ export default class SliderFilter {
     this.append();
   }
 
-  init(text: string) {
+  private init(text: string) {
     this.rangeTitle.className = 'range__title';
     this.rangeTitle.textContent = text;
     this.rangeContainer.classList.add('range__container');
   }
 
-  append() {
+  private append() {
     this.rangeContainer.append(this.rangeMinText);
     this.rangeContainer.append(this.rangeMaxText);
     this.range.append(this.rangeTitle);
@@ -45,11 +45,11 @@ export default class SliderFilter {
     this.slider.append(this.range);
   }
 
-  filterRange(): TSLider {
+  public filterRange(): TSLider {
     return this.sliderInputs.filterRange();
   }
 
-  reloadPage(info: TReloadPage) {
+  public reloadPage(info: TReloadPage) {
     const infoProduct = Controller.getSetTypes(this.sliderInputs.filterRange(), info.products);
     if (infoProduct.length === 0) {
       this.sliderInputs.lower.value = '0';
@@ -63,7 +63,7 @@ export default class SliderFilter {
     this.reloadSliderValue(minValue, maxValue);
   }
 
-  reloadSliderValue(minValue: number, maxValue: number) {
+  public reloadSliderValue(minValue: number, maxValue: number) {
     const product = Controller.getSetTypes(this.sliderInputs.filterRange(), products);
     this.sliderInputs.lower.value = `${product.indexOf(minValue)}`;
     this.sliderInputs.upper.value = `${product.indexOf(maxValue)}`;

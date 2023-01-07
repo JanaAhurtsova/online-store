@@ -6,21 +6,21 @@ import ShoppingProduct from './shoppingProduct/shoppingProduct';
 import Summary from './summary/summary';
 
 export default class ShoppingCart {
-  shopCart: HTMLElement;
+  public shopCart: HTMLElement;
 
-  products: HTMLDivElement;
+  private products: HTMLDivElement;
 
-  summary: Summary;
+  public summary: Summary;
 
-  productItems: HTMLDivElement;
+  public productItems: HTMLDivElement;
 
-  productsInfo: ShoppingProduct[];
+  public productsInfo: ShoppingProduct[];
 
-  emptyCart: EmptyPage;
+  private emptyCart: EmptyPage;
 
-  dataView: HTMLDivElement;
+  private dataView: HTMLDivElement;
 
-  productsPage: ProductPage;
+  public productsPage: ProductPage;
 
   constructor() {
     this.shopCart = document.createElement('section');
@@ -35,14 +35,13 @@ export default class ShoppingCart {
     this.append();
   }
 
-  init() {
+  private init() {
     this.dataView.classList.add('shop-cart');
     this.products.classList.add('shop-cart__products');
-    this.summary.summary.classList.add('shop-cart__summary');
     this.productItems.classList.add('shop-cart__products__items');
   }
 
-  append() {
+  private append() {
     this.dataView.append(this.products);
     this.dataView.append(this.summary.summary);
     this.products.append(this.productsPage.productPage);
@@ -51,7 +50,7 @@ export default class ShoppingCart {
     this.shopCart.append(this.dataView);
   }
 
-  initShoppingCart(localStorage: TShoppingCart, data: TReloadPage) {
+  public initShoppingCart(localStorage: TShoppingCart, data: TReloadPage) {
     this.emptyCart.emptyPage.classList.add('invisible');
     this.dataView.classList.remove('invisible');
     this.productItems.innerHTML = '';
@@ -64,7 +63,7 @@ export default class ShoppingCart {
     }
   }
 
-  initProductPage(localStorage: TShoppingCart, data: TReloadPage) {
+  public initProductPage(localStorage: TShoppingCart, data: TReloadPage) {
     const limitQuery = data.query.find((item) => item.type === 'limit');
     const page = data.query.find((item) => item.type === 'page');
     let endIndex = localStorage.info.length;
@@ -96,7 +95,7 @@ export default class ShoppingCart {
     }
   }
 
-  arrowStatus(pageValue: string, pages: string) {
+  public arrowStatus(pageValue: string, pages: string) {
     if (pageValue === '1') {
       this.productsPage.switcherLeftArrow.classList.add('inactive');
     } else {

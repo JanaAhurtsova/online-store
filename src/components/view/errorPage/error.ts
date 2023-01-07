@@ -1,7 +1,7 @@
 export default class ErrorPage {
-  error: HTMLElement;
+  public readonly error: HTMLElement;
 
-  title: HTMLHeadingElement;
+  private title: HTMLHeadingElement;
 
   constructor() {
     this.error = document.createElement('section');
@@ -10,11 +10,13 @@ export default class ErrorPage {
     this.append();
   }
 
-  init() {
+  private init() {
+    this.error.className = 'error_page';
+    this.title.className = 'error_page__title';
     this.title.textContent = 'PAGE NOT FOUND (404)';
   }
 
-  append() {
+  private append() {
     this.error.append(this.title);
   }
 }

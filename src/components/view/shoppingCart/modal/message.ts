@@ -1,12 +1,12 @@
 export default class Message {
-  overlay: HTMLElement;
+  public overlay: HTMLElement;
 
   constructor() {
     this.overlay = document.createElement('div');
     this.append(this.generateMessage());
   }
 
-  generateMessage(): HTMLDivElement {
+  private generateMessage(): HTMLDivElement {
     let template = '';
     const message = document.createElement('div');
     message.className = 'wrapper__message';
@@ -15,7 +15,7 @@ export default class Message {
     return message;
   }
 
-  append(content: HTMLElement) {
+  private append(content: HTMLElement) {
     this.overlay.className = 'overlay';
     this.overlay.append(content);
   }

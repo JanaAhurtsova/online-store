@@ -1,84 +1,60 @@
 export default class PersonalInfo {
-  personalInfo: HTMLElement;
+  public personalInfo: HTMLElement;
 
-  personalInfoTitle: HTMLElement;
+  public personalInfoTitle: HTMLElement;
 
-  fullNameContainer: HTMLElement;
+  private fullNameContainer: HTMLElement;
 
-  fullName: HTMLInputElement;
+  public fullName: HTMLInputElement;
 
-  phoneContainer: HTMLElement;
+  private phoneContainer: HTMLElement;
 
-  phone: HTMLInputElement;
+  public phone: HTMLInputElement;
 
-  addressContainer: HTMLElement;
+  private addressContainer: HTMLElement;
 
-  address: HTMLInputElement;
+  public address: HTMLInputElement;
 
-  emailContainer: HTMLElement;
+  private emailContainer: HTMLElement;
 
-  email: HTMLInputElement;
+  public email: HTMLInputElement;
 
-  errorName: HTMLElement;
+  public readonly errorName: HTMLElement;
 
-  errorPhone: HTMLElement;
+  public readonly errorPhone: HTMLElement;
 
-  errorAddress: HTMLElement;
+  public readonly errorAddress: HTMLElement;
 
-  errorEmail: HTMLElement;
+  public readonly errorEmail: HTMLElement;
 
   constructor() {
-    this.personalInfo = document.createElement('div');
-    this.personalInfoTitle = document.createElement('h2');
-    this.fullNameContainer = document.createElement('div');
-    this.fullName = document.createElement('input');
-    this.phoneContainer = document.createElement('div');
-    this.phone = document.createElement('input');
-    this.addressContainer = document.createElement('div');
-    this.address = document.createElement('input');
-    this.emailContainer = document.createElement('div');
-    this.email = document.createElement('input');
-    this.errorName = document.createElement('div');
-    this.errorPhone = document.createElement('div');
-    this.errorAddress = document.createElement('div');
-    this.errorEmail = document.createElement('div');
+    this.personalInfo = this.createElement('div', 'personal_information');
+    this.personalInfoTitle = this.createElement('h2', 'personal_information__title');
+    this.fullNameContainer = this.createElement('div', 'input__field');
+    this.phoneContainer = this.createElement('div', 'input__field');
+    this.addressContainer = this.createElement('div', 'input__field');
+    this.emailContainer = this.createElement('div', 'input__field');
+    this.fullName = this.createInputNode('Full Name', 'input', 'full_name');
+    this.phone = this.createInputNode('Phone Number', 'input', 'phone');
+    this.address = this.createInputNode('Delivery Address', 'input', 'address');
+    this.email = this.createInputNode('E-mail', 'input', 'email');
+    this.errorName = this.createElement('div', 'error');
+    this.errorPhone = this.createElement('div', 'error');
+    this.errorAddress = this.createElement('div', 'error');
+    this.errorEmail = this.createElement('div', 'error');
     this.init();
     this.append();
   }
 
-  init() {
-    this.personalInfo.classList.add('personal_information');
-
-    this.personalInfoTitle.classList.add('personal_information__title');
+  private init() {
     this.personalInfoTitle.textContent = 'Personal Information';
-
-    this.fullName = this.createInputNode(this.fullName, 'Full Name', 'input', 'full_name');
-    this.fullNameContainer = this.appendInput(this.fullNameContainer, 'input__field', this.fullName, this.errorName);
-
-    this.phone = this.createInputNode(this.phone, 'Phone Number', 'input', 'phone');
-    this.phoneContainer = this.appendInput(this.phoneContainer, 'input__field', this.phone, this.errorPhone);
-
-    this.address = this.createInputNode(this.address, 'Delivery Address', 'input', 'address');
-    this.addressContainer = this.appendInput(this.addressContainer, 'input__field', this.address, this.errorAddress);
-
-    this.email = this.createInputNode(this.email, 'E-mail', 'input', 'email');
-    this.emailContainer = this.appendInput(this.emailContainer, 'input__field', this.email, this.errorEmail);
   }
 
-  private createInputNode(node: HTMLInputElement, placeholder: string, ...classes: string[]): HTMLInputElement {
-    node.placeholder = placeholder;
-    node.classList.add(...classes);
-    return node;
-  }
-
-  private appendInput(parent: HTMLElement, className: string, el: HTMLInputElement, error: HTMLElement): HTMLElement {
-    parent.className = className;
-    error.className = 'error';
-    parent.append(el, error);
-    return parent;
-  }
-
-  append() {
+  private append() {
+    this.fullNameContainer.append(this.fullName, this.errorName);
+    this.phoneContainer.append(this.phone, this.errorPhone);
+    this.addressContainer.append(this.address, this.errorAddress);
+    this.emailContainer.append(this.email, this.errorEmail);
     this.personalInfo.append(
       this.personalInfoTitle,
       this.fullNameContainer,
@@ -86,5 +62,18 @@ export default class PersonalInfo {
       this.addressContainer,
       this.emailContainer
     );
+  }
+
+  private createElement(element: string, classElement: string) {
+    const node = document.createElement(element);
+    node.className = classElement;
+    return node;
+  }
+
+  private createInputNode(placeholder: string, ...classes: string[]): HTMLInputElement {
+    const node = document.createElement('input');
+    node.placeholder = placeholder;
+    node.classList.add(...classes);
+    return node;
   }
 }

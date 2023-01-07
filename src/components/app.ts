@@ -3,11 +3,11 @@ import View from './view/view';
 import ModalControllers from './controller/modalControllers';
 
 export default class App {
-  view: View;
+  private view: View;
 
-  controller: Controller;
+  private controller: Controller;
 
-  modalControllers: ModalControllers;
+  private modalControllers: ModalControllers;
 
   constructor() {
     this.view = new View();
@@ -15,11 +15,11 @@ export default class App {
     this.modalControllers = new ModalControllers();
   }
 
-  start() {
+  public start() {
     this.initListeners();
   }
 
-  initListeners() {
+  private initListeners() {
     this.view.storePage.sideBar.filter.addEventListener('click', (event: Event) => this.controller.clickFilter(event));
     this.view.storePage.products.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
       this.view.clickProduct(data)

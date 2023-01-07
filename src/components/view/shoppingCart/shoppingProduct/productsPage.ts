@@ -1,57 +1,56 @@
 export default class ProductPage {
-  productPage: HTMLDivElement;
+  public productPage: HTMLElement;
 
-  title: HTMLSpanElement;
+  private title: HTMLElement;
 
-  numberPages: HTMLDivElement;
+  private numberPages: HTMLElement;
 
-  numberPagesText: HTMLLabelElement;
+  private numberPagesText: HTMLLabelElement;
 
-  numberPagesInput: HTMLInputElement;
+  public numberPagesInput: HTMLInputElement;
 
-  switcher: HTMLDivElement;
+  public switcher: HTMLElement;
 
-  switcherText: HTMLSpanElement;
+  public switcherText: HTMLElement;
 
-  switcherLeftArrow: HTMLDivElement;
+  public switcherLeftArrow: HTMLElement;
 
-  switcherRightArrow: HTMLDivElement;
+  public switcherRightArrow: HTMLElement;
 
-  switcherTitle: HTMLSpanElement;
+  private switcherTitle: HTMLElement;
 
   constructor() {
-    this.productPage = document.createElement('div');
-    this.title = document.createElement('span');
-    this.numberPages = document.createElement('div');
-    this.numberPagesText = document.createElement('label');
-    this.numberPagesInput = document.createElement('input');
-    this.switcher = document.createElement('div');
-    this.switcherTitle = document.createElement('span');
-    this.switcherLeftArrow = document.createElement('div');
-    this.switcherText = document.createElement('span');
-    this.switcherRightArrow = document.createElement('div');
+    this.productPage = this.createDomNode('div', 'pages');
+    this.title = this.createDomNode('span', 'pages__title', 'Products in cart');
+    this.numberPages = this.createDomNode('div', 'pages__number');
+    this.numberPagesText = this.createDomNode('label', 'search__label', 'Limit') as HTMLLabelElement;
+    this.numberPagesInput = this.createDomNode('input', 'search__input') as HTMLInputElement;
+    this.switcher = this.createDomNode('div', 'pages__switcher');
+    this.switcherTitle = this.createDomNode('span', 'pages__switcher__title', 'Page');
+    this.switcherLeftArrow = this.createDomNode('div', 'arrow-left');
+    this.switcherText = this.createDomNode('span', 'pages__switcher__text', '1/1');
+    this.switcherRightArrow = this.createDomNode('div', 'arrow-right');
     this.init();
     this.append();
   }
 
-  init() {
-    this.title.textContent = 'Products in cart';
-    this.numberPagesText.textContent = 'Limit';
-    this.numberPagesInput.classList.add('search__input');
-    this.numberPagesInput.setAttribute('placeholder', '-');
-    this.switcherTitle.textContent = 'Page';
-    this.switcherText.textContent = '1/1';
+  private init() {
+    this.numberPagesInput.setAttribute('placeholder', 'number of items to display');
     this.switcher.setAttribute('value', '1');
-    this.productPage.classList.add('pages');
-    this.switcher.classList.add('pages__switcher');
-    this.switcherText.classList.add('pages__switcher__text');
-    this.switcherLeftArrow.classList.add('arrow-left');
-    this.switcherRightArrow.classList.add('arrow-right');
   }
 
-  append() {
+  private append() {
     this.numberPages.append(this.numberPagesText, this.numberPagesInput);
     this.switcher.append(this.switcherTitle, this.switcherLeftArrow, this.switcherText, this.switcherRightArrow);
     this.productPage.append(this.title, this.numberPages, this.switcher);
+  }
+
+  private createDomNode(element: string, classElement: string, text?: string) {
+    const node = document.createElement(element);
+    node.className = classElement;
+    if (text) {
+      node.textContent = text;
+    }
+    return node;
   }
 }

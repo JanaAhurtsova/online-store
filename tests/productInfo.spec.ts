@@ -5,8 +5,6 @@ import ProductInfo from '../src/components/view/productInfo/productInfo';
 describe('productInfo module', () => {
   let productInfo: ProductInfo;
   let data: TProduct;
-  const spyAppend = jest.spyOn(ProductInfo.prototype, 'append');
-  const spyInit = jest.spyOn(ProductInfo.prototype, 'init');
 
   beforeEach(() => {
     productInfo = new ProductInfo();
@@ -28,11 +26,6 @@ describe('productInfo module', () => {
         'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fliving-room%2Farmchairs%2Fbacksaelen%2F3.avif?alt=media&token=575a32d1-8e60-4320-a06b-6f42b9db4d44',
       ],
     };
-  });
-
-  test('should init product', () => {
-    expect(spyInit).toBeCalled();
-    expect(spyAppend).toBeCalled();
   });
 
   test('should add data to product', () => {

@@ -10,21 +10,21 @@ import ErrorPage from './errorPage/error';
 const noLogo: string = require('../../assets/svg/nologo.svg');
 
 export default class View implements IView {
-  header: Header;
+  public header: Header;
 
-  body: HTMLElement;
+  private body: HTMLElement;
 
-  main: HTMLElement;
+  private main: HTMLElement;
 
-  storePage: Store;
+  public storePage: Store;
 
-  productPage: ProductPage;
+  public productPage: ProductPage;
 
-  shoppingCartPage: ShoppingCart;
+  public shoppingCartPage: ShoppingCart;
 
-  modal: ModalPayment;
+  public modal: ModalPayment;
 
-  errorPage: ErrorPage;
+  private errorPage: ErrorPage;
 
   constructor() {
     this.body = document.body;
@@ -38,12 +38,12 @@ export default class View implements IView {
     this.append();
   }
 
-  append() {
+  private append() {
     this.body.insertBefore(this.header.header, this.main);
     this.main.append(this.storePage.store);
   }
 
-  getLocalStorageDate() {
+  public getLocalStorageDate() {
     let shoppingCart: TShoppingCart = { price: 0, info: [] };
     const localStorageInfo = localStorage.getItem('prod');
     if (localStorageInfo) {
@@ -52,7 +52,7 @@ export default class View implements IView {
     return shoppingCart;
   }
 
-  reloadPage(data: TReloadPage | string) {
+  public reloadPage(data: TReloadPage | string) {
     const localStorage = this.getLocalStorageDate();
     if (typeof data === 'string') {
       if (data === 'error') {
@@ -68,25 +68,25 @@ export default class View implements IView {
     this.header.changePrice(localStorage);
   }
 
-  showErrorPage() {
+  private showErrorPage() {
     this.main.replaceChild(this.errorPage.error, this.main.children[0]);
   }
 
-  openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
+  public openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
     if (this.shoppingCartPage.shopCart !== this.main.children[0]) {
       this.main.replaceChild(this.shoppingCartPage.shopCart, this.main.children[0]);
     }
     this.shoppingCartPage.initShoppingCart(localStorage, data);
   }
 
-  openProductPage(data: string, localStorage: TShoppingCart) {
+  public openProductPage(data: string, localStorage: TShoppingCart) {
     if (this.productPage.container !== this.main.children[0]) {
       this.main.replaceChild(this.productPage.container, this.main.children[0]);
     }
     this.productPage.openPage(products[Number(data) - 1], localStorage);
   }
 
-  openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
+  public openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
     console.log(data);
     if (this.storePage.store !== this.main.children[0]) {
       this.main.replaceChild(this.storePage.store, this.main.children[0]);
@@ -102,7 +102,7 @@ export default class View implements IView {
     this.storePage.createProducts(localStorage, typeViewText, data.products);
   }
 
-  clickProduct(cartInfo: TShoppingCart | string) {
+  public clickProduct(cartInfo: TShoppingCart | string) {
     if (typeof cartInfo !== 'string') {
       this.productPage.shopCartInfo(cartInfo);
       this.storePage.shopCartInfo(cartInfo);
@@ -110,7 +110,7 @@ export default class View implements IView {
     }
   }
 
-  openModal() {
+  public openModal() {
     this.body.append(this.modal.overlay);
     this.removeErrors();
     this.removeInputs();
@@ -119,15 +119,15 @@ export default class View implements IView {
 
   private removeErrors() {
     const errors = this.modal.modal.querySelectorAll('.error');
-    for (let i = 0; i < errors.length; i += 1) {
-      errors[i].innerHTML = '';
-    }
+    errors.forEach((error) => {
+      error.innerHTML = '';
+    });
   }
 
   private removeInputs() {
     const inputs = this.modal.modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
-    for (let i = 0; i < inputs.length; i += 1) {
-      inputs[i].value = '';
-    }
+    inputs.forEach((input) => {
+      input.value = '';
+    });
   }
 }

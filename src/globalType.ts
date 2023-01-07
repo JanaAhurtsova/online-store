@@ -47,7 +47,6 @@ export type TSliderFilter = 'price' | 'stock';
 export type TFilter = 'category' | 'type';
 
 export interface IView {
-  append(): void;
   getLocalStorageDate(): TShoppingCart;
   reloadPage(data: TReloadPage | string): void;
   openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage): void;
@@ -62,14 +61,10 @@ export interface IModalController {
   setPaymentSystem(event: Event, el: HTMLElement): void;
   expirationSlash(event: Event): void;
   enterCvv(event: Event): void;
-  isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean;
-  isExpirationValid(input: HTMLInputElement): boolean;
   ordering(modal: HTMLFormElement, input: HTMLInputElement, cb: () => void): void;
 }
 
 export interface IStore {
-  init(): void;
-  append(): void;
   createProducts(shoppingCart: TShoppingCart, typeView: string, data: TProduct[]): void;
   shopCartInfo(data: TShoppingCart): void;
   filterRange(event: Event): TSLider;

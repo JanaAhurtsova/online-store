@@ -2,47 +2,44 @@ import { TProduct } from '../../../globalType';
 import Rating from './rating';
 
 export default class ProductInfo {
-  img: HTMLImageElement;
+  public img: HTMLImageElement;
 
-  title: HTMLHeadingElement;
+  public readonly title: HTMLHeadingElement;
 
-  price: HTMLSpanElement;
+  public readonly price: HTMLElement;
 
-  rating: Rating;
+  public readonly rating: Rating;
 
-  productView: HTMLDivElement;
+  public productView: HTMLElement;
 
-  description: HTMLDivElement;
+  public readonly description: HTMLElement;
 
   constructor() {
-    this.productView = document.createElement('div');
-    this.img = document.createElement('img');
-    this.title = document.createElement('h3');
-    this.description = document.createElement('p');
-    this.price = document.createElement('span');
+    this.productView = this.createDomNode('div', 'product');
+    this.img = this.createDomNode('img', 'image__main') as HTMLImageElement;
+    this.title = this.createDomNode('h3', 'product__title', 'title') as HTMLHeadingElement;
+    this.description = this.createDomNode('p', 'product__description');
+    this.price = this.createDomNode('span', 'product__price', 'price');
     this.rating = new Rating();
-    this.init();
     this.append();
   }
 
-  init() {
-    this.productView.classList.add('product');
-    this.img.classList.add('product__img');
-    this.title.classList.add('product__title');
-    this.price.classList.add('product__price');
-    this.description.classList.add('product__description');
-  }
-
-  append() {
+  private append() {
     this.productView.append(this.img, this.title, this.description, this.price, this.rating.rating);
   }
 
-  initProductInfo(productData: TProduct) {
+  public initProductInfo(productData: TProduct) {
     this.img.setAttribute('src', productData.urlImg);
     this.img.setAttribute('alt', productData.title);
     this.title.textContent = productData.title;
     this.price.textContent = `$${productData.price}`;
     this.description.textContent = productData.description;
     this.rating.initRating(productData);
+  }
+
+  private createDomNode(element: string, ...classes: string[]) {
+    const node = document.createElement(element);
+    node.classList.add(...classes);
+    return node;
   }
 }

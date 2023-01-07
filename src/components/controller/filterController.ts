@@ -22,7 +22,7 @@ export default class FilterController {
     });
   }
 
-  static sortNumber(res: TProduct[], type: 'price' | 'id' | 'stock') {
+  public static sortNumber(res: TProduct[], type: 'price' | 'id' | 'stock') {
     res.sort((a, b) => a[type] - b[type]);
   }
 
@@ -72,7 +72,7 @@ export default class FilterController {
     });
   }
 
-  static filter(arg: TQuery[], query: TQuery[]) {
+  public static filter(arg: TQuery[], query: TQuery[]) {
     console.log(arg);
     const { hash } = window.location;
     if (arg.length !== 0) {

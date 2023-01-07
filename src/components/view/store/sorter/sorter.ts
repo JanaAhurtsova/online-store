@@ -1,9 +1,9 @@
 import { TQuery, TSorter } from '../../../../globalType';
 
 export default class Sorter {
-  sorter: HTMLSelectElement;
+  public sorter: HTMLSelectElement;
 
-  optionText: TSorter[];
+  private optionText: TSorter[];
 
   constructor() {
     this.sorter = document.createElement('select');
@@ -18,16 +18,16 @@ export default class Sorter {
     this.createOption();
   }
 
-  init() {
+  private init() {
     this.sorter.classList.add('sorter');
   }
 
-  reloadPage(query: TQuery[]) {
+  public reloadPage(query: TQuery[]) {
     const data = query.find((item) => item.type === 'sort');
     this.sorter.value = data ? data.name[0] : 'default';
   }
 
-  createOption() {
+  private createOption() {
     this.optionText.forEach((data) => {
       const option = document.createElement('option');
       option.textContent = data.text;

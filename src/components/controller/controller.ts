@@ -13,11 +13,11 @@ import {
 import FilterController from './filterController';
 
 export default class Controller {
-  router: Router;
+  private router: Router;
 
   private query: TQuery[];
 
-  firebase: FirebaseLoader;
+  private firebase: FirebaseLoader;
 
   constructor() {
     this.router = new Router({
@@ -32,7 +32,7 @@ export default class Controller {
       .add(/cart\b|([\w]+?)=([^&]+)\b/g);
   }
 
-  clickProduct(event: Event): string | TShoppingCart {
+  public clickProduct(event: Event): string | TShoppingCart {
     const target = (event.target as Element).closest('.button');
     const result = '';
     if (target) {
@@ -49,12 +49,12 @@ export default class Controller {
     return result;
   }
 
-  openShoppingCart() {
+  public openShoppingCart() {
     this.query = this.query.filter((item) => item.type === 'cart');
     this.router.navigate('cart');
   }
 
-  openModalWindow(event: Event, openModal: () => void) {
+  public openModalWindow(event: Event, callback: () => void) {
     const target = event.target as HTMLElement;
     const { id } = target.dataset;
     let shoppingCart: TShoppingCart = { price: 0, info: [] };
@@ -70,16 +70,16 @@ export default class Controller {
         localStorage.setItem('prod', JSON.stringify(shoppingCart));
       }
     }
-    openModal();
+    callback();
     this.openShoppingCart();
   }
 
-  openStartPage() {
+  public openStartPage() {
     this.query = [];
     this.router.navigate('');
   }
 
-  clickShoppingCartProduct(event: Event) {
+  public clickShoppingCartProduct(event: Event) {
     const target = event.target as HTMLElement;
     if (target.classList.contains('increase')) {
       const id = target.parentElement?.dataset.id as string;
@@ -93,7 +93,7 @@ export default class Controller {
     }
   }
 
-  changeCount(id: string, type: string) {
+  public changeCount(id: string, type: string) {
     const prod = localStorage.getItem('prod');
     if (prod) {
       const data: TShoppingCart = JSON.parse(prod);
@@ -117,7 +117,7 @@ export default class Controller {
     }
   }
 
-  changeShoppingCart(id: string) {
+  public changeShoppingCart(id: string) {
     const product = products.find((item) => item.id === Number(id)) as TProduct;
     const prod = localStorage.getItem('prod');
     let data: TShoppingCart;
@@ -138,7 +138,7 @@ export default class Controller {
     localStorage.setItem('prod', JSON.stringify(data));
   }
 
-  reloadPage(): TReloadPage | string {
+  public reloadPage(): TReloadPage | string {
     const arg = this.router.splitURL();
     if (this.query.length === 0 || arg.length === 0) {
       this.query = arg.slice(0);
@@ -146,7 +146,7 @@ export default class Controller {
     return FilterController.filter(arg, this.query);
   }
 
-  getQueryString() {
+  public getQueryString() {
     let result = '';
     this.query.forEach((item) => {
       if (item.name.length === 0) return;
@@ -163,12 +163,12 @@ export default class Controller {
     return result;
   }
 
-  resetFilter() {
+  public resetFilter() {
     this.query = [];
     this.router.navigate('');
   }
 
-  clickFilter(event: Event) {
+  public clickFilter(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.closest('.filter')) {
       this.query = this.query.filter((item) => item.type !== 'products');
@@ -179,14 +179,14 @@ export default class Controller {
     }
   }
 
-  sort(event: Event) {
+  public sort(event: Event) {
     const target = event.target as HTMLInputElement;
     this.query = this.query.filter((item) => item.type !== 'sort');
     this.query.push({ type: 'sort', name: [target.value] });
     this.router.navigate(this.getQueryString());
   }
 
-  updateQuery(type: string, name: string) {
+  public updateQuery(type: string, name: string) {
     if ((this, this.query.length === 0)) {
       this.query.push({ type, name: [name] });
     } else {
@@ -208,7 +208,7 @@ export default class Controller {
     }
   }
 
-  sliderFilter(data: TSlider) {
+  public sliderFilter(data: TSlider) {
     this.query = this.query.filter((item) => item.type !== data.name);
     const product = Controller.getSetTypes(data, products);
     const min = product[data.lower];
@@ -217,7 +217,7 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
-  search(event: Event) {
+  public search(event: Event) {
     const target = event.target as HTMLInputElement;
     this.query = this.query.filter((item) => item.type !== 'search');
     if (target.value !== '') {
@@ -226,13 +226,13 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
-  changeImages(event: Event, mainImage: HTMLImageElement) {
+  public changeImages(event: Event, mainImage: HTMLImageElement) {
     const target = event.target as HTMLElement;
     const imageLink = target.getAttribute('src') as string;
     mainImage.setAttribute('src', imageLink);
   }
 
-  shoppingInputPage(event: Event) {
+  public shoppingInputPage(event: Event) {
     const target = event.target as HTMLInputElement;
     const limit = this.query.find((item) => item.type === 'limit');
     this.query = this.query.filter((item) => item.type !== 'page');
@@ -245,7 +245,7 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
-  changeShoppingPage(event: Event) {
+  public changeShoppingPage(event: Event) {
     const target = event.target as HTMLElement;
     const page = this.query.find((item) => item.type === 'page');
     const limit = this.query.find((item) => item.type === 'limit');
@@ -269,19 +269,19 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
-  clickGridView() {
+  public clickGridView() {
     this.query = this.query.filter((item) => item.type !== 'view');
     this.query.push({ type: 'view', name: ['grid'] });
     this.router.navigate(this.getQueryString());
   }
 
-  clickLineView() {
+  public clickLineView() {
     this.query = this.query.filter((item) => item.type !== 'view');
     this.query.push({ type: 'view', name: ['line'] });
     this.router.navigate(this.getQueryString());
   }
 
-  static getSetTypes(data: TSlider, prod: TProduct[]) {
+  public static getSetTypes(data: TSlider, prod: TProduct[]) {
     const productsCopy = [...prod];
     FilterController.sortNumber(productsCopy, data.name);
     const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));

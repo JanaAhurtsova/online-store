@@ -1,54 +1,44 @@
 import { TShoppingCart } from '../../../globalType';
 
 export default class Header {
-  header: HTMLElement;
+  public header: HTMLElement;
 
-  wrapper: HTMLDivElement;
+  private wrapper: HTMLElement;
 
-  logo: HTMLAnchorElement;
+  public logo: HTMLElement;
 
-  logoImg: HTMLDivElement;
+  private logoImg: HTMLElement;
 
-  shoppingCart: HTMLDivElement;
+  public shoppingCart: HTMLElement;
 
-  sum: HTMLHeadingElement;
+  public sum: HTMLElement;
 
-  cart: HTMLDivElement;
+  public cart: HTMLElement;
 
-  count: HTMLDivElement;
+  public count: HTMLElement;
 
-  countText: HTMLHeadingElement;
+  public countText: HTMLElement;
 
   constructor() {
-    this.header = document.createElement('header');
-    this.wrapper = document.createElement('div');
-    this.logo = document.createElement('a');
-    this.logoImg = document.createElement('div');
-    this.shoppingCart = document.createElement('div');
-    this.sum = document.createElement('h2');
-    this.cart = document.createElement('div');
-    this.count = document.createElement('div');
-    this.countText = document.createElement('h4');
+    this.header = this.createDomNode('header', 'header');
+    this.wrapper = this.createDomNode('div', 'wrapper', 'wrapper__header');
+    this.logo = this.createDomNode('a', 'logo');
+    this.logoImg = this.createDomNode('div', 'logo__img');
+    this.shoppingCart = this.createDomNode('div', 'wrapper__sum');
+    this.sum = this.createDomNode('h2', 'sum');
+    this.cart = this.createDomNode('div', 'cart');
+    this.count = this.createDomNode('div', 'count');
+    this.countText = this.createDomNode('h4', 'count__text');
     this.init();
     this.append();
   }
 
-  init() {
-    this.header.classList.add('header');
-    this.wrapper.classList.add('wrapper');
-    this.wrapper.classList.add('wrapper__header');
-    this.logo.classList.add('logo');
-    this.logoImg.classList.add('logo__img');
-    this.shoppingCart.classList.add('wrapper__sum');
+  private init() {
     this.sum.textContent = `$0.00`;
-    this.sum.classList.add('sum');
-    this.cart.classList.add('cart');
-    this.count.classList.add('count');
     this.countText.textContent = '0';
-    this.countText.classList.add('count__text');
   }
 
-  append() {
+  private append() {
     this.header.append(this.wrapper);
     this.wrapper.append(this.logo);
     this.logo.append(this.logoImg);
@@ -59,8 +49,14 @@ export default class Header {
     this.count.append(this.countText);
   }
 
-  changePrice(cartInfo: TShoppingCart) {
+  public changePrice(cartInfo: TShoppingCart) {
     this.sum.textContent = Number.isInteger(cartInfo.price) ? `$${cartInfo.price}.00` : `$${cartInfo.price}`;
     this.countText.textContent = `${cartInfo.info.reduce((acc, item) => acc + item.count, 0)}`;
+  }
+
+  private createDomNode(element: string, ...classes: string[]) {
+    const node = document.createElement(element);
+    node.classList.add(...classes);
+    return node;
   }
 }

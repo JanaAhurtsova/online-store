@@ -3,11 +3,11 @@ import ProductInfo from '../../productInfo/productInfo';
 import Count from './count';
 
 export default class ShoppingProduct {
-  product: HTMLDivElement;
+  public product: HTMLDivElement;
 
-  productInfo: ProductInfo;
+  private readonly productInfo: ProductInfo;
 
-  count: Count;
+  private readonly count: Count;
 
   constructor() {
     this.product = document.createElement('div');
@@ -16,12 +16,12 @@ export default class ShoppingProduct {
     this.append();
   }
 
-  append() {
+  private append() {
     this.productInfo.productView.append(this.count.countContainer);
     this.product.append(this.productInfo.productView);
   }
 
-  initShoppingProduct(data: TProduct, prodInfo: TProductInfo) {
+  public initShoppingProduct(data: TProduct, prodInfo: TProductInfo) {
     this.productInfo.initProductInfo(data);
     this.count.initCount(prodInfo, data);
   }

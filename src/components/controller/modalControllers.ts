@@ -8,23 +8,23 @@ const maestro: string = require('../../assets/svg/Maestro.svg');
 const noLogo: string = require('../../assets/svg/nologo.svg');
 
 export default class ModalControllers implements IModalController {
-  modal: ModalPayment;
+  public modal: ModalPayment;
 
-  message: Message;
+  private message: Message;
 
   constructor() {
     this.modal = new ModalPayment();
     this.message = new Message();
   }
 
-  closeModal(event: Event) {
+  public closeModal(event: Event) {
     const target = event.target as HTMLElement;
     if (target.classList.contains('overlay')) {
       document.querySelector('.overlay')?.remove();
     }
   }
 
-  setPaymentSystem(event: Event, el: HTMLElement) {
+  public setPaymentSystem(event: Event, el: HTMLElement) {
     const target = event.target as HTMLInputElement;
     if (target.value.startsWith('5')) {
       el.style.backgroundImage = `url(${mastercard})`;
@@ -45,14 +45,14 @@ export default class ModalControllers implements IModalController {
     target.value = cardCode;
   }
 
-  expirationSlash(event: Event) {
+  public expirationSlash(event: Event) {
     const target = event.target as HTMLInputElement;
     let date = target.value.replace(/[^\d]/g, '').substring(0, 4);
     date = (date !== '' ? date.match(/.{1,2}/g)?.join('/') : '') as string;
     target.value = date;
   }
 
-  enterCvv(event: Event) {
+  public enterCvv(event: Event) {
     const target = event.target as HTMLInputElement;
     const cvv = target.value.replace(/[^\d]/g, '').substring(0, 3);
     target.value = cvv;
@@ -69,7 +69,7 @@ export default class ModalControllers implements IModalController {
     return error;
   }
 
-  isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean {
+  private isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean {
     let valid = true;
     const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
@@ -99,7 +99,7 @@ export default class ModalControllers implements IModalController {
     return valid;
   }
 
-  isExpirationValid(input: HTMLInputElement): boolean {
+  private isExpirationValid(input: HTMLInputElement): boolean {
     if (!input.value.trim()) {
       const error = this.generateError(input.nextElementSibling as HTMLElement, 'Expiration cannot be blank');
       (input.parentElement as HTMLElement).append(error);
@@ -121,7 +121,7 @@ export default class ModalControllers implements IModalController {
     return true;
   }
 
-  ordering(modal: HTMLFormElement, input: HTMLInputElement, openStore: () => void) {
+  public ordering(modal: HTMLFormElement, input: HTMLInputElement, openStore: () => void) {
     if (this.isValidInput(modal, input)) {
       document.body.lastChild?.remove();
       document.body.append(this.message.overlay);

@@ -1,154 +1,92 @@
 export default class CreditCard {
-  payment: HTMLElement;
+  public payment: HTMLElement;
 
-  paymentTitle: HTMLElement;
+  private paymentTitle: HTMLElement;
 
-  creditCard: HTMLElement;
+  private creditCard: HTMLElement;
 
-  paymentSystem: HTMLElement;
+  public paymentSystem: HTMLElement;
 
-  numberContainer: HTMLElement;
+  public numberContainer: HTMLElement;
 
-  creditCardNumberLabel: HTMLLabelElement;
+  private creditCardNumberLabel: HTMLLabelElement;
 
-  creditCardNumber: HTMLInputElement;
+  public creditCardNumber: HTMLInputElement;
 
-  otherData: HTMLElement;
+  private otherData: HTMLElement;
 
-  expirationContainer: HTMLElement;
+  private expirationContainer: HTMLElement;
 
-  expirationLabel: HTMLLabelElement;
+  private expirationLabel: HTMLLabelElement;
 
-  expiration: HTMLInputElement;
+  public expiration: HTMLInputElement;
 
-  cvvContainer: HTMLElement;
+  private cvvContainer: HTMLElement;
 
-  cvvLabel: HTMLLabelElement;
+  private cvvLabel: HTMLLabelElement;
 
-  cvv: HTMLInputElement;
+  public cvv: HTMLInputElement;
 
-  errorNumber: HTMLElement;
+  public readonly errorNumber: HTMLElement;
 
-  errorExpiration: HTMLElement;
+  public readonly errorExpiration: HTMLElement;
 
-  errorCvv: HTMLElement;
+  public readonly errorCvv: HTMLElement;
 
   constructor() {
-    this.payment = document.createElement('div');
-    this.paymentTitle = document.createElement('h2');
-    this.creditCard = document.createElement('div');
-    this.paymentSystem = document.createElement('div');
-    this.numberContainer = document.createElement('div');
-    this.creditCardNumberLabel = document.createElement('label');
-    this.creditCardNumber = document.createElement('input');
-    this.otherData = document.createElement('div');
-    this.expirationContainer = document.createElement('div');
-    this.expirationLabel = document.createElement('label');
-    this.expiration = document.createElement('input');
-    this.cvvContainer = document.createElement('div');
-    this.cvvLabel = document.createElement('label');
-    this.cvv = document.createElement('input');
-    this.errorNumber = document.createElement('div');
-    this.errorExpiration = document.createElement('div');
-    this.errorCvv = document.createElement('div');
+    this.payment = this.createElement('div', 'payment');
+    this.paymentTitle = this.createElement('h2', 'payment__title');
+    this.creditCard = this.createElement('div', 'credit_card');
+    this.paymentSystem = this.createElement('div', 'payment_system');
+    this.numberContainer = this.createElement('div', 'input__field');
+    this.creditCardNumberLabel = this.createLabelNode('number', 'card number', 'label', 'card_number__label');
+    this.creditCardNumber = this.createInputNode('Card Number', 'number', 'input', 'card_number');
+    this.otherData = this.createElement('div', 'other_data');
+    this.expirationContainer = this.createElement('div', 'input__field');
+    this.expirationLabel = this.createLabelNode('expiration', 'expiration', 'label', 'expiration__label');
+    this.expiration = this.createInputNode('Expiration', 'expiration', 'input', 'expiration');
+    this.cvvContainer = this.createElement('div', 'input__field');
+    this.cvvLabel = this.createLabelNode('cvv', 'cvv', 'label', 'cvv__label');
+    this.cvv = this.createInputNode('CVV', 'cvv', 'input', 'cvv');
+    this.errorNumber = this.createElement('div', 'error');
+    this.errorExpiration = this.createElement('div', 'error');
+    this.errorCvv = this.createElement('div', 'error');
     this.init();
     this.append();
   }
 
-  init() {
-    this.payment.classList.add('payment');
-
-    this.paymentTitle.classList.add('payment__title');
+  private init() {
     this.paymentTitle.textContent = 'Payment';
-
-    this.creditCard.classList.add('credit_card');
-    this.paymentSystem.classList.add('payment_system');
-
-    this.creditCardNumberLabel = this.createLabelNode(
-      this.creditCardNumberLabel,
-      'number',
-      'card number',
-      'label',
-      'card_number__label'
-    );
-    this.creditCardNumber = this.createInputNode(
-      this.creditCardNumber,
-      'Card Number',
-      'number',
-      'input',
-      'card_number'
-    );
-    this.numberContainer = this.appendInput(
-      this.numberContainer,
-      'input__field',
-      this.creditCardNumberLabel,
-      this.creditCardNumber,
-      this.errorNumber
-    );
-
-    this.otherData.classList.add('other_data');
-
-    this.expirationLabel = this.createLabelNode(
-      this.expirationLabel,
-      'expiration',
-      'expiration',
-      'label',
-      'expiration__label'
-    );
-    this.expiration = this.createInputNode(this.expiration, 'Expiration', 'expiration', 'input', 'expiration');
-    this.expirationContainer = this.appendInput(
-      this.expirationContainer,
-      'input__field',
-      this.expirationLabel,
-      this.expiration,
-      this.errorExpiration
-    );
-
-    this.cvvLabel = this.createLabelNode(this.cvvLabel, 'cvv', 'cvv', 'label', 'cvv__label');
-    this.cvv = this.createInputNode(this.cvv, 'CVV', 'cvv', 'input', 'cvv');
-    this.cvvContainer = this.appendInput(this.cvvContainer, 'input__field', this.cvvLabel, this.cvv, this.errorCvv);
   }
 
-  private createInputNode(
-    node: HTMLInputElement,
-    placeholder: string,
-    id: string,
-    ...classes: string[]
-  ): HTMLInputElement {
+  private append() {
+    this.numberContainer.append(this.creditCardNumberLabel, this.creditCardNumber, this.errorNumber);
+    this.expirationContainer.append(this.expirationLabel, this.expiration, this.errorExpiration);
+    this.cvvContainer.append(this.cvvLabel, this.cvv, this.errorCvv);
+    this.otherData.append(this.expirationContainer, this.cvvContainer);
+    this.creditCard.append(this.paymentSystem, this.numberContainer, this.otherData);
+    this.payment.append(this.paymentTitle, this.creditCard);
+  }
+
+  private createElement(element: string, classElement: string) {
+    const node = document.createElement(element);
+    node.className = classElement;
+    return node;
+  }
+
+  private createInputNode(placeholder: string, id: string, ...classes: string[]): HTMLInputElement {
+    const node = document.createElement('input');
     node.placeholder = placeholder;
     node.id = id;
     node.classList.add(...classes);
     return node;
   }
 
-  private createLabelNode(
-    node: HTMLLabelElement,
-    forAtt: string,
-    text: string,
-    ...classes: string[]
-  ): HTMLLabelElement {
+  private createLabelNode(forAtt: string, text: string, ...classes: string[]): HTMLLabelElement {
+    const node = document.createElement('label');
     node.setAttribute('for', forAtt);
     node.textContent = text;
     node.classList.add(...classes);
     return node;
-  }
-
-  private appendInput(
-    parent: HTMLElement,
-    className: string,
-    label: HTMLLabelElement,
-    input: HTMLInputElement,
-    error: HTMLElement
-  ): HTMLElement {
-    parent.className = className;
-    error.className = 'error';
-    parent.append(label, input, error);
-    return parent;
-  }
-
-  append() {
-    this.otherData.append(this.expirationContainer, this.cvvContainer);
-    this.creditCard.append(this.paymentSystem, this.numberContainer, this.otherData);
-    this.payment.append(this.paymentTitle, this.creditCard);
   }
 }

@@ -8,41 +8,41 @@ import EmptyPage from '../emptyPage/emptyPage';
 import ViewType from './sidebar/viewType/viewType';
 
 export default class Store implements IStore {
-  store: HTMLElement;
+  public store: HTMLElement;
 
-  productsData: ProductCard[];
+  private productsData: ProductCard[];
 
-  products: HTMLDivElement;
+  public products: HTMLElement;
 
-  sideBar: SideBar;
+  public sideBar: SideBar;
 
-  selectedFilter: HTMLElement[];
+  public selectedFilter: HTMLElement[];
 
-  shopContainer: HTMLDivElement;
+  private shopContainer: HTMLElement;
 
-  title: HTMLHeadingElement;
+  private title: HTMLElement;
 
-  sorter: Sorter;
+  public sorter: Sorter;
 
-  data: TProduct[];
+  private data: TProduct[];
 
-  found: HTMLSpanElement;
+  public found: HTMLElement;
 
-  search: SearchFilter;
+  public search: SearchFilter;
 
-  toolbar: HTMLDivElement;
+  private toolbar: HTMLElement;
 
-  emptyPage: EmptyPage;
+  private emptyPage: EmptyPage;
 
-  view: ViewType;
+  public view: ViewType;
 
   constructor() {
-    this.store = document.createElement('section');
-    this.products = document.createElement('div');
-    this.shopContainer = document.createElement('div');
-    this.title = document.createElement('h2');
-    this.found = document.createElement('span');
-    this.toolbar = document.createElement('div');
+    this.store = this.createDomNode('section', 'store');
+    this.products = this.createDomNode('div', 'products');
+    this.shopContainer = this.createDomNode('div', 'store__container');
+    this.title = this.createDomNode('h2', 'store__title', 'Store');
+    this.found = this.createDomNode('h4', 'store__found');
+    this.toolbar = this.createDomNode('div', 'store__toolbar');
     this.sideBar = new SideBar();
     this.sorter = new Sorter();
     this.search = new SearchFilter();
@@ -51,20 +51,10 @@ export default class Store implements IStore {
     this.data = products;
     this.productsData = [];
     this.selectedFilter = [];
-    this.init();
     this.append();
   }
 
-  init() {
-    this.title.innerHTML = 'Store';
-    this.store.classList.add('store');
-    this.title.classList.add('store__title');
-    this.toolbar.classList.add('store__toolbar');
-    this.shopContainer.classList.add('store__container');
-    this.products.classList.add('products');
-  }
-
-  append() {
+  private append() {
     this.shopContainer.append(this.sideBar.sidebar);
     this.shopContainer.append(this.products);
     this.toolbar.append(this.found);
@@ -76,7 +66,7 @@ export default class Store implements IStore {
     this.store.append(this.shopContainer);
   }
 
-  createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
+  public createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
     this.data = data;
     this.products.innerHTML = '';
     this.productsData = [];
@@ -108,7 +98,7 @@ export default class Store implements IStore {
     }
   }
 
-  shopCartInfo(data: TShoppingCart) {
+  public shopCartInfo(data: TShoppingCart) {
     Array.from(this.productsData).forEach((product) => {
       const find = data.info.find((item) => item.product === product.id);
       if (find) {
@@ -121,7 +111,16 @@ export default class Store implements IStore {
     });
   }
 
-  filterRange(event: Event): TSLider {
+  public filterRange(event: Event): TSLider {
     return this.sideBar.filterRange(event);
+  }
+
+  private createDomNode(element: string, classElement: string, text?: string) {
+    const node = document.createElement(element);
+    node.classList.add(classElement);
+    if (text) {
+      node.textContent = text;
+    }
+    return node;
   }
 }

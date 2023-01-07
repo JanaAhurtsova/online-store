@@ -7,12 +7,18 @@
     flex-direction: column;
     width: 70%;
     padding: 1rem;
-    gap: 0.5rem;
+    gap: 1rem;
+
+    &__items {
+      @include flex($align: stretch);
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
     .product {
       padding: 1rem;
       border-radius: 16px;
-      border: 1px solid $color-brand;
+      border: 1px solid $color-border;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -22,8 +28,8 @@
         font-size: 1.6rem;
       }
 
-      &__img {
-        width: 25%;
+      .image__main {
+        width: 18%;
       }
 
       .rating__text {
@@ -57,6 +63,7 @@
         position: relative;
         background-color: $color-brand;
         border-radius: 50%;
+        cursor: pointer;
       }
 
       &__increase::before,
@@ -132,7 +139,12 @@
       background: url('../assets/svg/arrow-left.svg') center center/contain no-repeat;
     }
   }
+  
   & .search__input {
     margin-left: 0.5rem;
+
+    &::placeholder {
+      font-size: 1rem;
+    }
   }
 }

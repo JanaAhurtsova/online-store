@@ -23,7 +23,8 @@ body {
 }
 
 .root {
-  min-height: 85vh;
+  @include flex($align: flex-start);
+  min-height: 80vh;
   padding: 1rem;
 }
 

@@ -41,6 +41,7 @@
   border: 0.1rem solid $color-border;
   background-color: transparent;
   text-transform: none;
+
   &::placeholder {
     font-size: 1.3rem;
   }
@@ -60,6 +61,7 @@
   max-width: 310px;
   height: fit-content;
   padding: 1.5rem 1.1rem;
+
   &::before {
     content: '';
     position: absolute;
@@ -71,6 +73,7 @@
     left: -15rem;
     z-index: -1;
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -105,6 +108,7 @@
   padding: 0 1rem;
   color: $color-background;
   font-size: 1.4rem;
+
   &::placeholder {
     color: transparent;
   }

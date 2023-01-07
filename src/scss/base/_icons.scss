@@ -11,6 +11,7 @@
   width: 4em;
   height: 2em;
   transition: .3s;
+
   &:hover {
     filter: invert(19%) sepia(81%) saturate(1770%) hue-rotate(352deg) brightness(101%) contrast(103%);
   }
@@ -22,6 +23,7 @@
   height: 1.8em;
   filter: invert(81%) sepia(5%) saturate(19%) hue-rotate(359deg) brightness(85%) contrast(82%);
   transition: .3s;
+
   &:hover {
     filter: invert(79%) sepia(81%) saturate(1770%) hue-rotate(352deg) brightness(101%) contrast(103%);
   }
