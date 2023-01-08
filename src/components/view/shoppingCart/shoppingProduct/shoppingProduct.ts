@@ -5,7 +5,7 @@ import Count from './count';
 export default class ShoppingProduct {
   public product: HTMLDivElement;
 
-  private readonly productInfo: ProductInfo;
+  public readonly productInfo: ProductInfo;
 
   private readonly count: Count;
 

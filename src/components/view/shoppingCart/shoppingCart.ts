@@ -90,6 +90,9 @@ export default class ShoppingCart {
       const product = products.find((prod) => prod.id === item.product) as TProduct;
       const productItem = new ShoppingProduct();
       this.productsInfo.push(productItem);
+      const index = document.createElement('span');
+      index.textContent = String(i + 1);
+      productItem.productInfo.productView.append(index);
       productItem.initShoppingProduct(product, item);
       this.productItems.append(productItem.product);
     }

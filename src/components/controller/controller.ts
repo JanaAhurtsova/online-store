@@ -81,14 +81,9 @@ export default class Controller {
 
   public clickShoppingCartProduct(event: Event) {
     const target = event.target as HTMLElement;
-    if (target.classList.contains('increase')) {
+    if (target.classList.contains('increase') || target.classList.contains('decrease')) {
       const id = target.parentElement?.dataset.id as string;
-      this.changeCount(id, 'increase');
-      this.router.navigate(this.getQueryString());
-    }
-    if (target.classList.contains('decrease')) {
-      const id = target.parentElement?.dataset.id as string;
-      this.changeCount(id, 'decrease');
+      this.changeCount(id, target.classList.contains('increase') ? 'increase' : 'decrease');
       this.router.navigate(this.getQueryString());
     }
   }
@@ -101,7 +96,7 @@ export default class Controller {
       const index = data.info.indexOf(itemInfo);
       const product = products.find((item) => item.id === Number(id)) as TProduct;
       if (type === 'increase') {
-        if (product.stock > data.info[index].count) {
+        if (product.stock > itemInfo.count) {
           data.info[index].count += 1;
           data.price += product.price;
         }
@@ -140,7 +135,7 @@ export default class Controller {
 
   public reloadPage(): TReloadPage | string {
     const arg = this.router.splitURL();
-    if (this.query.length === 0 || arg.length === 0) {
+    if (!this.query.length || !arg.length) {
       this.query = arg.slice(0);
     }
     return FilterController.filter(arg, this.query);
@@ -149,16 +144,12 @@ export default class Controller {
   public getQueryString() {
     let result = '';
     this.query.forEach((item) => {
-      if (item.name.length === 0) return;
-      if (!result) {
-        if (item.name[0]) {
-          result += `${item.type}=${item.name.join('|')}`;
-        } else {
-          result += `${item.type}`;
-        }
-      } else {
-        result += `&${item.type}=${item.name.join('|')}`;
+      if (!item.name.length) {
+        return;
       }
+      //  item.type === 'cart';
+      result += result ? '&' : '?';
+      result += item.name[0] ? `${item.type}=${item.name.join('|')}` : `${item.type}`;
     });
     return result;
   }
@@ -172,9 +163,7 @@ export default class Controller {
     const target = event.target as HTMLInputElement;
     if (target.closest('.filter')) {
       this.query = this.query.filter((item) => item.type !== 'products');
-      const type = target.dataset.type as TFilter;
-      const name = target.dataset.name as string;
-      this.updateQuery(type, name);
+      this.updateQuery(target.dataset.type as TFilter, target.dataset.name as string);
       this.router.navigate(this.getQueryString());
     }
   }
@@ -211,16 +200,14 @@ export default class Controller {
   public sliderFilter(data: TSlider) {
     this.query = this.query.filter((item) => item.type !== data.name);
     const product = Controller.getSetTypes(data, products);
-    const min = product[data.lower];
-    const max = product[data.upper];
-    this.query.push({ type: data.name, name: [`${min}`, `${max}`] });
+    this.query.push({ type: data.name, name: [product[data.lower], product[data.upper]] });
     this.router.navigate(this.getQueryString());
   }
 
   public search(event: Event) {
     const target = event.target as HTMLInputElement;
     this.query = this.query.filter((item) => item.type !== 'search');
-    if (target.value !== '') {
+    if (target.value) {
       this.query.push({ type: 'search', name: [target.value] });
     }
     this.router.navigate(this.getQueryString());
@@ -234,12 +221,9 @@ export default class Controller {
 
   public shoppingInputPage(event: Event) {
     const target = event.target as HTMLInputElement;
-    const limit = this.query.find((item) => item.type === 'limit');
     this.query = this.query.filter((item) => item.type !== 'page');
-    if (limit) {
-      this.query = this.query.filter((item) => item.type !== 'limit');
-    }
-    if (target.value && Number(target.value) > 0) {
+    this.query = this.query.filter((item) => item.type !== 'limit');
+    if (Number(target.value)) {
       this.query.push({ type: 'limit', name: [target.value] });
     }
     this.router.navigate(this.getQueryString());
@@ -284,7 +268,6 @@ export default class Controller {
   public static getSetTypes(data: TSlider, prod: TProduct[]) {
     const productsCopy = [...prod];
     FilterController.sortNumber(productsCopy, data.name);
-    const result = Array.from(new Set(productsCopy.map((item) => item[data.name])));
-    return result;
+    return Array.from(new Set(productsCopy.map((item) => String(item[data.name]))));
   }
 }

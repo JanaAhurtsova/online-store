@@ -87,7 +87,6 @@ export default class View implements IView {
   }
 
   public openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
-    console.log(data);
     if (this.storePage.store !== this.main.children[0]) {
       this.main.replaceChild(this.storePage.store, this.main.children[0]);
     }
