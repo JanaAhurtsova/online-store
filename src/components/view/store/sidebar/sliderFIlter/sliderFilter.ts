@@ -58,12 +58,10 @@ export default class SliderFilter {
       this.rangeMaxText.innerHTML = ``;
       return;
     }
-    const minValue = +infoProduct[0];
-    const maxValue = +infoProduct[infoProduct.length - 1];
-    this.reloadSliderValue(minValue, maxValue);
+    this.reloadSliderValue(infoProduct[0], infoProduct[infoProduct.length - 1]);
   }
 
-  reloadSliderValue(minValue: number, maxValue: number) {
+  reloadSliderValue(minValue: string, maxValue: string) {
     const product = Controller.getSetTypes(this.sliderInputs.filterRange(), products);
     this.sliderInputs.lower.value = `${product.indexOf(minValue)}`;
     this.sliderInputs.upper.value = `${product.indexOf(maxValue)}`;
