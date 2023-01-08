@@ -84,7 +84,7 @@ export default class Controller {
     if (target.classList.contains('increase') || target.classList.contains('decrease')) {
       const id = target.parentElement?.dataset.id as string;
       this.changeCount(id, target.classList.contains('increase') ? 'increase' : 'decrease');
-      this.router.navigate(this.getQueryString());
+      this.router.navigate(this.getCartQueryString());
     }
   }
 
@@ -143,16 +143,23 @@ export default class Controller {
 
   public getQueryString() {
     let result = '';
-    const cartInfo = this.query.find((item) => item.type === 'cart');
     this.query.forEach((item) => {
       if (!item.name.length) {
         return;
       }
-      if (cartInfo) {
-        result += result ? '&' : '';
-        result += item.name[0] ? `${item.type}=${item.name.join('|')}` : `${item.type}/?`;
+      result += result ? '&' : '?';
+      result += `${item.type}=${item.name.join('|')}`;
+    });
+    return result;
+  }
+
+  private getCartQueryString() {
+    let result = '';
+    this.query.forEach((item) => {
+      if (item.type === 'cart') {
+        result += 'cart';
       } else {
-        result += result ? '&' : '?';
+        result += result !== 'cart' ? '&' : '?';
         result += `${item.type}=${item.name.join('|')}`;
       }
     });
@@ -231,7 +238,7 @@ export default class Controller {
     if (Number(target.value)) {
       this.query.push({ type: 'limit', name: [target.value] });
     }
-    this.router.navigate(this.getQueryString());
+    this.router.navigate(this.getCartQueryString());
   }
 
   public changeShoppingPage(event: Event) {
@@ -240,22 +247,19 @@ export default class Controller {
     const limit = this.query.find((item) => item.type === 'limit');
     const value = Number(target.parentElement?.getAttribute('value') as string);
     const prod = localStorage.getItem('prod');
-    let data: TShoppingCart;
     if (prod && limit) {
-      data = JSON.parse(prod);
+      const data = JSON.parse(prod);
       if (Number(value) - 1 >= 0 && Number(value) <= Math.ceil(Number(data.info.length) / Number(limit.name[0]))) {
         if (page) {
           this.query = this.query.filter((item) => item.type !== 'page');
         }
-        if (target.classList.contains('arrow-left')) {
-          this.query.push({ type: 'page', name: [String(value - 1)] });
-        }
-        if (target.classList.contains('arrow-right')) {
-          this.query.push({ type: 'page', name: [String(value + 1)] });
+        if (target.classList.contains('arrow-left') || target.classList.contains('arrow-right')) {
+          const name = target.classList.contains('arrow-left') ? value - 1 : value + 1;
+          this.query.push({ type: 'page', name: [String(name)] });
         }
       }
     }
-    this.router.navigate(this.getQueryString());
+    this.router.navigate(this.getCartQueryString());
   }
 
   public clickGridView() {
