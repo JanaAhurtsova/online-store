@@ -5,18 +5,18 @@ export default class ViewType {
 
   viewGrid: HTMLElement;
 
-  viewLine: HTMLElement;
+  viewDouble: HTMLElement;
 
   constructor() {
     this.view = this.createDomNode('div', 'view');
     this.viewText = this.createDomNode('p', 'view__text', 'View on');
     this.viewGrid = this.createDomNode('div', 'view__grid');
-    this.viewLine = this.createDomNode('div', 'view__line');
+    this.viewDouble = this.createDomNode('div', 'view__double');
     this.append();
   }
 
   private append() {
-    this.view.append(this.viewText, this.viewGrid, this.viewLine);
+    this.view.append(this.viewText, this.viewGrid, this.viewDouble);
   }
 
   private createDomNode(element: string, classElement: string, text?: string) {

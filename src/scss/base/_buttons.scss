@@ -2,15 +2,15 @@
   @include flex;
   position: relative;
   width: 100%;
-  gap: .3em;
+  gap: .4em;
 }
 
 .button {
-  padding: .5em;
+  padding: .5rem;
   background-color: $color-brand;
   color: $color-title;
   border-radius: 1.6em;
-  font-size: 1.1rem;
+  font-size: 11px;
   border: .1em solid transparent;
   cursor: pointer;
   width: 47%;
@@ -24,7 +24,6 @@
 .product__button-details {
   border: .1em solid $color-border;
   background-color: $color-background;
-  color: $color-title;
 
   &:hover {
     border: .1em solid transparent;
@@ -35,12 +34,20 @@
 // store
 .reset,
 .copy {
-  width:55%;
-  font-size: 1.3rem;
+  width:50%;
+  font-size: 12px;
+  padding: .5rem .3rem;
+
+  &:hover {
+    background-color: $color-background;
+  }
 }
 
-.reset {
-  margin-bottom: 1rem;
+.copy:active{
+
+  &::after{
+    content: '✔';
+  }
 }
 
 // product page
@@ -59,7 +66,7 @@
 
 //modal
 .submit {
-  font-size: 1.3rem;
+  font-size: 13px;
   color: $color-background;
   &:hover {
     color: $color-text;

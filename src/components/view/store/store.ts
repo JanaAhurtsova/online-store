@@ -10,6 +10,8 @@ import ViewType from './sidebar/viewType/viewType';
 export default class Store implements IStore {
   public store: HTMLElement;
 
+  private storeWrapper: HTMLElement;
+
   private productsData: ProductCard[];
 
   public products: HTMLElement;
@@ -17,8 +19,6 @@ export default class Store implements IStore {
   public sideBar: SideBar;
 
   public selectedFilter: HTMLElement[];
-
-  private shopContainer: HTMLElement;
 
   private title: HTMLElement;
 
@@ -38,8 +38,8 @@ export default class Store implements IStore {
 
   constructor() {
     this.store = this.createDomNode('section', 'store');
+    this.storeWrapper = this.createDomNode('div', 'wrapper__store');
     this.products = this.createDomNode('div', 'products');
-    this.shopContainer = this.createDomNode('div', 'store__container');
     this.title = this.createDomNode('h2', 'store__title', 'Store');
     this.found = this.createDomNode('h4', 'store__found');
     this.toolbar = this.createDomNode('div', 'store__toolbar');
@@ -55,15 +55,9 @@ export default class Store implements IStore {
   }
 
   private append() {
-    this.shopContainer.append(this.sideBar.sidebar);
-    this.shopContainer.append(this.products);
-    this.toolbar.append(this.found);
-    this.toolbar.append(this.sorter.sorter);
-    this.toolbar.append(this.search.search);
-    this.toolbar.append(this.view.view);
-    this.store.append(this.title);
-    this.store.append(this.toolbar);
-    this.store.append(this.shopContainer);
+    this.toolbar.append(this.sorter.sorter, this.found, this.search.search, this.view.view);
+    this.storeWrapper.append(this.sideBar.sidebar, this.toolbar, this.products);
+    this.store.append(this.title, this.storeWrapper);
   }
 
   public createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
@@ -72,10 +66,10 @@ export default class Store implements IStore {
     this.productsData = [];
     if (typeView === 'grid') {
       this.view.viewGrid.classList.add('selected');
-      this.view.viewLine.classList.remove('selected');
+      this.view.viewDouble.classList.remove('selected');
     } else {
       this.view.viewGrid.classList.remove('selected');
-      this.view.viewLine.classList.add('selected');
+      this.view.viewDouble.classList.add('selected');
     }
     if (data.length === 0) {
       this.products.append(this.emptyPage.emptyPage);
@@ -83,11 +77,11 @@ export default class Store implements IStore {
       this.data.forEach((article) => {
         const product = new ProductCard();
         product.initProductCard(article);
-        if (typeView === 'line') {
+        if (typeView === 'double') {
           product.product.description.classList.remove('product__description');
-          this.products.classList.add('line');
+          this.products.classList.add('double');
         } else {
-          this.products.classList.remove('line');
+          this.products.classList.remove('double');
         }
         this.productsData.push(product);
         this.products.append(product.productView);

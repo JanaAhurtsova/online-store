@@ -12,6 +12,13 @@
   gap: 1em;
 }
 
+.wrapper__store {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+  grid-template-rows: repeat(auto-fit, minmax(30px, auto));
+}
+
 .wrapper__sum {
   @include flex;
   gap: 1em;

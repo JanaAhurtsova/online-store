@@ -8,4 +8,11 @@
   @include flex($align: flex-start);
   padding: 1em;
   gap: 3rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: .7rem;
+  }
 }

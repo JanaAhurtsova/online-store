@@ -69,15 +69,19 @@ export default class ModalControllers implements IModalController {
     return error;
   }
 
+  private showError(input: HTMLInputElement, text: string) {
+    const error = this.generateError(input.nextElementSibling as HTMLElement, text);
+    (input.parentElement as HTMLElement).append(error);
+    return error;
+  }
+
   private isValidInput(modal: HTMLFormElement, input: HTMLInputElement): boolean {
     let valid = true;
     const fields = modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
       /^[a-z-]{3,}( [a-z-]{3,})+$/i, // full name
-      /^[a-z-]{3,}( [a-z-]{3,})+$/i, // full name
       /^\+(\d{9})/, // phone
-      /^[\w,-/]{5,}( [\w,-/]{5,})( [\w,-/]{5,})+$/i, // address
       /^[\w,-/]{5,}( [\w,-/]{5,})( [\w,-/]{5,})+$/i, // address
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // e-mail
       /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/, // card
@@ -86,12 +90,12 @@ export default class ModalControllers implements IModalController {
     ] as RegExp[];
     for (let i = 0; i < fields.length; i += 1) {
       if (!fields[i].value.trim()) {
-        const error = this.generateError(errors[i], `${fields[i].placeholder} cannot be blank`);
-        fields[i].parentElement?.append(error);
+        this.generateError(errors[i], `${fields[i].placeholder} cannot be blank`);
+        // fields[i].parentElement?.append(error);
         valid = false;
       } else if (!regEl[i].exec(fields[i].value)) {
-        const error = this.generateError(errors[i], `Invalid ${fields[i].placeholder}`);
-        fields[i].parentElement?.append(error);
+        this.generateError(errors[i], `Invalid ${fields[i].placeholder}`);
+        // fields[i].parentElement?.append(error);
         valid = false;
       } else {
         this.success(fields[i].parentElement as HTMLElement);
@@ -103,20 +107,17 @@ export default class ModalControllers implements IModalController {
 
   private isExpirationValid(input: HTMLInputElement): boolean {
     if (!input.value.trim()) {
-      const error = this.generateError(input.nextElementSibling as HTMLElement, 'Expiration cannot be blank');
-      (input.parentElement as HTMLElement).append(error);
+      this.showError(input, 'Expiration cannot be blank');
       return false;
     }
 
     if (input.value.substring(0, 2) === '00' || +input.value.substring(0, 2) > 12) {
-      const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Month');
-      (input.parentElement as HTMLElement).append(error);
+      this.showError(input, 'Invalid Month');
       return false;
     }
 
     if (+input.value.substring(3, 5) < 23) {
-      const error = this.generateError(input.nextElementSibling as HTMLElement, 'Invalid Year');
-      (input.parentElement as HTMLElement).append(error);
+      this.showError(input, 'Invalid Year');
       return false;
     }
     return true;
