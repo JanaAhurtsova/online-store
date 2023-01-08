@@ -92,7 +92,7 @@ export default class ShoppingCart {
       this.productsInfo.push(productItem);
       const index = document.createElement('span');
       index.textContent = String(i + 1);
-      productItem.productInfo.productView.append(index);
+      productItem.productInfo.productView.insertBefore(index, productItem.productInfo.img);
       productItem.initShoppingProduct(product, item);
       this.productItems.append(productItem.product);
     }

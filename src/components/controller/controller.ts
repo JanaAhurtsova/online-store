@@ -143,13 +143,18 @@ export default class Controller {
 
   public getQueryString() {
     let result = '';
+    const cartInfo = this.query.find((item) => item.type === 'cart');
     this.query.forEach((item) => {
       if (!item.name.length) {
         return;
       }
-      //  item.type === 'cart';
-      result += result ? '&' : '?';
-      result += item.name[0] ? `${item.type}=${item.name.join('|')}` : `${item.type}`;
+      if (cartInfo) {
+        result += result ? '&' : '';
+        result += item.name[0] ? `${item.type}=${item.name.join('|')}` : `${item.type}/?`;
+      } else {
+        result += result ? '&' : '?';
+        result += `${item.type}=${item.name.join('|')}`;
+      }
     });
     return result;
   }
@@ -261,7 +266,7 @@ export default class Controller {
 
   public clickLineView() {
     this.query = this.query.filter((item) => item.type !== 'view');
-    this.query.push({ type: 'view', name: ['line'] });
+    this.query.push({ type: 'view', name: ['double'] });
     this.router.navigate(this.getQueryString());
   }
 

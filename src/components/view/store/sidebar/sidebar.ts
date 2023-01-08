@@ -23,7 +23,7 @@ export default class SideBar {
 
   constructor() {
     this.sidebar = this.createDomNode('aside', 'sidebar');
-    this.filter = this.createDomNode('div', 'filter');
+    this.filter = this.createDomNode('div', 'filter__wrapper');
     this.categories = new TypeFilter('category', 'Product Category');
     this.types = new TypeFilter('type', 'Product Type');
     this.priceFilter = new SliderFilter('price');
