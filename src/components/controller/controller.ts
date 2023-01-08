@@ -175,8 +175,13 @@ export default class Controller {
     this.router.navigate(this.getQueryString());
   }
 
+<<<<<<< HEAD
   public updateQuery(type: string, name: string) {
     if ((this, this.query.length === 0)) {
+=======
+  updateQuery(type: string, name: string) {
+    if (!this.query.length) {
+>>>>>>> b4ea071870f105c1a3d4406de1d7f485b1952ca2
       this.query.push({ type, name: [name] });
     } else {
       const result = this.query.find((item) => item.type === type);
