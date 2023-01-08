@@ -10,8 +10,6 @@ import ViewType from './sidebar/viewType/viewType';
 export default class Store implements IStore {
   public store: HTMLElement;
 
-  private storeWrapper: HTMLElement;
-
   private productsData: ProductCard[];
 
   public products: HTMLElement;
@@ -19,6 +17,8 @@ export default class Store implements IStore {
   public sideBar: SideBar;
 
   public selectedFilter: HTMLElement[];
+
+  private shopContainer: HTMLElement;
 
   private title: HTMLElement;
 
@@ -38,8 +38,8 @@ export default class Store implements IStore {
 
   constructor() {
     this.store = this.createDomNode('section', 'store');
-    this.storeWrapper = this.createDomNode('div', 'wrapper__store');
     this.products = this.createDomNode('div', 'products');
+    this.shopContainer = this.createDomNode('div', 'store__container');
     this.title = this.createDomNode('h2', 'store__title', 'Store');
     this.found = this.createDomNode('h4', 'store__found');
     this.toolbar = this.createDomNode('div', 'store__toolbar');
@@ -55,9 +55,15 @@ export default class Store implements IStore {
   }
 
   private append() {
-    this.toolbar.append(this.sorter.sorter, this.found, this.search.search, this.view.view);
-    this.storeWrapper.append(this.sideBar.sidebar, this.toolbar, this.products);
-    this.store.append(this.title, this.storeWrapper);
+    this.shopContainer.append(this.sideBar.sidebar);
+    this.shopContainer.append(this.products);
+    this.toolbar.append(this.found);
+    this.toolbar.append(this.sorter.sorter);
+    this.toolbar.append(this.search.search);
+    this.toolbar.append(this.view.view);
+    this.store.append(this.title);
+    this.store.append(this.toolbar);
+    this.store.append(this.shopContainer);
   }
 
   public createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
@@ -77,11 +83,11 @@ export default class Store implements IStore {
       this.data.forEach((article) => {
         const product = new ProductCard();
         product.initProductCard(article);
-        if (typeView === 'double') {
+        if (typeView === 'line') {
           product.product.description.classList.remove('product__description');
-          this.products.classList.add('double');
+          this.products.classList.add('line');
         } else {
-          this.products.classList.remove('double');
+          this.products.classList.remove('line');
         }
         this.productsData.push(product);
         this.products.append(product.productView);
