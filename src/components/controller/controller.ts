@@ -17,7 +17,7 @@ export default class Controller {
 
   private query: TQuery[];
 
-  private firebase: FirebaseLoader;
+  public firebase: FirebaseLoader;
 
   constructor() {
     this.router = new Router({
@@ -277,7 +277,7 @@ export default class Controller {
 
   public clickLineView() {
     this.query = this.query.filter((item) => item.type !== 'view');
-    this.query.push({ type: 'view', name: ['line'] });
+    this.query.push({ type: 'view', name: ['double'] });
     this.router.navigate(this.getQueryString());
   }
 

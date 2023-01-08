@@ -73,7 +73,6 @@ export default class FilterController {
   }
 
   public static filter(arg: TQuery[], query: TQuery[]) {
-    console.log(arg);
     const { hash } = window.location;
     if (arg.length !== 0) {
       if (arg[0].type === 'products') {
