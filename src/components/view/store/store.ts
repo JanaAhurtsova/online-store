@@ -12,6 +12,8 @@ export default class Store implements IStore {
 
   private storeWrapper: HTMLElement;
 
+  private storeContainer: HTMLElement;
+
   private productsData: ProductCard[];
 
   public products: HTMLElement;
@@ -36,6 +38,7 @@ export default class Store implements IStore {
 
   constructor() {
     this.store = this.createDomNode('section', 'store');
+    this.storeContainer = this.createDomNode('div', 'store__container');
     this.storeWrapper = this.createDomNode('div', 'wrapper__store');
     this.products = this.createDomNode('div', 'products');
     this.title = this.createDomNode('h2', 'store__title', 'Store');
@@ -53,7 +56,8 @@ export default class Store implements IStore {
 
   private append() {
     this.toolbar.append(this.sorter.sorter, this.found, this.search.search, this.view.view);
-    this.storeWrapper.append(this.sideBar.sidebar, this.toolbar, this.products);
+    this.storeContainer.append(this.toolbar, this.products);
+    this.storeWrapper.append(this.sideBar.sidebar, this.storeContainer);
     this.store.append(this.title, this.storeWrapper);
   }
 
