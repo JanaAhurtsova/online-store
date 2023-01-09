@@ -136,9 +136,10 @@
 }
 
 .empty-page {
-  @include flex($align: flex-start);
+  @include flex($align: flex-start, $justify: center);
   padding: 2rem;
   width: 100%;
+  grid-column: 1/5;
 }
 
 .invisible {
