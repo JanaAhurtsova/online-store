@@ -2,12 +2,26 @@
   @include flex($align: flex-start);
   width: 100%;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+
+    .summary {
+      width: 100%;
+      margin-bottom: 2rem;
+      order: 0;
+    }
+  }
+
   &__products {
     @include flex($align: stretch);
     flex-direction: column;
     width: 70%;
-    padding: 1rem;
     gap: 1rem;
+
+    @media (max-width: 800px) {
+        width: 100%;
+        order: 1;
+    }
 
     &__items {
       @include flex($align: stretch);
@@ -19,8 +33,16 @@
       @include flex;
       flex-direction: row;
       padding: 1rem;
-      border-radius: 16px;
+      border-radius: 1rem;
       border: 2px solid $color-border;
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+
+        .shop-count {
+          width: 60%;
+        }
+      }
 
       &__title,
       &__price {
@@ -116,6 +138,11 @@
 .pages {
   @include flex;
 
+  @media (max-width: 500px) {
+    flex-direction: column;
+    height: 10rem;
+  }
+
   &__switcher {
     @include flex;
 
@@ -138,7 +165,7 @@
       background: url('../assets/svg/arrow-left.svg') center center/contain no-repeat;
     }
   }
-  
+
   & .search__input {
     margin-left: 0.5rem;
 
