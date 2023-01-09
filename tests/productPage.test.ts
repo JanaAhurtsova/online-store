@@ -40,7 +40,7 @@ describe('product page module', () => {
   });
 
   test('should be instance of Product Page', () => {
-    expect(new ProductPage()).toBeInstanceOf(ProductPage);
+    expect(productPage).toBeInstanceOf(ProductPage);
   });
 
   test('ensure constructor created the object', () => {

@@ -20,7 +20,7 @@ export default class FirebaseLoader {
     this.dataBase = getStorage(app);
   }
 
-  getImage = (link: string) => {
+  public getImage = (link: string) => {
     return getDownloadURL(ref(this.dataBase, link));
   };
 }
