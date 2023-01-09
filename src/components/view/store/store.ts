@@ -75,9 +75,10 @@ export default class Store implements IStore {
         const product = new ProductCard();
         product.initProductCard(article);
         if (typeView === 'double') {
-          product.product.description.classList.remove('product__description');
+          product.product.description.classList.remove('invisible');
           this.products.classList.add('double');
         } else {
+          product.product.description.classList.add('invisible');
           this.products.classList.remove('double');
         }
         this.productsData.push(product);

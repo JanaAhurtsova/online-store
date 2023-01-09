@@ -34,10 +34,15 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.search {
+  width: 25%;
+}
+
 .search__input {
   border: 1px solid $color-brand;
   border-radius: 10px;
   text-align: center;
+  width: 100%;
 
   &::placeholder {
     font-size: 1.3rem;
@@ -46,13 +51,12 @@
 
 .view {
   display: flex;
-  gap: .5rem;
+  gap: .6rem;
 
   &__grid,
   &__double {
     width: 20px;
     height: 20px;
-    margin: 0 5px;
     cursor: pointer;
   }
 
@@ -74,7 +78,6 @@
 }
 
 .sorter {
-  width: fit-content;
   border: none;
   width: 25%;
   cursor: pointer;
@@ -82,4 +85,13 @@
   & option {
     font-size: 1.3rem;
   }
+}
+
+@media (max-width: 800px) {
+
+  .search,
+  .sorter {
+    width: 30%;
+  }
+
 }

@@ -46,4 +46,13 @@ describe('controller module', () => {
       expect(controller.query).toEqual([]);
     });
   });
+
+  describe('openShoppingCart method', () => {
+    test('should be exist', () => {
+      const spy = jest.spyOn(Controller.prototype, 'openShoppingCart');
+      expect(spy).toBeDefined();
+      expect(spy).toHaveBeenCalled();
+      expect(spy).not.toBeNull();
+    })
+  })
 });

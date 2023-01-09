@@ -17,7 +17,7 @@ export default class Controller {
 
   private query: TQuery[];
 
-  public firebase: FirebaseLoader;
+  private firebase: FirebaseLoader;
 
   constructor() {
     this.router = new Router({

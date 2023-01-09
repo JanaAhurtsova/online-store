@@ -22,6 +22,12 @@
   font-size: 1.4rem;
 }
 
+.summary__selected-promo {
+  @include flex($align: stretch);
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .summary__selected-promo,
 .promo__search,
 .promo__input {
@@ -45,4 +51,17 @@
 .summary__final-price,
 .selected-promo__title {
   text-align: center;
+}
+
+.summary__price,
+.summary__product,
+.summary__final-price {
+  color: $color-title;
+  font-weight: 700;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: $color-text;
+  font-weight: 400;
 }
