@@ -13,6 +13,7 @@
 .store {
   @include flex;
   flex-direction: column;
+  padding: 1rem;
 
   &__toolbar {
     @include flex($justify: space-around);

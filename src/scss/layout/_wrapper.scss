@@ -14,8 +14,8 @@
 
 .wrapper__store {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
   grid-template-rows: repeat(auto-fit, minmax(30px, auto));
 }
 
