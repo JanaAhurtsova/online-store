@@ -60,7 +60,7 @@ export interface IModalController {
   setPaymentSystem(event: Event, el: HTMLElement): void;
   expirationSlash(event: Event): void;
   enterCvv(event: Event): void;
-  ordering(modal: HTMLFormElement, input: HTMLInputElement, cb: () => void): void;
+  ordering(modal: HTMLFormElement, cb: () => void): void;
 }
 
 export interface IStore {
