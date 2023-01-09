@@ -36,7 +36,7 @@ export type TSorter = {
   value: string;
 };
 
-export type TSLider = {
+export type TSlider = {
   name: TSliderFilter;
   upper: number;
   lower: number;
@@ -66,5 +66,5 @@ export interface IModalController {
 export interface IStore {
   createProducts(shoppingCart: TShoppingCart, typeView: string, data: TProduct[]): void;
   shopCartInfo(data: TShoppingCart): void;
-  filterRange(event: Event): TSLider;
+  filterRange(event: Event): TSlider;
 }

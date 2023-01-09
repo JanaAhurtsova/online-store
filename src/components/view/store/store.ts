@@ -1,6 +1,6 @@
 import ProductCard from './productCard/productCard';
 import products from '../../data/products';
-import { TProduct, TShoppingCart, TSLider, IStore } from '../../../globalType';
+import { TProduct, TShoppingCart, TSlider, IStore } from '../../../globalType';
 import SideBar from './sidebar/sidebar';
 import Sorter from './sorter/sorter';
 import SearchFilter from './sidebar/searchFilter/searchFilter';
@@ -103,7 +103,7 @@ export default class Store implements IStore {
     });
   }
 
-  public filterRange(event: Event): TSLider {
+  public filterRange(event: Event): TSlider {
     return this.sideBar.filterRange(event);
   }
 

@@ -1,4 +1,4 @@
-import { TReloadPage, TSLider, TSliderFilter } from '../../../../../globalType';
+import { TReloadPage, TSlider, TSliderFilter } from '../../../../../globalType';
 import Controller from '../../../../controller/controller';
 import products from '../../../../data/products';
 import InputSlider from './inputSlider';
@@ -45,7 +45,7 @@ export default class SliderFilter {
     this.slider.append(this.range);
   }
 
-  public filterRange(): TSLider {
+  public filterRange(): TSlider {
     return this.sliderInputs.filterRange();
   }
 

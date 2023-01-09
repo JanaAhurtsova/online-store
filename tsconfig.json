@@ -14,7 +14,7 @@
     "src",
     "src/module.d.ts",
     "tests/productPage.test.ts",
-    "tests/productInfo.spec.ts",
+    "tests/productInfo.test.ts",
     "tests/header.test.ts",
     "tests/credit.test.ts"
   ]

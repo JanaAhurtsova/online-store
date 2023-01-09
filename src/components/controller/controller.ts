@@ -1,15 +1,7 @@
 import Router from './router/router';
 import products from '../data/products';
 import FirebaseLoader from './firebase/firebaseLoader';
-import {
-  TFilter,
-  TProduct,
-  TProductInfo,
-  TQuery,
-  TReloadPage,
-  TShoppingCart,
-  TSLider as TSlider,
-} from '../../globalType';
+import { TFilter, TProduct, TProductInfo, TQuery, TReloadPage, TShoppingCart, TSlider } from '../../globalType';
 import FilterController from './filterController';
 
 export default class Controller {
@@ -260,16 +252,14 @@ export default class Controller {
     this.router.navigate(this.getCartQueryString());
   }
 
-  public clickGridView() {
-    this.query = this.query.filter((item) => item.type !== 'view');
-    this.query.push({ type: 'view', name: ['grid'] });
-    this.router.navigate(this.getQueryString());
-  }
-
-  public clickLineView() {
-    this.query = this.query.filter((item) => item.type !== 'view');
-    this.query.push({ type: 'view', name: ['double'] });
-    this.router.navigate(this.getQueryString());
+  public clickViewHandler(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.closest('.layout')) {
+      const data = target.classList.contains('view__grid') ? 'grid' : 'double';
+      this.query = this.query.filter((item) => item.type !== 'view');
+      this.query.push({ type: 'view', name: [data] });
+      this.router.navigate(this.getQueryString());
+    }
   }
 
   public static getSetTypes(data: TSlider, prod: TProduct[]) {

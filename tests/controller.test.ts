@@ -1,4 +1,4 @@
-import { describe } from '@jest/globals';
+import { describe, expect, test } from '@jest/globals';
 import Controller from '../src/components/controller/controller';
 
 describe('controller module', () => {
@@ -42,7 +42,7 @@ describe('controller module', () => {
 
     test('should remove parameters from query', () => {
       controller.query = [{ type: 'cart', name: [''] }];
-      controller.resetFilter();;
+      controller.resetFilter();
       expect(controller.query).toEqual([]);
     });
   });
