@@ -36,6 +36,7 @@ export default class ShoppingCart {
   }
 
   private init() {
+    this.shopCart.classList.add('shopping-cart__page');
     this.dataView.classList.add('shop-cart');
     this.products.classList.add('shop-cart__products');
     this.productItems.classList.add('shop-cart__products__items');
@@ -91,6 +92,7 @@ export default class ShoppingCart {
       const productItem = new ShoppingProduct();
       this.productsInfo.push(productItem);
       const index = document.createElement('span');
+      index.className = 'serial__number';
       index.textContent = String(i + 1);
       productItem.productInfo.productView.insertBefore(index, productItem.productInfo.img);
       productItem.initShoppingProduct(product, item);

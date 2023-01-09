@@ -12,7 +12,7 @@ export default class ProductInfo {
 
   public productView: HTMLElement;
 
-  public readonly description: HTMLElement;
+  public description: HTMLElement;
 
   constructor() {
     this.productView = this.createDomNode('div', 'product');

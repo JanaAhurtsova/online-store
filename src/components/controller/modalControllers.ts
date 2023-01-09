@@ -91,11 +91,9 @@ export default class ModalControllers implements IModalController {
     for (let i = 0; i < fields.length; i += 1) {
       if (!fields[i].value.trim()) {
         this.generateError(errors[i], `${fields[i].placeholder} cannot be blank`);
-        // fields[i].parentElement?.append(error);
         valid = false;
       } else if (!regEl[i].exec(fields[i].value)) {
         this.generateError(errors[i], `Invalid ${fields[i].placeholder}`);
-        // fields[i].parentElement?.append(error);
         valid = false;
       } else {
         this.success(fields[i].parentElement as HTMLElement);

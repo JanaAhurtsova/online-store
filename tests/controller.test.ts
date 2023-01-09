@@ -37,4 +37,22 @@ describe('controller module', () => {
       expect(result).toBe('cart?limit=2');
     });
   });
+
+  describe('resetFilter method', () => {
+
+    test('should remove parameters from query', () => {
+      controller.query = [{ type: 'cart', name: [''] }];
+      controller.resetFilter();
+      expect(controller.query).toEqual([]);
+    });
+  });
+
+  describe('openShoppingCart method', () => {
+    test('should be exist', () => {
+      const spy = jest.spyOn(Controller.prototype, 'openShoppingCart');
+      expect(spy).toBeDefined();
+      expect(spy).toHaveBeenCalled();
+      expect(spy).not.toBeNull();
+    })
+  })
 });

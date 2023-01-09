@@ -1,7 +1,7 @@
 .product-card {
   @include flex($align: flex-start);
   flex-direction: column;
-  padding: 0.5rem 1rem 1rem;
+  padding: 1rem;
 
   &:hover {
     box-shadow: $color-text 0px 2px 8px 0px;
@@ -21,7 +21,11 @@
 }
 
 .product__description{
-  display: none;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
 }
 
 .product__title,

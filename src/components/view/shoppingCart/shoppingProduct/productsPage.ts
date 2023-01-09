@@ -35,7 +35,7 @@ export default class ProductPage {
   }
 
   private init() {
-    this.numberPagesInput.setAttribute('placeholder', 'number of items to display');
+    this.numberPagesInput.setAttribute('placeholder', 'items on page');
     this.switcher.setAttribute('value', '1');
   }
 
