@@ -1,19 +1,31 @@
 .product-card {
   @include flex($align: flex-start);
   flex-direction: column;
-  padding: 0.5em 1em 1em;
+  padding: 1rem;
+
   &:hover {
     box-shadow: $color-text 0px 2px 8px 0px;
   }
 }
 
-.product__img {
-  width: 100%;
-  object-fit: cover;
+.product {
+  @include flex($align: flex-start);
+  flex-direction: column;
+  gap: .8rem;
+  margin-bottom: 1.5rem;
+
+  .image__main {
+    align-self: center;
+    width: 100%;
+  }
 }
 
 .product__description{
-  display: none;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
 }
 
 .product__title,
@@ -25,6 +37,7 @@
 
 .product__price {
   position: relative;
+
   &::after {
     content: '';
     position: absolute;
@@ -63,5 +76,5 @@
 
 .rating__back::before{
   content: '★★★★★';
-  color:$color-brand;
+  color: $color-brand;
 }

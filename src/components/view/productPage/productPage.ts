@@ -2,82 +2,53 @@ import { TProduct, TShoppingCart } from '../../../globalType';
 import ProductInfo from '../productInfo/productInfo';
 
 export default class ProductPage {
-  container: HTMLElement;
+  public container: HTMLElement;
 
-  productPath: HTMLHeadingElement;
+  private productPath: HTMLHeadingElement;
 
-  productWrapper: HTMLElement;
+  private productWrapper: HTMLElement;
 
-  descriptionWrapper: HTMLElement;
+  private descriptionWrapper: HTMLElement;
 
-  imagesWrapper: HTMLElement;
+  private imagesWrapper: HTMLElement;
 
-  images: HTMLElement;
+  public images: HTMLElement;
 
-  productCategory: HTMLElement;
+  private productCategory: HTMLHeadingElement;
 
-  buttons: HTMLElement;
+  public buttons: HTMLElement;
 
-  productStock: HTMLElement;
+  public productStock: HTMLElement;
 
-  buttonBuy: HTMLButtonElement;
+  public buttonBuy: HTMLButtonElement;
 
-  buttonCart: HTMLButtonElement;
+  public buttonCart: HTMLButtonElement;
 
-  productInfo: ProductInfo;
+  public readonly productInfo: ProductInfo;
 
-  mainImage: HTMLImageElement;
+  public mainImage: HTMLImageElement;
 
-  id: number;
+  public id: number;
 
   constructor() {
     this.id = 0;
     this.productInfo = new ProductInfo();
     this.mainImage = this.productInfo.img;
-    this.container = document.createElement('section');
-    this.productPath = document.createElement('h4');
-    this.productWrapper = document.createElement('div');
-    this.descriptionWrapper = document.createElement('div');
-    this.imagesWrapper = document.createElement('div');
-    this.images = document.createElement('div');
-    this.productCategory = document.createElement('h4');
-    this.buttons = document.createElement('div');
-    this.buttonCart = document.createElement('button');
-    this.buttonBuy = document.createElement('button');
-    this.productStock = document.createElement('h4');
-    this.init();
+    this.container = this.createDomNode('section', 'product__page');
+    this.productPath = this.createDomNode('h4', 'product__path') as HTMLHeadingElement;
+    this.productWrapper = this.createDomNode('div', 'wrapper__product');
+    this.descriptionWrapper = this.createDomNode('div', 'wrapper__description');
+    this.imagesWrapper = this.createDomNode('div', 'wrapper__images');
+    this.images = this.createDomNode('div', 'images');
+    this.productCategory = this.createDomNode('h4', 'category') as HTMLHeadingElement;
+    this.buttons = this.createDomNode('div', 'buttons');
+    this.buttonCart = this.createDomNode('button', 'button', 'Add To Cart') as HTMLButtonElement;
+    this.buttonBuy = this.createDomNode('button', 'button', 'Buy Now') as HTMLButtonElement;
+    this.productStock = this.createDomNode('h4', 'stock');
+    this.append();
   }
 
-  private init() {
-    this.container.classList.add('product__page');
-
-    this.productPath.classList.add('product__path');
-
-    this.productWrapper.classList.add('wrapper__product');
-    this.descriptionWrapper.classList.add('wrapper__description');
-
-    this.productInfo.title.classList.add('title');
-
-    this.productCategory.classList.add('category');
-
-    this.productInfo.rating.rating.classList.add('wrapper__rating');
-
-    this.productInfo.description.classList.add('product__description');
-
-    this.buttons.classList.add('buttons');
-
-    this.buttonBuy.classList.add('button');
-    this.buttonBuy.textContent = `Buy Now`;
-
-    this.buttonCart.classList.add('button');
-    this.buttonCart.textContent = `Add To Cart`;
-
-    this.productStock.classList.add('stock');
-
-    this.mainImage.className = 'image__main';
-
-    this.productInfo.price.classList.add('price');
-
+  private append() {
     this.buttons.append(this.buttonCart, this.buttonBuy);
     this.descriptionWrapper.append(
       this.productCategory,
@@ -90,11 +61,9 @@ export default class ProductPage {
     );
     this.productWrapper.append(this.descriptionWrapper);
     this.container.append(this.productPath, this.productWrapper);
-
-    this.bindEvent(this.mainImage);
   }
 
-  openPage(product: TProduct, shoppingCart: TShoppingCart) {
+  public openPage(product: TProduct, shoppingCart: TShoppingCart) {
     this.id = product.id;
     this.shopCartInfo(shoppingCart);
     this.productInfo.initProductInfo(product);
@@ -107,6 +76,7 @@ export default class ProductPage {
     this.productCategory.textContent = `Category: ${product.category.replace(/_/g, ' ')} / ${product.type}`;
     this.productStock.textContent = `Stock: ${product.stock}`;
     this.buttonBuy.setAttribute('data-type', 'buy');
+    this.buttonBuy.setAttribute('data-id', String(product.id));
     this.buttonCart.setAttribute('data-type', 'cart');
     this.buttonCart.setAttribute('data-id', String(product.id));
     this.imagesWrapper.append(this.mainImage, this.images);
@@ -114,11 +84,8 @@ export default class ProductPage {
   }
 
   private createImages(product: TProduct) {
-    this.imagesWrapper.classList.add('wrapper__images');
-    this.images.classList.add('images');
     for (let i = 0; i < product.images.length; i += 1) {
-      const image = document.createElement('img');
-      image.classList.add('image');
+      const image = this.createDomNode('img', 'image') as HTMLImageElement;
       image.setAttribute('src', product.images[i]);
       image.setAttribute('alt', product.title);
       this.images.append(image);
@@ -126,15 +93,7 @@ export default class ProductPage {
     return this.imagesWrapper;
   }
 
-  bindEvent(mainImage: HTMLImageElement) {
-    this.images.addEventListener('click', (e: Event) => {
-      const target = e.target as HTMLElement;
-      const imageLink = target.getAttribute('src') as string;
-      mainImage.setAttribute('src', imageLink);
-    });
-  }
-
-  shopCartInfo(data: TShoppingCart) {
+  public shopCartInfo(data: TShoppingCart) {
     const find = data.info.find((item) => item.product === this.id);
     if (find) {
       this.buttonCart.textContent = 'drop from cart';
@@ -143,5 +102,14 @@ export default class ProductPage {
       this.buttonCart.textContent = 'add to cart';
       this.buttonCart.classList.remove('selected');
     }
+  }
+
+  private createDomNode(element: string, classElement: string, text?: string) {
+    const node = document.createElement(element);
+    node.classList.add(classElement);
+    if (text) {
+      node.textContent = text;
+    }
+    return node;
   }
 }

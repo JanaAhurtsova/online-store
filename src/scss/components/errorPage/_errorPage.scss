@@ -1,0 +1,10 @@
+.error_page {
+  @include flex($justify: center);
+  width: 100%;
+}
+
+.error_page__title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: $color-title;
+}

@@ -2,18 +2,19 @@
   @include flex;
   position: relative;
   width: 100%;
-  gap: .3em;
+  gap: .4em;
 }
 
 .button {
-  padding: .5em;
+  padding: .5rem;
   background-color: $color-brand;
   color: $color-title;
   border-radius: 1.6em;
-  font-size: 1.1rem;
+  font-size: 11px;
   border: .1em solid transparent;
   cursor: pointer;
   width: 47%;
+
   &:hover {
     border: .1em solid $color-border;
     background-color: $color-background;
@@ -23,14 +24,33 @@
 .product__button-details {
   border: .1em solid $color-border;
   background-color: $color-background;
-  color: $color-title;
+
   &:hover {
     border: .1em solid transparent;
     background-color: $color-brand;
   }
 }
 
-//product page
+// store
+.reset,
+.copy {
+  width:50%;
+  font-size: 12px;
+  padding: .5rem .3rem;
+
+  &:hover {
+    background-color: $color-background;
+  }
+}
+
+.copy:active{
+
+  &::after{
+    content: '✔';
+  }
+}
+
+// product page
 .buttons {
   @include flex($justify: flex-start);
   margin: 1em 0;
@@ -46,9 +66,15 @@
 
 //modal
 .submit {
-  font-size: 1.3rem;
+  font-size: 13px;
   color: $color-background;
   &:hover {
     color: $color-text;
   }
+}
+
+// shop cart summary
+.summary__button {
+  font-size: 1rem;
+  width: fit-content;
 }

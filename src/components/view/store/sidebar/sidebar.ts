@@ -3,51 +3,45 @@ import TypeFilter from './typeFilter/typeFitler';
 import SliderFilter from './sliderFIlter/sliderFilter';
 
 export default class SideBar {
-  sidebar: HTMLElement;
+  public sidebar: HTMLElement;
 
-  categories: TypeFilter;
+  public categories: TypeFilter;
 
-  types: TypeFilter;
+  private types: TypeFilter;
 
-  filter: HTMLDivElement;
+  public filter: HTMLElement;
 
-  priceFilter: SliderFilter;
+  public priceFilter: SliderFilter;
 
-  stockFilter: SliderFilter;
+  public stockFilter: SliderFilter;
 
-  resetFilterButton: HTMLButtonElement;
+  private buttons: HTMLElement;
 
-  copyFilterButton: HTMLButtonElement;
+  public resetFilterButton: HTMLButtonElement;
+
+  private copyFilterButton: HTMLButtonElement;
 
   constructor() {
-    this.sidebar = document.createElement('aside');
-    this.filter = document.createElement('div');
+    this.sidebar = this.createDomNode('aside', 'sidebar');
+    this.filter = this.createDomNode('div', 'filter__wrapper');
     this.categories = new TypeFilter('category', 'Product Category');
     this.types = new TypeFilter('type', 'Product Type');
     this.priceFilter = new SliderFilter('price');
     this.stockFilter = new SliderFilter('stock');
-    this.resetFilterButton = this.createButton('Reset Filter', 'reset');
-    this.copyFilterButton = this.createButton('Copy link', 'copy');
+    this.buttons = this.createDomNode('div', 'wrapper__buttons');
+    this.resetFilterButton = this.createDomNode('button', 'button', 'Reset Filter', 'reset') as HTMLButtonElement;
+    this.copyFilterButton = this.createDomNode('button', 'button', 'Copy link', 'copy') as HTMLButtonElement;
     this.append();
-    this.init();
     this.copyFilterButton.addEventListener('click', this.copyFilter);
   }
 
-  init() {
-    this.sidebar.classList.add('sidebar');
+  private append() {
+    this.filter.append(this.categories.filter, this.types.filter);
+    this.buttons.append(this.resetFilterButton, this.copyFilterButton);
+    this.sidebar.append(this.buttons, this.filter, this.priceFilter.slider, this.stockFilter.slider);
   }
 
-  append() {
-    this.filter.append(this.categories.filter);
-    this.filter.append(this.types.filter);
-    this.sidebar.append(this.resetFilterButton);
-    this.sidebar.append(this.copyFilterButton);
-    this.sidebar.append(this.filter);
-    this.sidebar.append(this.priceFilter.slider);
-    this.sidebar.append(this.stockFilter.slider);
-  }
-
-  changeSelectedCategory(data: TReloadPage) {
+  public changeSelectedCategory(data: TReloadPage) {
     this.categories.filterField.concat(this.types.filterField).forEach((item) => {
       item.categoryText.classList.remove('selected-filter');
       data.query.forEach((filter) => {
@@ -59,7 +53,7 @@ export default class SideBar {
           });
         }
       });
-      item.categoryAmoun.innerHTML = ` (${
+      item.categoryAmount.innerHTML = ` (${
         data.products.filter(
           (dataItem) =>
             dataItem[item.categoryText.dataset.type as TFilter] === (item.categoryText.dataset.name as TFilter)
@@ -68,20 +62,25 @@ export default class SideBar {
     });
   }
 
-  filterRange(event: Event): TSLider {
+  public filterRange(event: Event): TSLider {
     const target = event.target as HTMLElement;
     return target.dataset.type === 'price' ? this.priceFilter.filterRange() : this.stockFilter.filterRange();
   }
 
-  createButton(text: string, type: string) {
-    const button = document.createElement('button');
-    button.innerHTML = text;
-    button.classList.add('button');
-    button.classList.add(type);
-    return button;
+  private createDomNode(element: string, classElement: string, text?: string, type?: string) {
+    const node = document.createElement(element);
+    node.classList.add(classElement);
+
+    if (text) {
+      node.innerText = text;
+    }
+    if (type) {
+      node.classList.add(type);
+    }
+    return node;
   }
 
-  copyFilter() {
+  private copyFilter() {
     const url = document.location.href;
     navigator.clipboard.writeText(url);
   }

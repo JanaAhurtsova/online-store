@@ -1,6 +1,10 @@
 html {
   font-size: 10px;
   scroll-behavior: smooth;
+
+  @media (max-width: 600px) {
+    font-size: 8.5px;
+  }
 }
 
 * {
@@ -23,7 +27,9 @@ body {
 }
 
 .root {
-  min-height: 85vh;
+  @include flex($align: flex-start);
+  min-height: 80vh;
+  padding: 1rem;
 }
 
 li {

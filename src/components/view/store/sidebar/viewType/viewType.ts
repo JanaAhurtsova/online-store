@@ -1,29 +1,30 @@
 export default class ViewType {
-  view: HTMLDivElement;
+  view: HTMLElement;
 
-  viewText: HTMLParagraphElement;
+  viewText: HTMLElement;
 
-  viewGrid: HTMLDivElement;
+  viewGrid: HTMLElement;
 
-  viewLine: HTMLDivElement;
+  viewDouble: HTMLElement;
 
   constructor() {
-    this.view = document.createElement('div');
-    this.viewText = document.createElement('p');
-    this.viewGrid = document.createElement('div');
-    this.viewLine = document.createElement('div');
-    this.init();
+    this.view = this.createDomNode('div', 'view');
+    this.viewText = this.createDomNode('p', 'view__text', 'View on');
+    this.viewGrid = this.createDomNode('div', 'view__grid');
+    this.viewDouble = this.createDomNode('div', 'view__double');
     this.append();
   }
 
-  init() {
-    this.view.classList.add('view');
-    this.view.textContent = 'View on';
-    this.viewGrid.classList.add('view__grid');
-    this.viewLine.classList.add('view__line');
+  private append() {
+    this.view.append(this.viewText, this.viewGrid, this.viewDouble);
   }
 
-  append() {
-    this.view.append(this.viewText, this.viewGrid, this.viewLine);
+  private createDomNode(element: string, classElement: string, text?: string) {
+    const node = document.createElement(element);
+    node.classList.add(classElement);
+    if (text) {
+      node.textContent = text;
+    }
+    return node;
   }
 }

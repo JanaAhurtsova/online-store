@@ -3,15 +3,15 @@ import FilterController from '../../../../controller/filterController';
 import products from '../../../../data/products';
 
 export default class InputSlider {
-  inputs: HTMLElement;
+  public inputs: HTMLElement;
 
-  lower: HTMLInputElement;
+  public lower: HTMLInputElement;
 
-  upper: HTMLInputElement;
+  public upper: HTMLInputElement;
 
-  name: TSliderFilter;
+  public name: TSliderFilter;
 
-  maxValue: string;
+  public maxValue: string;
 
   constructor(name: TSliderFilter) {
     this.name = name;
@@ -23,7 +23,7 @@ export default class InputSlider {
     this.init();
   }
 
-  createInput(value: string, className: string) {
+  public createInput(value: string, className: string) {
     const input = document.createElement('input');
     input.setAttribute('type', 'range');
     input.setAttribute('min', '0');
@@ -34,11 +34,11 @@ export default class InputSlider {
     return input;
   }
 
-  init() {
+  private init() {
     this.inputs.classList.add('slider');
   }
 
-  filterRange(): TSLider {
+  public filterRange(): TSLider {
     let upper = parseInt(this.upper.value, 10);
     let lower = parseInt(this.lower.value, 10);
     if (upper < lower) {
@@ -49,12 +49,12 @@ export default class InputSlider {
     return { upper, lower, name: this.name };
   }
 
-  append() {
+  private append() {
     this.inputs.append(this.lower);
     this.inputs.append(this.upper);
   }
 
-  getRangeLength() {
+  public getRangeLength() {
     const product = [...products];
     FilterController.sortNumber(product, this.name);
     const result = new Set(product.map((item) => item[this.name]));

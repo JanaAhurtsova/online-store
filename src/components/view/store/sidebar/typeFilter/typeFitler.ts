@@ -3,11 +3,11 @@ import products from '../../../../data/products';
 import FilterItem from './filterItem';
 
 export default class TypeFilter {
-  filter: HTMLElement;
+  public filter: HTMLElement;
 
-  title: HTMLHeadingElement;
+  private title: HTMLHeadingElement;
 
-  filterField: FilterItem[];
+  public filterField: FilterItem[];
 
   constructor(type: TFilter, titleText: string) {
     this.filter = document.createElement('div');
@@ -19,18 +19,18 @@ export default class TypeFilter {
     this.createFilterItem(type);
   }
 
-  init(titleText: string) {
+  private init(titleText: string) {
     this.filter.classList.add('categories');
 
     this.title.classList.add('categories__title');
     this.title.innerHTML = titleText;
   }
 
-  append() {
+  private append() {
     this.filter.append(this.title);
   }
 
-  createFilterItem(type: TFilter) {
+  public createFilterItem(type: TFilter) {
     const categories = Array.from(new Set(products.map((product) => product[type])));
     categories.forEach((name) => {
       const category = new FilterItem(type, name);

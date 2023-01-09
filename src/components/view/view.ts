@@ -5,21 +5,26 @@ import ProductPage from './productPage/productPage';
 import products from '../data/products';
 import ShoppingCart from './shoppingCart/shoppingCart';
 import ModalPayment from './shoppingCart/modal/modal';
+import ErrorPage from './errorPage/error';
+
+const noLogo: string = require('../../assets/svg/nologo.svg');
 
 export default class View implements IView {
-  header: Header;
+  public header: Header;
 
-  body: HTMLElement;
+  private body: HTMLElement;
 
-  main: HTMLElement;
+  private main: HTMLElement;
 
-  storePage: Store;
+  public storePage: Store;
 
-  productPage: ProductPage;
+  public productPage: ProductPage;
 
-  shoppingCartPage: ShoppingCart;
+  public shoppingCartPage: ShoppingCart;
 
-  modal: ModalPayment;
+  public modal: ModalPayment;
+
+  private errorPage: ErrorPage;
 
   constructor() {
     this.body = document.body;
@@ -29,16 +34,17 @@ export default class View implements IView {
     this.productPage = new ProductPage();
     this.shoppingCartPage = new ShoppingCart();
     this.modal = new ModalPayment();
+    this.errorPage = new ErrorPage();
     this.append();
   }
 
-  append() {
+  private append() {
     this.body.insertBefore(this.header.header, this.main);
     this.main.append(this.storePage.store);
   }
 
-  getLocalStorageDate() {
-    let shoppingCart: TShoppingCart = { price: 0, info: [{ count: 0, product: 0 }] };
+  public getLocalStorageDate() {
+    let shoppingCart: TShoppingCart = { price: 0, info: [] };
     const localStorageInfo = localStorage.getItem('prod');
     if (localStorageInfo) {
       shoppingCart = JSON.parse(localStorageInfo);
@@ -46,10 +52,14 @@ export default class View implements IView {
     return shoppingCart;
   }
 
-  reloadPage(data: TReloadPage | string) {
+  public reloadPage(data: TReloadPage | string) {
     const localStorage = this.getLocalStorageDate();
     if (typeof data === 'string') {
-      this.openProductPage(data, localStorage);
+      if (data === 'error') {
+        this.showErrorPage();
+      } else {
+        this.openProductPage(data, localStorage);
+      }
     } else if (data.query.length === 0 || data.query[0].type !== 'cart') {
       this.openShopPage(data, localStorage);
     } else {
@@ -58,21 +68,26 @@ export default class View implements IView {
     this.header.changePrice(localStorage);
   }
 
-  openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
+  private showErrorPage() {
+    this.main.replaceChild(this.errorPage.error, this.main.children[0]);
+  }
+
+  public openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage) {
     if (this.shoppingCartPage.shopCart !== this.main.children[0]) {
       this.main.replaceChild(this.shoppingCartPage.shopCart, this.main.children[0]);
     }
     this.shoppingCartPage.initShoppingCart(localStorage, data);
   }
 
-  openProductPage(data: string, localStorage: TShoppingCart) {
+  public openProductPage(data: string, localStorage: TShoppingCart) {
+    console.log(data);
     if (this.productPage.container !== this.main.children[0]) {
       this.main.replaceChild(this.productPage.container, this.main.children[0]);
     }
     this.productPage.openPage(products[Number(data) - 1], localStorage);
   }
 
-  openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
+  public openShopPage(data: TReloadPage, localStorage: TShoppingCart) {
     if (this.storePage.store !== this.main.children[0]) {
       this.main.replaceChild(this.storePage.store, this.main.children[0]);
     }
@@ -87,24 +102,24 @@ export default class View implements IView {
     this.storePage.createProducts(localStorage, typeViewText, data.products);
   }
 
-  clickProduct(cartInfo: TShoppingCart | string) {
-    if (typeof cartInfo !== 'string') {
-      this.productPage.shopCartInfo(cartInfo);
-      this.storePage.shopCartInfo(cartInfo);
-      this.header.changePrice(cartInfo);
-    }
-  }
-
-  openModal() {
+  public openModal() {
     this.body.append(this.modal.overlay);
     this.removeErrors();
+    this.removeInputs();
+    this.modal.creditCard.paymentSystem.style.backgroundImage = `url(${noLogo})`;
   }
 
   private removeErrors() {
-    const modal = document.querySelector('.overlay__modal') as HTMLElement;
-    const errors = modal.querySelectorAll('.error');
-    for (let i = 0; i < errors.length; i += 1) {
-      errors[i].innerHTML = '';
-    }
+    const errors = this.modal.modal.querySelectorAll('.error');
+    errors.forEach((error) => {
+      error.innerHTML = '';
+    });
+  }
+
+  private removeInputs() {
+    const inputs = this.modal.modal.querySelectorAll('.input') as NodeListOf<HTMLInputElement>;
+    inputs.forEach((input) => {
+      input.value = '';
+    });
   }
 }

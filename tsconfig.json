@@ -7,7 +7,15 @@
     "allowJs": true,
     "strict": true,
     "noImplicitAny": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
-  "include": ["src", "src/module.d.ts"]
+  "include": [
+    "src",
+    "src/module.d.ts",
+    "tests/productPage.test.ts",
+    "tests/productInfo.spec.ts",
+    "tests/header.test.ts",
+    "tests/credit.test.ts"
+  ]
 }

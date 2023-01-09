@@ -1,37 +1,36 @@
 import { TProduct } from '../../../globalType';
 
 export default class Rating {
-  rating: HTMLDivElement;
+  public rating: HTMLElement;
 
-  ratingBody: HTMLDivElement;
+  public ratingBody: HTMLElement;
 
-  ratingBack: HTMLDivElement;
+  public ratingBack: HTMLElement;
 
-  ratingText: HTMLHeadingElement;
+  public readonly ratingText: HTMLElement;
 
   constructor() {
-    this.rating = document.createElement('div');
-    this.ratingText = document.createElement('h4');
-    this.ratingBody = document.createElement('div');
-    this.ratingBack = document.createElement('div');
-    this.init();
+    this.rating = this.createDomNode('div', 'wrapper__rating');
+    this.ratingText = this.createDomNode('h4', 'rating__text');
+    this.ratingBody = this.createDomNode('div', 'rating__body');
+    this.ratingBack = this.createDomNode('div', 'rating__back');
     this.append();
   }
 
-  init() {
-    this.ratingText.classList.add('rating__text');
-    this.ratingBody.classList.add('rating__body');
-    this.ratingBack.classList.add('rating__back');
-  }
-
-  append() {
+  private append() {
     this.ratingBody.append(this.ratingBack);
     this.rating.append(this.ratingText);
     this.rating.append(this.ratingBody);
   }
 
-  initRating(productData: TProduct) {
+  public initRating(productData: TProduct) {
     this.ratingBack.style.width = `${productData.rating * 20}%`;
     this.ratingText.textContent = `Rating ${productData.rating}/5`;
+  }
+
+  private createDomNode(element: string, classEl: string) {
+    const node = document.createElement(element);
+    node.classList.add(classEl);
+    return node;
   }
 }

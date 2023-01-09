@@ -1,9 +1,9 @@
 import { TQuery } from '../../../../../globalType';
 
 export default class SearchFilter {
-  search: HTMLDivElement;
+  public search: HTMLDivElement;
 
-  input: HTMLInputElement;
+  public input: HTMLInputElement;
 
   constructor() {
     this.search = document.createElement('div');
@@ -11,7 +11,7 @@ export default class SearchFilter {
     this.init();
   }
 
-  init() {
+  private init() {
     this.search.append(this.input);
     this.input.classList.add('search__input');
     this.input.setAttribute('type', 'search');
@@ -19,7 +19,7 @@ export default class SearchFilter {
     this.search.classList.add('search');
   }
 
-  reloadPage(query: TQuery[]) {
+  public reloadPage(query: TQuery[]) {
     const data = query.find((item) => item.type === 'search') as TQuery;
     if (data) {
       const result = data.name[0];

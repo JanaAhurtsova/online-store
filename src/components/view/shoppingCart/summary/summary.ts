@@ -1,80 +1,77 @@
 import { TShoppingCart } from '../../../../globalType';
-import SearchFilter from '../../store/sidebar/searchFilter/searchFilter';
 import Promo from './promo';
 
 export default class Summary {
-  summary: HTMLDivElement;
+  public summary: HTMLElement;
 
-  title: HTMLHeadingElement;
+  private title: HTMLElement;
 
-  product: HTMLHeadingElement;
+  private product: HTMLElement;
 
-  price: HTMLHeadingElement;
+  private price: HTMLElement;
 
-  buyButton: HTMLButtonElement;
+  public buyButton: HTMLButtonElement;
 
-  promoInput: SearchFilter;
+  public promoInput: HTMLInputElement;
 
-  promoText: HTMLParagraphElement;
+  private promoInputSearch: HTMLElement;
 
-  promoCode: string[];
+  private promoText: HTMLElement;
 
-  selectedPromo: HTMLDivElement;
+  private promoCode: string[];
 
-  promo: Promo;
+  private selectedPromo: HTMLElement;
 
-  promoMas: string[];
+  private promo: Promo;
 
-  selectedPromoTitle: HTMLParagraphElement;
+  private promoMas: string[];
 
-  finalPrice: HTMLHeadingElement;
+  private selectedPromoTitle: HTMLElement;
 
-  priceData: number;
+  public finalPrice: HTMLElement;
+
+  private priceData: number;
 
   constructor() {
     this.priceData = 0;
-    this.summary = document.createElement('div');
-    this.title = document.createElement('h2');
-    this.product = document.createElement('h3');
-    this.price = document.createElement('h3');
-    this.promoInput = new SearchFilter();
-    this.promoText = document.createElement('p');
+    this.summary = this.createDomNode('div', 'summary');
+    this.title = this.createDomNode('h2', 'summary__title', 'Summary');
+    this.product = this.createDomNode('h3', 'summary__product');
+    this.price = this.createDomNode('h3', 'summary__price');
+    this.promoInput = this.createDomNode('input', 'promo__input') as HTMLInputElement;
+    this.promoInputSearch = this.createDomNode('div', 'promo__search');
+    this.promoText = this.createDomNode('p', 'discount', `Promo : 'RS', 'EPM'`);
     this.promo = new Promo();
     this.promoMas = [];
-    this.finalPrice = document.createElement('h3');
-    this.selectedPromo = document.createElement('div');
-    this.selectedPromoTitle = document.createElement('p');
-    this.buyButton = document.createElement('button');
+    this.finalPrice = this.createDomNode('h3', 'summary__final-price');
+    this.selectedPromo = this.createDomNode('div', 'summary__selected-promo');
+    this.selectedPromoTitle = this.createDomNode('h3', 'selected-promo__title');
+    this.buyButton = this.createDomNode('button', 'button', 'Buy now') as HTMLButtonElement;
     this.promoCode = ['RS', 'EPM'];
     this.append();
     this.init();
   }
 
-  init() {
-    this.title.textContent = 'Summary';
-    this.buyButton.textContent = 'Buy Now';
-    this.buyButton.classList.add('button');
-    this.promoText.textContent = `Promo : 'RS', 'EPM'`;
-    this.promoInput.input.setAttribute('placeholder', 'Enter promo code');
-    this.promo.promo.classList.add('invisible');
+  private init() {
     this.selectedPromo.classList.add('invisible');
-    this.promoInput.input.addEventListener('input', this.enterPromo.bind(this));
-    this.promo.buttonClick(this.addPromo.bind(this));
+    this.promoInput.setAttribute('placeholder', 'Enter promo code');
+    this.promoInput.addEventListener('input', this.enterPromo.bind(this));
+    this.promo.addButtonClickHandler(this.addPromo.bind(this));
   }
 
-  addPromo(event: Event) {
+  public addPromo(event: Event) {
     const target = event.target as HTMLElement;
     const info = target.parentElement?.getAttribute('code');
     if (info) {
       this.promoMas.push(info);
-      this.promoInput.input.value = '';
+      this.promoInput.value = '';
       this.promo.promo.classList.add('invisible');
       this.selectedPromo.classList.remove('invisible');
       this.shopPromo();
     }
   }
 
-  dropPromo(event: Event) {
+  public dropPromo(event: Event) {
     const target = event.target as HTMLElement;
     const info = target.parentElement?.getAttribute('code');
     if (info) {
@@ -83,7 +80,7 @@ export default class Summary {
     }
   }
 
-  shopPromo() {
+  public shopPromo() {
     if (this.promoMas.length !== 0) {
       this.selectedPromo.textContent = '';
       this.selectedPromo.append(this.finalPrice, this.selectedPromoTitle);
@@ -93,7 +90,7 @@ export default class Summary {
       this.promoMas.forEach((item) => {
         const promo = new Promo();
         promo.initPromo('drop', item);
-        promo.buttonClick(this.dropPromo.bind(this));
+        promo.addButtonClickHandler(this.dropPromo.bind(this));
         this.selectedPromo.append(promo.promo);
       });
     } else {
@@ -102,7 +99,7 @@ export default class Summary {
     }
   }
 
-  enterPromo(event: Event) {
+  public enterPromo(event: Event) {
     const target = event.target as HTMLInputElement;
     const code = target.value.toUpperCase();
     if (this.promoCode.includes(code)) {
@@ -118,23 +115,33 @@ export default class Summary {
     }
   }
 
-  append() {
+  private append() {
+    this.promoInputSearch.append(this.promoInput);
     this.summary.append(
       this.title,
       this.product,
       this.price,
       this.selectedPromo,
-      this.promoInput.search,
-      this.promo.promo,
+      this.promoInputSearch,
       this.promoText,
+      this.promo.promo,
       this.buyButton
     );
   }
 
-  initSummary(data: TShoppingCart) {
+  public initSummary(data: TShoppingCart) {
     this.priceData = data.price;
     this.price.textContent = `Total: $ ${data.price}`;
     this.product.textContent = `Products: ${data.info.reduce((acc, item) => acc + item.count, 0)}`;
     this.shopPromo();
+  }
+
+  private createDomNode(element: string, classEl: string, text?: string) {
+    const node = document.createElement(element);
+    node.classList.add(classEl);
+    if (text) {
+      node.textContent = text;
+    }
+    return node;
   }
 }

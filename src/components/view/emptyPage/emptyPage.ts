@@ -1,21 +1,24 @@
 export default class EmptyPage {
-  emptyPage: HTMLDivElement;
+  public emptyPage: HTMLElement;
 
-  message: HTMLHeadingElement;
+  public message: HTMLElement;
 
   constructor(text: string) {
-    this.emptyPage = document.createElement('div');
-    this.message = document.createElement('h2');
-    this.init(text);
+    this.emptyPage = this.createDomNode('div', 'empty-page');
+    this.message = this.createDomNode('h2', 'empty-page__text', text);
     this.append();
   }
 
-  init(text: string) {
-    this.message.textContent = `${text}`;
-    this.emptyPage.classList.add('empty-page');
+  private append() {
+    this.emptyPage.append(this.message);
   }
 
-  append() {
-    this.emptyPage.append(this.message);
+  private createDomNode(element: string, classElement: string, text?: string) {
+    const node = document.createElement(element);
+    node.className = classElement;
+    if (text) {
+      node.textContent = text;
+    }
+    return node;
   }
 }

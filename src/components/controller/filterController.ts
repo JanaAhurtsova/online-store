@@ -22,7 +22,7 @@ export default class FilterController {
     });
   }
 
-  static sortNumber(res: TProduct[], type: 'price' | 'id' | 'stock') {
+  public static sortNumber(res: TProduct[], type: 'price' | 'id' | 'stock') {
     res.sort((a, b) => a[type] - b[type]);
   }
 
@@ -54,10 +54,6 @@ export default class FilterController {
     return result;
   }
 
-  static sum(a: number, b: number) {
-    return a + b;
-  }
-
   private static filterSlider(range: string[], type: 'price' | 'stock', res: TProduct[]) {
     return res.filter((item) => item[type] >= +range[0] && item[type] <= +range[1]);
   }
@@ -76,7 +72,8 @@ export default class FilterController {
     });
   }
 
-  static filter(arg: TQuery[], query: TQuery[]) {
+  public static filter(arg: TQuery[], query: TQuery[]) {
+    const { hash } = window.location;
     if (arg.length !== 0) {
       if (arg[0].type === 'products') {
         return arg[0].name[0];
@@ -105,15 +102,23 @@ export default class FilterController {
             res = this.sortProduct(filter.name[0], res);
             break;
           }
+          case 'cart':
+          case 'page':
+          case 'limit':
+          case 'view': {
+            break;
+          }
           default: {
+            query = [];
             break;
           }
         }
       });
       return { products: res, query };
     }
+    if (hash !== '') {
+      return 'error';
+    }
     return { products, query };
   }
 }
-
-module.exports = FilterController.sum;

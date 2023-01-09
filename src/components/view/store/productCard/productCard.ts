@@ -2,53 +2,57 @@ import { TProduct } from '../../../../globalType';
 import ProductInfo from '../../productInfo/productInfo';
 
 export default class ProductCard {
-  productView: HTMLElement;
+  public productView: HTMLElement;
 
-  buttonCart: HTMLButtonElement;
+  public buttonCart: HTMLButtonElement;
 
-  buttonDetails: HTMLButtonElement;
+  public buttonDetails: HTMLButtonElement;
 
-  product: ProductInfo;
+  public product: ProductInfo;
 
-  buttons: HTMLDivElement;
+  private buttons: HTMLElement;
 
-  id: number;
+  public id: number;
 
   constructor() {
     this.id = 0;
-    this.productView = document.createElement('article');
+    this.productView = this.createDomNode('article', 'product-card');
     this.product = new ProductInfo();
-    this.buttons = document.createElement('div');
-    this.buttonCart = document.createElement('button');
-    this.buttonDetails = document.createElement('button');
-
+    this.buttons = this.createDomNode('div', 'wrapper__buttons');
+    this.buttonCart = this.createDomNode('button', 'button', 'product__button-cart') as HTMLButtonElement;
+    this.buttonDetails = this.createDomNode('button', 'button', 'product__button-details') as HTMLButtonElement;
     this.init();
     this.append();
   }
 
-  public init() {
-    this.productView.classList.add('product-card');
-
-    this.buttons.classList.add('wrapper__buttons');
-
-    this.buttonCart.classList.add('button', 'product__button-cart');
-    this.buttonCart.setAttribute('data-type', 'cart');
-    this.buttonCart.textContent = `Add To Cart`;
-
-    this.buttonDetails.classList.add('button', 'product__button-details');
-    this.buttonDetails.setAttribute('data-type', 'product');
-    this.buttonDetails.textContent = `View Details`;
+  private init() {
+    this.buttonCart = this.buttonDescription(this.buttonCart, 'data-type', 'cart', `Add To Cart`);
+    this.buttonDetails = this.buttonDescription(this.buttonDetails, 'data-type', 'product', `View Details`);
   }
 
-  public append() {
+  private append() {
     this.buttons.append(this.buttonCart, this.buttonDetails);
     this.productView.append(this.product.productView, this.buttons);
   }
 
-  initProductCard(productData: TProduct) {
+  public initProductCard(productData: TProduct) {
     this.id = productData.id;
-    this.buttonCart.setAttribute('data-id', String(productData.id));
-    this.buttonDetails.setAttribute('data-id', String(productData.id));
+    this.buttonCart = this.buttonDescription(this.buttonCart, 'data-id', String(productData.id));
+    this.buttonDetails = this.buttonDescription(this.buttonDetails, 'data-id', String(productData.id));
     this.product.initProductInfo(productData);
+  }
+
+  private createDomNode(element: string, ...classes: string[]) {
+    const node = document.createElement(element);
+    node.classList.add(...classes);
+    return node;
+  }
+
+  private buttonDescription(node: HTMLButtonElement, attribute: string, name: string, text?: string) {
+    if (text) {
+      node.textContent = text;
+    }
+    node.setAttribute(attribute, name);
+    return node;
   }
 }

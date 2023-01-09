@@ -12,13 +12,11 @@
   gap: 1em;
 }
 
+.wrapper__store {
+  @include grid($column: repeat(auto-fit, minmax(20%, auto)), $row: repeat(auto-fit, minmax(30px, auto)), $gap: 2rem);
+}
+
 .wrapper__sum {
   @include flex;
   gap: 1em;
-}
-
-.wrapper__products {
-  @include grid;
-  padding: 1em;
-  width: 70%;
 }
