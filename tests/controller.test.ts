@@ -37,4 +37,13 @@ describe('controller module', () => {
       expect(result).toBe('cart?limit=2');
     });
   });
+
+  describe('resetFilter method', () => {
+
+    test('should remove parameters from query', () => {
+      controller.query = [{ type: 'cart', name: [''] }];
+      controller.resetFilter();;
+      expect(controller.query).toEqual([]);
+    });
+  });
 });

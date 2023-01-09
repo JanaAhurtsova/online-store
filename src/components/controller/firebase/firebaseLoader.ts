@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, getDownloadURL, FirebaseStorage } from 'firebase/storage';
 
-class FirebaseLoader {
+export default class FirebaseLoader {
   private dataBase: FirebaseStorage;
 
   constructor() {
@@ -24,5 +24,3 @@ class FirebaseLoader {
     return getDownloadURL(ref(this.dataBase, link));
   };
 }
-
-export default FirebaseLoader;
