@@ -2,10 +2,10 @@ import ModalPayment from '../view/shoppingCart/modal/modal';
 import Message from '../view/shoppingCart/modal/message';
 import { IModalController } from '../../globalType';
 
-// const mastercard: string = require('../../assets/svg/mastercard.svg');
-// const visa: string = require('../../assets/svg/visa.svg');
-// const maestro: string = require('../../assets/svg/Maestro.svg');
-// const noLogo: string = require('../../assets/svg/nologo.svg');
+const mastercard: string = require('../../assets/svg/mastercard.svg');
+const visa: string = require('../../assets/svg/visa.svg');
+const maestro: string = require('../../assets/svg/Maestro.svg');
+const noLogo: string = require('../../assets/svg/nologo.svg');
 
 export default class ModalControllers implements IModalController {
   public modal: ModalPayment;
@@ -26,15 +26,15 @@ export default class ModalControllers implements IModalController {
 
   public setPaymentSystem(event: Event, el: HTMLElement) {
     const target = event.target as HTMLInputElement;
-    // if (target.value.startsWith('5')) {
-    //   el.style.backgroundImage = `url(${mastercard})`;
-    // } else if (target.value.startsWith('4')) {
-    //   el.style.backgroundImage = `url(${visa})`;
-    // } else if (target.value.startsWith('3')) {
-    //   el.style.backgroundImage = `url(${maestro})`;
-    // } else {
-    //   el.style.backgroundImage = `url(${noLogo})`;
-    // }
+    if (target.value.startsWith('5')) {
+      el.style.backgroundImage = `url(${mastercard})`;
+    } else if (target.value.startsWith('4')) {
+      el.style.backgroundImage = `url(${visa})`;
+    } else if (target.value.startsWith('3')) {
+      el.style.backgroundImage = `url(${maestro})`;
+    } else {
+      el.style.backgroundImage = `url(${noLogo})`;
+    }
     this.cardSpace(event);
   }
 

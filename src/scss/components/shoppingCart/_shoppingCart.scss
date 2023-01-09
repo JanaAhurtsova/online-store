@@ -53,6 +53,10 @@
         font-size: 1.6rem;
       }
 
+      .product__description {
+        display: none;
+      }
+
       .image__main {
         width: 18%;
       }
@@ -154,6 +158,13 @@
     height: 10rem;
   }
 
+  .pages__number {
+    @include flex;
+    flex-wrap: nowrap;
+    gap: .5rem;
+    width: 25%
+  }
+
   &__switcher {
     @include flex;
 
@@ -178,7 +189,7 @@
   }
 
   & .search__input {
-    margin-left: 0.5rem;
+    width: 100%;
 
     &::placeholder {
       font-size: 1rem;
