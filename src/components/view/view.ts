@@ -101,14 +101,6 @@ export default class View implements IView {
     this.storePage.createProducts(localStorage, typeViewText, data.products);
   }
 
-  public clickProduct(cartInfo: TShoppingCart | string) {
-    if (typeof cartInfo !== 'string') {
-      this.productPage.shopCartInfo(cartInfo);
-      this.storePage.shopCartInfo(cartInfo);
-      this.header.changePrice(cartInfo);
-    }
-  }
-
   public openModal() {
     this.body.append(this.modal.overlay);
     this.removeErrors();

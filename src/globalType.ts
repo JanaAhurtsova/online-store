@@ -52,7 +52,6 @@ export interface IView {
   openShoppingCartPage(localStorage: TShoppingCart, data: TReloadPage): void;
   openProductPage(data: string, localStorage: TShoppingCart): void;
   openShopPage(data: TReloadPage, localStorage: TShoppingCart): void;
-  clickProduct(cartInfo: TShoppingCart | string): void;
   openModal(): void;
 }
 

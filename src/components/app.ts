@@ -17,46 +17,53 @@ export default class App {
 
   public start() {
     this.initListeners();
+    this.view.reloadPage(this.controller.reloadPage());
   }
 
-  private initListeners() {
+  initListeners() {
+    this.initHeaderListeners();
+    this.initModalListeners();
+    this.initProductPageListeners();
+    this.initShoppingCartPageListener();
+    this.initStorePageListeners();
+    this.initRouterListener();
+  }
+
+  private initStorePageListeners() {
     this.view.storePage.sideBar.filter.addEventListener('click', (event: Event) => this.controller.clickFilter(event));
-    this.view.storePage.products.addEventListener('click', (event: Event, data = this.controller.clickProduct(event)) =>
-      this.view.clickProduct(data)
-    );
-    this.view.productPage.buttonCart.addEventListener(
-      'click',
-      (event: Event, data = this.controller.clickProduct(event)) => this.view.clickProduct(data)
-    );
-    this.view.productPage.images.addEventListener(
-      'click',
-      (event: Event, mainImage = this.view.productPage.mainImage) => {
-        this.controller.changeImages(event, mainImage);
-      }
-    );
-    this.view.header.logo.addEventListener('click', this.controller.openStartPage.bind(this.controller));
-    this.view.header.shoppingCart.addEventListener('click', this.controller.openShoppingCart.bind(this.controller));
+    this.view.storePage.products.addEventListener('click', (event: Event) => this.controller.clickProductList(event));
     this.view.storePage.sorter.sorter.addEventListener('change', (event: Event) => this.controller.sort(event));
-    this.view.storePage.sideBar.priceFilter.sliderInputs.lower.addEventListener('input', (event: Event) =>
-      this.controller.sliderFilter(this.view.storePage.filterRange(event))
-    );
-    this.view.storePage.sideBar.priceFilter.sliderInputs.upper.addEventListener('input', (event: Event) =>
-      this.controller.sliderFilter(this.view.storePage.filterRange(event))
-    );
-    this.view.storePage.sideBar.stockFilter.sliderInputs.lower.addEventListener('input', (event: Event) =>
-      this.controller.sliderFilter(this.view.storePage.filterRange(event))
-    );
-    this.view.storePage.sideBar.stockFilter.sliderInputs.upper.addEventListener('input', (event: Event) =>
+    this.view.storePage.sideBar.sidebar.addEventListener('input', (event: Event) =>
       this.controller.sliderFilter(this.view.storePage.filterRange(event))
     );
     this.view.storePage.search.input.addEventListener('input', (event: Event) => this.controller.search(event));
+
     this.view.storePage.sideBar.resetFilterButton.addEventListener(
       'click',
       this.controller.resetFilter.bind(this.controller)
     );
-    window.addEventListener('popstate', (event: Event, data = this.controller.reloadPage()) =>
-      this.view.reloadPage(data)
+    this.view.storePage.view.viewGrid.addEventListener('click', this.controller.clickGridView.bind(this.controller));
+    this.view.storePage.view.viewDouble.addEventListener('click', this.controller.clickLineView.bind(this.controller));
+  }
+
+  private initProductPageListeners() {
+    this.view.productPage.buttonCart.addEventListener('click', (event: Event) =>
+      this.controller.clickProductList(event)
     );
+    this.view.productPage.images.addEventListener('click', (event: Event) => {
+      this.controller.changeImages(event, this.view.productPage.mainImage);
+    });
+    this.view.productPage.buttonBuy.addEventListener('click', (event: Event) =>
+      this.controller.openModalWindow(event, this.view.openModal.bind(this.view))
+    );
+  }
+
+  private initHeaderListeners() {
+    this.view.header.logo.addEventListener('click', this.controller.openStartPage.bind(this.controller));
+    this.view.header.shoppingCart.addEventListener('click', this.controller.openShoppingCart.bind(this.controller));
+  }
+
+  private initShoppingCartPageListener() {
     this.view.shoppingCartPage.productItems.addEventListener('click', (event: Event) => {
       this.controller.clickShoppingCartProduct(event);
     });
@@ -66,39 +73,35 @@ export default class App {
     this.view.shoppingCartPage.productsPage.switcher.addEventListener('click', (event: Event) => {
       this.controller.changeShoppingPage(event);
     });
-    this.view.reloadPage(this.controller.reloadPage());
     this.view.shoppingCartPage.summary.buyButton.addEventListener('click', (event: Event) =>
       this.controller.openModalWindow(event, this.view.openModal.bind(this.view))
     );
-    this.view.productPage.buttonBuy.addEventListener('click', (event: Event) =>
-      this.controller.openModalWindow(event, this.view.openModal.bind(this.view))
-    );
-    this.view.storePage.view.viewGrid.addEventListener('click', this.controller.clickGridView.bind(this.controller));
-    this.view.storePage.view.viewDouble.addEventListener('click', this.controller.clickLineView.bind(this.controller));
+  }
+
+  private initModalListeners() {
     this.view.modal.overlay.addEventListener('click', this.modalControllers.closeModal);
-    this.view.modal.creditCard.creditCardNumber.addEventListener(
-      'input',
-      (event: Event, el = this.view.modal.creditCard.paymentSystem) => {
-        this.modalControllers.setPaymentSystem(event, el);
-      }
-    );
+    this.view.modal.creditCard.creditCardNumber.addEventListener('input', (event: Event) => {
+      this.modalControllers.setPaymentSystem(event, this.view.modal.creditCard.paymentSystem);
+    });
     this.view.modal.creditCard.expiration.addEventListener('input', (event: Event) => {
       this.modalControllers.expirationSlash(event);
     });
     this.view.modal.creditCard.cvv.addEventListener('input', (event: Event) => {
       this.modalControllers.enterCvv(event);
     });
-    this.view.modal.modal.addEventListener(
-      'submit',
-      (
-        event: Event,
-        modal = this.view.modal.modal,
-        el = this.view.modal.creditCard.expiration,
-        openStore = this.controller.openStartPage.bind(this.controller)
-      ) => {
-        event.preventDefault();
-        this.modalControllers.ordering(modal, el, openStore);
-      }
+    this.view.modal.modal.addEventListener('submit', (event: Event) => {
+      event.preventDefault();
+      this.modalControllers.ordering(
+        this.view.modal.modal,
+        this.view.modal.creditCard.expiration,
+        this.controller.openStartPage.bind(this.controller)
+      );
+    });
+  }
+
+  initRouterListener() {
+    window.addEventListener('popstate', (event: Event, data = this.controller.reloadPage()) =>
+      this.view.reloadPage(data)
     );
   }
 }

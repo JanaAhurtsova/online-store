@@ -32,9 +32,9 @@ export default class Controller {
       .add(/cart\b|([\w]+?)=([^&]+)\b/g);
   }
 
-  public clickProduct(event: Event): string | TShoppingCart {
+  public clickProductList(event: Event) {
     const target = (event.target as Element).closest('.button');
-    const result = '';
+
     if (target) {
       const type = target.getAttribute('data-type');
       const id = target.getAttribute('data-id') as string;
@@ -42,11 +42,9 @@ export default class Controller {
         this.router.navigate(`products/${id}`);
       } else {
         this.changeShoppingCart(id);
-        const shoppingCart: TShoppingCart = JSON.parse(localStorage.getItem('prod') as string);
-        return shoppingCart;
+        this.router.navigate(this.getQueryString());
       }
     }
-    return result;
   }
 
   public openShoppingCart() {

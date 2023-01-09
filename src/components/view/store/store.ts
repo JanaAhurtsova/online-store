@@ -18,8 +18,6 @@ export default class Store implements IStore {
 
   public sideBar: SideBar;
 
-  public selectedFilter: HTMLElement[];
-
   private title: HTMLElement;
 
   public sorter: Sorter;
@@ -50,7 +48,6 @@ export default class Store implements IStore {
     this.view = new ViewType();
     this.data = products;
     this.productsData = [];
-    this.selectedFilter = [];
     this.append();
   }
 
@@ -71,7 +68,7 @@ export default class Store implements IStore {
       this.view.viewGrid.classList.remove('selected');
       this.view.viewDouble.classList.add('selected');
     }
-    if (data.length === 0) {
+    if (!data.length) {
       this.products.append(this.emptyPage.emptyPage);
     } else {
       this.data.forEach((article) => {
