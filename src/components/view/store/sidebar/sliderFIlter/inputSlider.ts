@@ -1,4 +1,4 @@
-import { TSLider, TSliderFilter } from '../../../../../globalType';
+import { TSlider, TSliderFilter } from '../../../../../globalType';
 import FilterController from '../../../../controller/filterController';
 import products from '../../../../data/products';
 
@@ -17,13 +17,13 @@ export default class InputSlider {
     this.name = name;
     this.inputs = document.createElement('div');
     this.maxValue = this.getRangeLength();
-    this.lower = this.createInput('0', 'slider__lower');
-    this.upper = this.createInput(this.maxValue, 'slider__upper');
+    this.lower = this.createInput('slider__lower');
+    this.upper = this.createInput('slider__upper');
     this.append();
     this.init();
   }
 
-  public createInput(value: string, className: string) {
+  private createInput(className: string) {
     const input = document.createElement('input');
     input.setAttribute('type', 'range');
     input.setAttribute('min', '0');
@@ -38,7 +38,7 @@ export default class InputSlider {
     this.inputs.classList.add('slider');
   }
 
-  public filterRange(): TSLider {
+  public filterRange(): TSlider {
     let upper = parseInt(this.upper.value, 10);
     let lower = parseInt(this.lower.value, 10);
     if (upper < lower) {

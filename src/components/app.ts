@@ -42,8 +42,7 @@ export default class App {
       'click',
       this.controller.resetFilter.bind(this.controller)
     );
-    this.view.storePage.view.viewGrid.addEventListener('click', this.controller.clickGridView.bind(this.controller));
-    this.view.storePage.view.viewDouble.addEventListener('click', this.controller.clickLineView.bind(this.controller));
+    this.view.storePage.view.view.addEventListener('click', this.controller.clickViewHandler.bind(this.controller));
   }
 
   private initProductPageListeners() {

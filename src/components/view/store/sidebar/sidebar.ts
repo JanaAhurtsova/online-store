@@ -1,5 +1,5 @@
-import { TFilter, TReloadPage, TSLider } from '../../../../globalType';
-import TypeFilter from './typeFilter/typeFitler';
+import { TFilter, TReloadPage, TSlider } from '../../../../globalType';
+import TypeFilter from './typeFilter/typeFilter';
 import SliderFilter from './sliderFIlter/sliderFilter';
 
 export default class SideBar {
@@ -62,7 +62,7 @@ export default class SideBar {
     });
   }
 
-  public filterRange(event: Event): TSLider {
+  public filterRange(event: Event): TSlider {
     const target = event.target as HTMLElement;
     return target.dataset.type === 'price' ? this.priceFilter.filterRange() : this.stockFilter.filterRange();
   }
