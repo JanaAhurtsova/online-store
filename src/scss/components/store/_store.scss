@@ -1,7 +1,7 @@
 .products {
-  @include grid($gap: .5rem);
-  grid-column: 2/auto;
-  grid-row: 2/auto;
+  @include grid($gap: 0.5rem);
+  grid-column: 2 / auto;
+  grid-row: 2 / auto;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -16,7 +16,7 @@
   &__toolbar {
     @include flex($justify: space-around);
     font-size: 1.4rem;
-    grid-column: 2/auto;
+    grid-column: 2 / auto;
     grid-row: 1;
   }
 
@@ -28,7 +28,7 @@
   }
 }
 
-.double{
+.double {
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -49,7 +49,7 @@
 
 .view {
   display: flex;
-  gap: .6rem;
+  gap: 0.6rem;
 
   &__grid,
   &__double {
@@ -86,10 +86,8 @@
 }
 
 @media (max-width: 800px) {
-
   .search,
   .sorter {
     width: 30%;
   }
-
 }

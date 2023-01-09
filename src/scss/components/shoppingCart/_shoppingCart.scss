@@ -23,8 +23,8 @@
     gap: 1rem;
 
     @media (max-width: 800px) {
-        width: 100%;
-        order: 1;
+      width: 100%;
+      order: 1;
     }
 
     &__items {
@@ -129,7 +129,7 @@
 
 .serial__number {
   @include flex($justify: center);
-  border: .2rem solid $color-border;
+  border: 0.2rem solid $color-border;
   border-radius: 50%;
   width: 2.7rem;
   height: 2.7rem;
@@ -161,8 +161,8 @@
   .pages__number {
     @include flex;
     flex-wrap: nowrap;
-    gap: .5rem;
-    width: 25%
+    gap: 0.5rem;
+    width: 25%;
   }
 
   &__switcher {

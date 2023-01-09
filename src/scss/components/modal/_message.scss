@@ -2,7 +2,7 @@
   @include flex($justify: center);
   width: 30%;
   height: 10rem;
-  border: .1rem solid $color-border;
+  border: 0.1rem solid $color-border;
   border-radius: 1rem;
   background-color: $color-background;
 }

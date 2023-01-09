@@ -1,6 +1,6 @@
 .header {
-  padding: .5em;
-  box-shadow: 0 .05rem .3rem .1rem $color-header;
+  padding: 0.5em;
+  box-shadow: 0 0.05rem 0.3rem 0.1rem $color-header;
 }
 
 .sum {
@@ -14,7 +14,7 @@
     position: absolute;
     left: 0;
     bottom: 0.2em;
-    height: .3em;
+    height: 0.3em;
     width: 100%;
     background-color: $color-border;
     z-index: -1;
@@ -24,8 +24,8 @@
 .count {
   @include flex($justify: center);
   position: relative;
-  bottom: -.5em;
-  right: -.2em;
+  bottom: -0.5em;
+  right: -0.2em;
   border-radius: 50%;
   width: 1.3em;
   height: 1.3em;
@@ -33,7 +33,7 @@
 }
 
 .count__text {
-  font-size: .7em;
+  font-size: 0.7em;
   color: $color-title;
   margin: 0;
 }

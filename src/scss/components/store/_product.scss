@@ -11,7 +11,7 @@
 .product {
   @include flex($align: flex-start);
   flex-direction: column;
-  gap: .8rem;
+  gap: 0.8rem;
   margin-bottom: 1.5rem;
 
   .image__main {
@@ -20,12 +20,10 @@
   }
 }
 
-.product__description{
-
+.product__description {
   @media (max-width: 768px) {
     display: none;
   }
-
 }
 
 .product__title,
@@ -59,7 +57,7 @@
   position: relative;
 }
 
-.rating__body::before{
+.rating__body::before {
   content: '★★★★★';
   display: block;
 }
@@ -74,7 +72,7 @@
   overflow: hidden;
 }
 
-.rating__back::before{
+.rating__back::before {
   content: '★★★★★';
   color: $color-brand;
 }
