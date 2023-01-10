@@ -72,14 +72,14 @@ export default class FilterController {
     });
   }
 
-  public static filter(arg: TQuery[], query: TQuery[]) {
+  public static filter(args: TQuery[]) {
     const { hash } = window.location;
-    if (arg.length !== 0) {
-      if (arg[0].type === 'products') {
-        return arg[0].name[0];
+    if (args.length !== 0) {
+      if (args[0].type === 'products') {
+        return args[0].name[0];
       }
       let res: TProduct[] = [...products];
-      arg.forEach((filter) => {
+      args.forEach((filter) => {
         switch (filter.type) {
           case 'type':
           case 'category': {
@@ -109,16 +109,16 @@ export default class FilterController {
             break;
           }
           default: {
-            query = [];
+            args = [];
             break;
           }
         }
       });
-      return { products: res, query };
+      return { products: res, query: args };
     }
     if (hash !== '') {
       return 'error';
     }
-    return { products, query };
+    return { products, query: args };
   }
 }

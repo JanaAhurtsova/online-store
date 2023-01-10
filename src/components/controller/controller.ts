@@ -125,10 +125,8 @@ export default class Controller {
 
   public reloadPage(): TReloadPage | string {
     const arg = this.router.splitURL();
-    if (!this.query.length || !arg.length) {
-      this.query = arg.slice(0);
-    }
-    return FilterController.filter(arg, this.query);
+    this.query = arg.slice(0);
+    return FilterController.filter(arg);
   }
 
   public getQueryString() {
