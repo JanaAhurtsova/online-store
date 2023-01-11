@@ -857,7 +857,6 @@ const products: TProduct[] = [
     images: [
       'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F1.avif?alt=media&token=cdb0e6ea-f6e6-4cd4-a7fe-5e23a57f0562',
       'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F2.avif?alt=media&token=454ceb86-66a0-4e15-8554-4d68d889e8df',
-      'https://firebasestorage.googleapis.com/v0/b/online-shop-8c752.appspot.com/o/shop%2Fbedroom%2Fwardrobe%2Fhauga%2F3.avif?alt=media&token=9ea5a5dd-ac62-45a7-bdf4-4d7ef659895d',
     ],
   },
   {
