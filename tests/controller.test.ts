@@ -1,6 +1,5 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test, jest } from '@jest/globals';
 import Controller from '../src/components/controller/controller';
-import FirebaseLoader from '../src/components/controller/firebase/firebaseLoader';
 
 jest.mock('../src/components/controller/firebase/firebaseLoader', () => {
   return {

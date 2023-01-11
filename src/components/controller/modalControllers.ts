@@ -81,7 +81,7 @@ export default class ModalControllers implements IModalController {
     const errors = modal.querySelectorAll('.error') as NodeListOf<HTMLElement>;
     const regEl = [
       /^[a-z-]{3,}( [a-z-]{3,})+$/i, // full name
-      /^\+(\d{9})/, // phone
+      /^\+(\d{9,})$/, // phone
       /^[\w,-/]{5,}( [\w,-/]{5,})( [\w,-/]{5,})+$/i, // address
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // e-mail
       /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/, // card
@@ -99,26 +99,16 @@ export default class ModalControllers implements IModalController {
         this.success(fields[i].parentElement as HTMLElement);
       }
     }
-    this.isExpirationValid(input);
-    return valid;
-  }
-
-  private isExpirationValid(input: HTMLInputElement): boolean {
-    if (!input.value.trim()) {
-      this.showError(input, 'Expiration cannot be blank');
-      return false;
-    }
-
     if (input.value.substring(0, 2) === '00' || +input.value.substring(0, 2) > 12) {
       this.showError(input, 'Invalid Month');
-      return false;
+      valid = false;
     }
 
     if (+input.value.substring(3, 5) < 23) {
       this.showError(input, 'Invalid Year');
-      return false;
+      valid = false;
     }
-    return true;
+    return valid;
   }
 
   public ordering(modal: HTMLFormElement, input: HTMLInputElement, openStore: () => void) {
