@@ -90,7 +90,11 @@ export default class App {
     });
     this.view.modal.modal.addEventListener('submit', (event: Event) => {
       event.preventDefault();
-      this.modalControllers.ordering(this.view.modal.modal, this.controller.openStartPage.bind(this.controller));
+      this.modalControllers.ordering(
+        this.view.modal.modal,
+        this.view.modal.creditCard.expiration,
+        this.controller.openStartPage.bind(this.controller)
+      );
     });
   }
 
