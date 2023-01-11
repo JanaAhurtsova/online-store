@@ -98,6 +98,12 @@ export default class Controller {
         data.price -= product.price;
       }
       data.price = +data.price.toFixed(2);
+      const page = this.query.find((item) => item.type === 'page');
+      const limit = this.query.find((item) => item.type === 'limit');
+      if (page && limit) {
+        const pages = Math.ceil(data.info.length / Number(limit.name[0]));
+        page.name[0] = Number(page.name[0]) > pages ? String(pages) : page.name[0];
+      }
       localStorage.setItem('prod', JSON.stringify(data));
     }
   }
