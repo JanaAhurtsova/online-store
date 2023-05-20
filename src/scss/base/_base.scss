@@ -1,10 +1,6 @@
 html {
   font-size: 10px;
   scroll-behavior: smooth;
-
-  @media (max-width: 600px) {
-    font-size: 8.5px;
-  }
 }
 
 * {

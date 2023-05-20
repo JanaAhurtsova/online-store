@@ -2,7 +2,11 @@
   @include flex;
   position: relative;
   width: 100%;
-  gap: .4em;
+  gap: 5px;
+  
+  @media (max-width: 815px) {
+    flex-direction: column;
+  }
 }
 
 .button {
@@ -19,6 +23,10 @@
     border: .1em solid $color-border;
     background-color: $color-background;
   }
+
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
+  }
 }
 
 .product__button-details {
@@ -31,15 +39,40 @@
   }
 }
 
+@media (max-width: 800px) {
+
+  .product__button-details,
+  .product__button-cart {
+    width: 100%;
+  }
+}
+
+.toggler {
+  display: none;
+  width: 100%;
+
+  @media (max-width: 500px) {
+    display: block;
+  }
+}
+
 // store
 .reset,
 .copy {
   width:50%;
-  font-size: 12px;
+  font-size: 1.2rem;
   padding: .5rem .3rem;
 
   &:hover {
     background-color: $color-background;
+  }
+
+  @media (max-width: 815px) {
+    width: 100%;
+  }
+
+  @media (max-width: 815px) {
+    font-size: 1.3rem;
   }
 }
 

@@ -12,6 +12,8 @@ export default class Store implements IStore {
 
   private storeWrapper: HTMLElement;
 
+  private filter: HTMLButtonElement;
+
   private storeContainer: HTMLElement;
 
   private productsData: ProductCard[];
@@ -37,13 +39,14 @@ export default class Store implements IStore {
   public view: ViewType;
 
   constructor() {
-    this.store = this.createDomNode('section', 'store');
-    this.storeContainer = this.createDomNode('div', 'store__container');
-    this.storeWrapper = this.createDomNode('div', 'wrapper__store');
-    this.products = this.createDomNode('div', 'products');
-    this.title = this.createDomNode('h2', 'store__title', 'Store');
-    this.found = this.createDomNode('h4', 'store__found');
-    this.toolbar = this.createDomNode('div', 'store__toolbar');
+    this.store = this.createDomNode('section', ['store']);
+    this.storeContainer = this.createDomNode('div', ['store__container']);
+    this.storeWrapper = this.createDomNode('div', ['wrapper__store']);
+    this.filter = this.createDomNode('button', ['toggler', 'button'], 'Filter') as HTMLButtonElement;
+    this.products = this.createDomNode('div', ['products']);
+    this.title = this.createDomNode('h2', ['store__title'], 'Store');
+    this.found = this.createDomNode('h4', ['store__found']);
+    this.toolbar = this.createDomNode('div', ['store__toolbar']);
     this.sideBar = new SideBar();
     this.sorter = new Sorter();
     this.search = new SearchFilter();
@@ -57,8 +60,10 @@ export default class Store implements IStore {
   private append() {
     this.toolbar.append(this.sorter.sorter, this.found, this.search.search, this.view.view);
     this.storeContainer.append(this.toolbar, this.products);
-    this.storeWrapper.append(this.sideBar.sidebar, this.storeContainer);
+    this.storeWrapper.append(this.filter, this.sideBar.sidebar, this.storeContainer);
     this.store.append(this.title, this.storeWrapper);
+
+    this.toggleFilter();
   }
 
   public createProducts(shoppingCart: TShoppingCart, typeView: string, data = products) {
@@ -111,9 +116,15 @@ export default class Store implements IStore {
     return this.sideBar.filterRange(event);
   }
 
-  private createDomNode(element: string, classElement: string, text?: string) {
+  private toggleFilter() {
+    this.filter.addEventListener('click', () => {
+      this.sideBar.sidebar.classList.toggle('transform');
+    });
+  }
+
+  private createDomNode(element: string, classElement: string[], text?: string) {
     const node = document.createElement(element);
-    node.classList.add(classElement);
+    node.classList.add(...classElement);
     if (text) {
       node.textContent = text;
     }

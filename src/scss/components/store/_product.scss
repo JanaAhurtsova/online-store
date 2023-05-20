@@ -6,6 +6,11 @@
   &:hover {
     box-shadow: $color-text 0px 2px 8px 0px;
   }
+
+  @media (max-width: 500px) {
+    border: 1px solid $color-border;
+    border-radius: 5px;
+  }
 }
 
 .product {
@@ -17,6 +22,10 @@
   .image__main {
     align-self: center;
     width: 100%;
+  }
+
+  @media (max-width: 660px) {
+    align-items: center;
   }
 }
 
@@ -31,6 +40,10 @@
   color: $color-title;
   font-weight: 700;
   font-size: 1.4rem;
+
+  @media (max-width: 800px) {
+    font-size: 1.6rem;
+  }
 }
 
 .product__price {
@@ -49,7 +62,7 @@
 }
 
 .rating__text {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .rating__body {

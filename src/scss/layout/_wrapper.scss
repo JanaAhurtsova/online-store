@@ -16,6 +16,12 @@
   @include flex($align: flex-start);
   width: 100%;
   gap: 2rem;
+
+  @media (max-width: 500px) {
+    position: relative;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
 }
 
 .wrapper__sum {

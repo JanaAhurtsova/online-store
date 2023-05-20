@@ -1,8 +1,12 @@
 .products {
   @include grid($gap: .5rem);
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 660px) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -13,9 +17,14 @@
   width: 100%;
 
   &__toolbar {
-    @include flex($justify: space-around);
+    @include flex;
     font-size: 1.4rem;
     width: 100%;
+
+    @media (max-width: 660px) {
+      flex-direction: column;
+      gap: 5px;
+    }
   }
 
   &__title {
@@ -31,13 +40,10 @@
   flex-direction: column;
   width: 80%;
   gap: 1rem;
-}
 
-.store__container {
-  @include flex($justify: flex-start, $align: stretch);
-  flex-direction: column;
-  width: 80%;
-  gap: 1rem;
+  @media (max-width: 490px) {
+    width: 100%;
+  }
 }
 
 .double {
@@ -53,9 +59,10 @@
   border-radius: 10px;
   text-align: center;
   width: 100%;
+  padding: 3px 0;
 
   &::placeholder {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -82,7 +89,7 @@
     box-shadow: $color-brand 1px 2px 4px 0px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     display: none;
   }
 }
@@ -100,6 +107,13 @@
 @media (max-width: 800px) {
   .search,
   .sorter {
-    width: 30%;
+    width: 35%;
+  }
+}
+
+@media (max-width: 660px) {
+  .search,
+  .sorter {
+    width: 100%;
   }
 }
