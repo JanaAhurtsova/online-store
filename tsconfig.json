@@ -2,7 +2,11 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "module": "es6",
-    "lib": ["es6", "dom", "es2017"],
+    "lib": [
+      "es6",
+      "dom",
+      "es2017"
+    ],
     "target": "ES6",
     "allowJs": true,
     "strict": true,
@@ -13,9 +17,7 @@
   "include": [
     "src",
     "src/module.d.ts",
-    "tests/productPage.test.ts",
-    "tests/productInfo.test.ts",
-    "tests/header.test.ts",
-    "tests/credit.test.ts"
+    "tests",
+    ".eslintrc.json"
   ]
 }
