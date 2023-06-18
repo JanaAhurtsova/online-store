@@ -1,0 +1,24 @@
+.wrapper__description {
+  width: 100%;
+
+  .title {
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin: 1.5em 0 1em;
+  }
+
+  .rating__text {
+    display: none;
+  }
+
+  .price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $color-title;
+  }
+
+  .product__description {
+    margin: 1em 0;
+    display: block;
+  }
+}

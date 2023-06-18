@@ -1,0 +1,39 @@
+.header {
+  padding: 0.5em;
+  box-shadow: 0 0.05rem 0.3rem 0.1rem $color-header;
+}
+
+.sum {
+  color: $color-title;
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.2em;
+    height: 0.3em;
+    width: 100%;
+    background-color: $color-border;
+    z-index: -1;
+  }
+}
+
+.count {
+  @include flex($justify: center);
+  position: relative;
+  bottom: -0.5em;
+  right: -0.2em;
+  border-radius: 50%;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: $color-brand;
+}
+
+.count__text {
+  font-size: 0.7em;
+  color: $color-title;
+  margin: 0;
+}

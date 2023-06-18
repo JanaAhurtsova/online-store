@@ -1,0 +1,119 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-overlay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal {
+  @include flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1.5rem;
+  overflow: auto;
+  border: 0.1rem solid $color-border;
+  border-radius: 1rem;
+  background-color: $color-background;
+  gap: 1.5rem;
+}
+
+.personal_information,
+.payment {
+  @include flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.input__field {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 0 0.75rem;
+  border: 0.1rem solid $color-border;
+  background-color: transparent;
+  text-transform: none;
+
+  &::placeholder {
+    font-size: 1.3rem;
+  }
+}
+
+.credit_card {
+  @include flex($align: flex-end);
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  background-color: $color-card;
+  border: 0.1rem solid $color-card-border;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 310px;
+  height: fit-content;
+  padding: 1.5rem 1.1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 35rem;
+    width: 35rem;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    top: -20rem;
+    left: -15rem;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 42rem;
+    width: 42rem;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.075);
+    bottom: -30rem;
+    left: -8rem;
+    z-index: -1;
+  }
+}
+
+.label {
+  @include flex($align: flex-start);
+  flex-direction: column;
+  font-size: 0.7rem;
+  color: $color-background;
+  text-transform: uppercase;
+}
+
+.other_data {
+  @include flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.card_number,
+.expiration,
+.cvv {
+  width: 50%;
+  padding: 0 1rem;
+  color: $color-background;
+  font-size: 1.4rem;
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+.card_number {
+  width: 100%;
+}

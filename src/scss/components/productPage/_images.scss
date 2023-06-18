@@ -1,0 +1,27 @@
+.wrapper__images {
+  @include flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.image__main {
+  width: 65%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1em;
+}
+
+.images {
+  @include flex($justify: center);
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.image {
+  max-width: 30%;
+  max-height: 8em;
+  object-fit: cover;
+  box-shadow: $color-text 0px 2px 5px 0px;
+  border-radius: 5%;
+  cursor: pointer;
+}

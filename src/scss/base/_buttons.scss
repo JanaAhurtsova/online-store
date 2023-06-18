@@ -1,0 +1,113 @@
+.wrapper__buttons {
+  @include flex;
+  position: relative;
+  width: 100%;
+  gap: 5px;
+  
+  @media (max-width: 815px) {
+    flex-direction: column;
+  }
+}
+
+.button {
+  padding: .5rem;
+  background-color: $color-brand;
+  color: $color-title;
+  border-radius: 1.6em;
+  font-size: 11px;
+  border: .1em solid transparent;
+  cursor: pointer;
+  width: 47%;
+
+  &:hover {
+    border: .1em solid $color-border;
+    background-color: $color-background;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
+  }
+}
+
+.product__button-details {
+  border: .1em solid $color-border;
+  background-color: $color-background;
+
+  &:hover {
+    border: .1em solid transparent;
+    background-color: $color-brand;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .product__button-details,
+  .product__button-cart {
+    width: 100%;
+  }
+}
+
+.toggler {
+  display: none;
+  width: 100%;
+
+  @media (max-width: 500px) {
+    display: block;
+  }
+}
+
+// store
+.reset,
+.copy {
+  width:50%;
+  font-size: 1.2rem;
+  padding: .5rem .3rem;
+
+  &:hover {
+    background-color: $color-background;
+  }
+
+  @media (max-width: 815px) {
+    width: 100%;
+  }
+
+  @media (max-width: 815px) {
+    font-size: 1.3rem;
+  }
+}
+
+.copy:active{
+
+  &::after{
+    content: '✔';
+  }
+}
+
+// product page
+.buttons {
+  @include flex($justify: flex-start);
+  margin: 1em 0;
+  gap: 1.5em;
+  & .button {
+    font-size: 1.6rem;
+    color: $color-background;
+    &:hover {
+      color: $color-text;
+    }
+  }
+}
+
+//modal
+.submit {
+  font-size: 13px;
+  color: $color-background;
+  &:hover {
+    color: $color-text;
+  }
+}
+
+// shop cart summary
+.summary__button {
+  font-size: 1rem;
+  width: fit-content;
+}

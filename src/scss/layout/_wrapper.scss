@@ -1,0 +1,30 @@
+.wrapper {
+  max-width: 1840px;
+  margin: auto;
+}
+
+.wrapper__header {
+  @include flex;
+}
+
+.wrapper__footer {
+  @include flex($justify: center);
+  gap: 1em;
+}
+
+.wrapper__store {
+  @include flex($align: flex-start);
+  width: 100%;
+  gap: 2rem;
+
+  @media (max-width: 500px) {
+    position: relative;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+}
+
+.wrapper__sum {
+  @include flex;
+  gap: 1em;
+}

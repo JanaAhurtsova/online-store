@@ -1,0 +1,17 @@
+.product__page {
+  @include flex($align: stretch);
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.wrapper__product {
+  @include flex($align: flex-start);
+  padding: 1rem 0;
+  gap: 3rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+}

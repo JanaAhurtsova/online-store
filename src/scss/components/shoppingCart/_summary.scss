@@ -1,0 +1,67 @@
+.summary {
+  @include flex($justify: flex-start);
+  flex-direction: column;
+  width: 25%;
+  border: 0.2rem solid $color-border;
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 0.8rem;
+}
+
+.summary__title {
+  color: $color-title;
+  font-weight: 700;
+}
+
+.promo {
+  @include flex;
+  width: 100%;
+}
+
+.promo__text {
+  font-size: 1.4rem;
+}
+
+.summary__selected-promo {
+  @include flex($align: stretch);
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summary__selected-promo,
+.promo__search,
+.promo__input {
+  width: 100%;
+}
+
+.promo__input {
+  border: 1px solid $color-brand;
+  border-radius: 10px;
+  text-align: center;
+
+  &::placeholder {
+    font-size: 1.3rem;
+  }
+}
+
+.discount {
+  font-size: 1.3rem;
+}
+
+.summary__final-price,
+.selected-promo__title {
+  text-align: center;
+}
+
+.summary__price,
+.summary__product,
+.summary__final-price {
+  color: $color-title;
+  font-weight: 700;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: $color-text;
+  font-weight: 400;
+}

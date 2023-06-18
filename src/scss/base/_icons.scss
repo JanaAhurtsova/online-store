@@ -1,0 +1,40 @@
+.cart {
+  @include flex($align: flex-end, $justify: flex-end);
+  background: url('../assets/svg/cart.svg') center center/contain no-repeat;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+}
+
+.rss {
+  background: url('../assets/svg/logo_rs_text.svg') center center/contain no-repeat;
+  width: 4em;
+  height: 2em;
+  transition: .3s;
+
+  &:hover {
+    filter: invert(19%) sepia(81%) saturate(1770%) hue-rotate(352deg) brightness(101%) contrast(103%);
+  }
+}
+
+.github {
+  background: url('../assets/svg/github.svg') center center/contain no-repeat;
+  width: 1.8em;
+  height: 1.8em;
+  filter: invert(81%) sepia(5%) saturate(19%) hue-rotate(359deg) brightness(85%) contrast(82%);
+  transition: .3s;
+
+  &:hover {
+    filter: invert(79%) sepia(81%) saturate(1770%) hue-rotate(352deg) brightness(101%) contrast(103%);
+  }
+}
+
+//modal
+.payment_system {
+  background-image: url('../assets/svg/nologo.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 50px;
+}
